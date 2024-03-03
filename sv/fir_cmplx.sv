@@ -35,8 +35,10 @@ module fir_cmplx# (
 );
 
 typedef enum logic[1:0] {shift, compute, write} state_t;
-
 state_t state, state_c;
+
+logic [0:TAPS-1][31:0] x_real, x_real_c;
+logic [0:TAPS-1][31:0] x_imag, x_imag_c;
 
 	
 always_ff @( posedge clock or posedge reset ) begin
@@ -60,7 +62,9 @@ end
 
 always_comb begin
 	case (state)
-		: 
+		shift: begin
+			x_imag_c[]
+		end 
 		default: 
 	endcase
 	
