@@ -1,25 +1,3 @@
-function logic[31:0] QUANTIZE_I; 
-input logic[31:0] i;
-    begin
-        return $signed(i) <<< 10;
-    end
-endfunction
-
-function logic[31:0] DEQUANTIZE; 
-input logic[31:0] i;
-    begin
-        return $signed(i) >>> 10;
-    end
-endfunction
-
-
-function logic[31:0] mul;
-input  logic [31:0] x_in;
-input  logic [31:0] y_in;
-    begin
-        return DEQUANTIZE(x_in * y_in);
-    end
-endfunction
 
 module fir_cmplx# (
 	parameter [0:19][31:0] H_REAL =
@@ -55,6 +33,16 @@ module fir_cmplx# (
 	input  logic        y_real_full,
 	input  logic        y_imag_full
 );
+
+function automatic logic signed [31:0] mul;
+input  logic signed [31:0] x_in;
+input  logic signed [31:0] y_in;
+    begin
+        logic signed [63:0] temp_y = x_in * y_in;
+        logic signed [31:0] out_y = temp_y >>> 10;
+        return out_y;
+    end
+endfunction
 
 typedef enum logic[1:0] {shift, read, compute, write} state_t;
 state_t state, state_c;

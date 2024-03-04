@@ -4,3 +4,6 @@ work
 *.log
 *.tcl
 *.prd
+stdout.*
+transcript
+*.bak

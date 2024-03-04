@@ -17,7 +17,9 @@ function logic[31:0] mul;
 input  logic [31:0] x_in;
 input  logic [31:0] y_in;
     begin
-        return DEQUANTIZE(x_in * y_in);
+        logic [63:0] temp_y = x_in * y_in;
+        logic [31:0] out_y = temp_y >>> 10;
+        return out_y;
     end
 endfunction
 
