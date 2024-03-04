@@ -1,3 +1,22 @@
+function logic[5:0] msb;
+input  logic [DATA_WIDTH-1:0] div_num;
+input  logic [5:0] DATA_WIDTH;
+    begin
+		if (DATA_WIDTH >= 1) begin
+        	logic [(DATA_WIDTH/2)-1:0] lhs = div_num[DATA_WIDTH-1:DATA_WIDTH/2];
+			logic [(DATA_WIDTH/2)-1:0] rhs = div_num[(DATA_WIDTH/2)-1:0];
+
+			if (lhs > 0) begin
+				return msb(lhs,DATA_WIDTH/2) + (DATA_WIDTH/2);
+			end else if (rhs > 0) begin
+				return msb(rhs,DATA_WIDTH/2);
+			end else begin
+				return 0;
+			end
+		end
+    end
+endfunction
+
 module div #(
     parameter DIVIDEND_WIDTH = 64,
     parameter DIVISOR_WIDTH = 32
@@ -75,7 +94,8 @@ always_comb begin :
 		end
 
 		LOOP: begin
-
+			p = msb(a,DIVIDEND_WIDTH) - msb(b,DIVISOR_WIDTH);
+			
 		end
 
 		EPILOGUE: begin
