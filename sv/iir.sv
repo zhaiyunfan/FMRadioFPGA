@@ -17,6 +17,10 @@ module iir #(
 
 );
 
+localparam int signed b0 = 178;//QUANTIZE_F(W_PP / (1.0 + W_PP));
+localparam int signed b1 = 178;//QUANTIZE_F(W_PP / (1.0 + W_PP));
+localparam int signed a1 = 0;//QUANTIZE_F(0.0);
+localparam int signed a0 = -666;//QUANTIZE_F((W_PP - 1.0)/(W_PP + 1.0));
 
 function automatic logic signed [31:0] mul;
 input  logic signed [31:0] x_in;
@@ -28,7 +32,6 @@ input  logic signed [31:0] y_in;
     end
 endfunction
 
-// TODO: remove latch
 typedef enum logic[1:0] {shift, compute, read, write} state_t;
 state_t state, state_c;
 logic [31:0] count, count_c;
@@ -43,13 +46,15 @@ always_ff @( posedge clock or posedge reset ) begin
 		if (reset == 1'b1) begin
 		count <= '0;
 		state <= shift;
-		cal_y <= '0;
+		cal_y_1 <= '0;
+		cal_y_2 <= '0;
 		x <= '0;
         y <= '0;
 	end else begin
 		count <= count_c;
 		state <= state_c;
-		cal_y <= cal_y_c;
+		cal_y_1 <= cal_y_1_c;
+		cal_y_2 <= cal_y_2_c;
 		x <= x_c;
         y <= y_c;
 	end
@@ -57,23 +62,23 @@ always_ff @( posedge clock or posedge reset ) begin
 end
 
 always_comb begin
-
 	state_c = state;
 	count_c = count;
-	cal_y_c = cal_y;
+	cal_y_1_c = cal_y_1;
+	cal_y_2_c = cal_y_2;
 	x_c = x;
     y_c = y;
 	x_in_rd_en = '0;
 	y_out_wr_en = '0;
-	
 	case (state)
 		shift: begin
-			cal_y_c = '0;
+			cal_y_1_c = '0;
+			cal_y_2_c = '0;
 			count_c = '0;
 			if (x_in_empty == 1'b0) begin
 				x_c[DECIMATION:TAPS-1] = x[0:TAPS-1-DECIMATION];
                 y_c[1:TAPS-1] = y[0:TAPS-2];
-				count_c = DECIMATION - 1;
+				count_c = '0;
 				state_c = read;
 			end
 			else begin
@@ -85,9 +90,9 @@ always_comb begin
 		read: begin
 			if (x_in_empty == 1'b0) begin
 				x_in_rd_en = 1'b1;
-				x_c[count] = x_in;
-				count_c = (count - 1) % DECIMATION;
-				if (count == 0) begin
+				x_c[DECIMATION-count-1] = x_in;
+				count_c = (count + 1) % DECIMATION;
+				if (count == DECIMATION - 1) begin
 					count_c = '0;
 					state_c = compute;
 				end 
@@ -101,20 +106,17 @@ always_comb begin
 		end
 		
 		compute: begin
-			cal_y_c = cal_y + mul(COEFF[TAPS - count - 1], x[count]);
+			cal_y_1_c = mul(x[0], b0) + mul(x[1], b1);
+			cal_y_2_c = mul(y[0], a0) + mul(y[1], a1);
 			count_c = (count + 1) % TAPS;
-			if (count == TAPS - 1) begin
-				count_c = '0;
-				state_c = write;
-			end else begin
-				state_c = compute;
-			end			
+			state_c = write;
 		end
 
 		write: begin
 			if (y_out_full == 1'b0) begin
+				y_out = y[1];
 				y_out_wr_en = 1'b1;
-				y_out = cal_y;
+				y_c[0] = cal_y_1 + cal_y_2;
 				state_c = shift;
 			end
 			else begin
@@ -122,13 +124,13 @@ always_comb begin
 			end
 		end
 		default: begin
-			cal_y_c = 'x;
+			cal_y_1_c = 'x;
+			cal_y_2_c = 'x;
 			count_c = 'x;
 			x_c = 'x;
 			count_c = 'x;
 			state_c = shift;
 			x_in_rd_en = '0;
-			cal_y_c = 'x;
 			y_out_wr_en = '0;
 			y_out = 'x;
 		end

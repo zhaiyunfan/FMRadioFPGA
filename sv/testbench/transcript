@@ -11,537 +11,911 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-vsim work.fir_tb -voptargs=+acc
-# vsim work.fir_tb -voptargs="+acc" 
-# Start time: 00:43:26 on Mar 04,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt2
-# Loading sv_std.std
-# Loading work.fir_tb(fast)
-# Loading work.fir_top(fast)
-# Loading work.fifo(fast)
-# Loading work.fir(fast)
-run -all
-# @ 20: Loading file ../data/demodulate_n.txt...
-# @ 30: Beginning simulation...
-# @ 30: Comparing file ../data/l_plus_r_lowpass.txt...
-# @ 475: out file(1): ERROR: ffffff71 != ffffff9f at address 0x00000000.
-# @ 895: out file(2): ERROR: 00000afb != 0000070b at address 0x00000001.
-# @ 1315: out file(3): ERROR: 00000b1b != 0000131b at address 0x00000002.
-# @ 1735: out file(4): ERROR: 00000b9c != 0000068b at address 0x00000003.
-# @ 2155: out file(5): ERROR: 0000057c != 00000773 at address 0x00000004.
-# @ 2575: out file(6): ERROR: 0000074f != 00000663 at address 0x00000005.
-# @ 2995: out file(7): ERROR: 0000068a != 0000066a at address 0x00000006.
-# @ 3415: out file(8): ERROR: 000005cd != 000006cd at address 0x00000007.
-# @ 3835: out file(9): ERROR: 00000812 != 0000063d at address 0x00000008.
-# @ 4255: out file(10): ERROR: 0000058e != 00000776 at address 0x00000009.
-# @ 4675: out file(11): ERROR: 0000075c != 0000069c at address 0x0000000a.
-# @ 5095: out file(12): ERROR: 000006c8 != 0000074e at address 0x0000000b.
-# @ 5515: out file(13): ERROR: 000006c2 != 0000073a at address 0x0000000c.
-# @ 5935: out file(14): ERROR: 000007a1 != 000005eb at address 0x0000000d.
-# @ 6355: out file(15): ERROR: 000003f7 != 0000060e at address 0x0000000e.
-# @ 6775: out file(16): ERROR: 00000592 != 000003de at address 0x0000000f.
-# @ 7195: out file(17): ERROR: 000002b6 != 00000408 at address 0x00000010.
-# @ 7615: out file(18): ERROR: 000002c5 != 000002e9 at address 0x00000011.
-# @ 8035: out file(19): ERROR: 00000375 != 00000210 at address 0x00000012.
-# @ 8455: out file(20): ERROR: 000000ba != 0000037b at address 0x00000013.
-# @ 8875: out file(21): ERROR: 00000548 != 0000027b at address 0x00000014.
-# @ 9295: out file(22): ERROR: 00000351 != 000004dc at address 0x00000015.
-# @ 9715: out file(23): ERROR: 0000050e != 000004f4 at address 0x00000016.
-# @ 10135: out file(24): ERROR: 00000680 != 000005d9 at address 0x00000017.
-# @ 10555: out file(25): ERROR: 0000063c != 000006a8 at address 0x00000018.
-# @ 10975: out file(26): ERROR: 000007a7 != 0000063f at address 0x00000019.
-# @ 11395: out file(27): ERROR: 000004a9 != 00000754 at address 0x0000001a.
-# @ 11815: out file(28): ERROR: 0000071b != 000006b1 at address 0x0000001b.
-# @ 12235: out file(29): ERROR: 0000070e != 000006ca at address 0x0000001c.
-# @ 12655: out file(30): ERROR: 0000062d != 00000666 at address 0x0000001d.
-# @ 13075: out file(31): ERROR: 0000074d != 0000056a at address 0x0000001e.
-# @ 13495: out file(32): ERROR: 00000475 != 000006ba at address 0x0000001f.
-# @ 13915: out file(33): ERROR: 00000735 != 000006c8 at address 0x00000020.
-# @ 14335: out file(34): ERROR: 000007fa != 00000809 at address 0x00000021.
-# @ 14755: out file(35): ERROR: 0000087d != 000008fd at address 0x00000022.
-# @ 15175: out file(36): ERROR: 00000ab6 != 000008d2 at address 0x00000023.
-# @ 15595: out file(37): ERROR: 00000801 != 00000a03 at address 0x00000024.
-# @ 16015: out file(38): ERROR: 00000975 != 000008e0 at address 0x00000025.
-# @ 16435: out file(39): ERROR: 0000090d != 00000937 at address 0x00000026.
-# @ 16855: out file(40): ERROR: 000008e7 != 00000992 at address 0x00000027.
-# @ 17275: out file(41): ERROR: 000009dd != 000008ad at address 0x00000028.
-# @ 17695: out file(42): ERROR: 00000722 != 000008ec at address 0x00000029.
-# @ 18115: out file(43): ERROR: 000008da != 00000771 at address 0x0000002a.
-# @ 18535: out file(44): ERROR: 00000735 != 0000078b at address 0x0000002b.
-# @ 18955: out file(45): ERROR: 000006a5 != 000007a6 at address 0x0000002c.
-# @ 19375: out file(46): ERROR: 0000083f != 00000686 at address 0x0000002d.
-# @ 19795: out file(47): ERROR: 00000550 != 00000789 at address 0x0000002e.
-# @ 20215: out file(48): ERROR: 000007e3 != 00000646 at address 0x0000002f.
-# @ 20635: out file(49): ERROR: 0000069b != 000006f1 at address 0x00000030.
-# @ 21055: out file(50): ERROR: 00000648 != 000006f6 at address 0x00000031.
-# @ 21475: out file(51): ERROR: 000006d6 != 000005d0 at address 0x00000032.
-# @ 21895: out file(52): ERROR: 000003db != 000006ea at address 0x00000033.
-# @ 22315: out file(53): ERROR: 0000083a != 0000058b at address 0x00000034.
-# @ 22735: out file(54): ERROR: 000006b9 != 000006a9 at address 0x00000035.
-# @ 23155: out file(55): ERROR: 0000067b != 0000067e at address 0x00000036.
-# @ 23575: out file(56): ERROR: 000006f8 != 00000630 at address 0x00000037.
-# @ 23995: out file(57): ERROR: 00000477 != 000007a7 at address 0x00000038.
-# @ 24415: out file(58): ERROR: 00000873 != 000006ac at address 0x00000039.
-# @ 24835: out file(59): ERROR: 000007b3 != 00000804 at address 0x0000003a.
-# @ 25255: out file(60): ERROR: 0000085f != 000007d8 at address 0x0000003b.
-# @ 25675: out file(61): ERROR: 000007eb != 000007ea at address 0x0000003c.
-# @ 26095: out file(62): ERROR: 000006ca != 000008ba at address 0x0000003d.
-# @ 26515: out file(63): ERROR: 00000997 != 000007ed at address 0x0000003e.
-# @ 26935: out file(64): ERROR: 0000075e != 000008b2 at address 0x0000003f.
-# @ 27355: out file(65): ERROR: 00000866 != 00000776 at address 0x00000040.
-# @ 27775: out file(66): ERROR: 00000788 != 000006d7 at address 0x00000041.
-# @ 28195: out file(67): ERROR: 000004b5 != 000001d5 at address 0x00000042.
-# @ 28615: out file(68): ERROR: fffff9f6 != fffffcd4 at address 0x00000043.
-# @ 29035: out file(69): ERROR: fffffc48 != fffff9a9 at address 0x00000044.
-# @ 29455: out file(70): ERROR: fffffb70 != fffffa59 at address 0x00000045.
-# @ 29875: out file(71): ERROR: fffff9c3 != fffffdc8 at address 0x00000046.
-# @ 30295: out file(72): ERROR: 00000350 != 000002fc at address 0x00000047.
-# @ 30715: out file(73): ERROR: 00000383 != 000006ab at address 0x00000048.
-# @ 31135: out file(74): ERROR: 0000064d != 000003f2 at address 0x00000049.
-# @ 31555: out file(75): ERROR: 00000090 != 0000036e at address 0x0000004a.
-# @ 31975: out file(76): ERROR: fffffee5 != fffffef3 at address 0x0000004b.
-# @ 32395: out file(77): ERROR: fffffd95 != fffffbf5 at address 0x0000004c.
-# @ 32815: out file(78): ERROR: fffffa2a != fffffa4e at address 0x0000004d.
-# @ 33235: out file(79): ERROR: fffff918 != fffff7f2 at address 0x0000004e.
-# @ 33655: out file(80): ERROR: fffff741 != fffff85b at address 0x0000004f.
-# @ 34075: out file(81): ERROR: fffffb11 != fffff8fa at address 0x00000050.
-# @ 34495: out file(82): ERROR: fffffb1f != fffffb84 at address 0x00000051.
-# @ 34915: out file(83): ERROR: fffff9f5 != fffffd4f at address 0x00000052.
-# @ 35335: out file(84): ERROR: fffffe78 != fffffce3 at address 0x00000053.
-# @ 35755: out file(85): ERROR: fffffe61 != ffffffc3 at address 0x00000054.
-# @ 36175: out file(86): ERROR: 00000007 != fffffe8b at address 0x00000055.
-# @ 36595: out file(87): ERROR: fffffcdb != fffffce3 at address 0x00000056.
-# @ 37015: out file(88): ERROR: fffffa93 != fffffba9 at address 0x00000057.
-# @ 37435: out file(89): ERROR: fffffbb2 != fffff987 at address 0x00000058.
-# @ 37855: out file(90): ERROR: fffff8d7 != fffffabe at address 0x00000059.
-# @ 38275: out file(91): ERROR: fffffdc4 != fffffb8f at address 0x0000005a.
-# @ 38695: out file(92): ERROR: fffffcd6 != fffffe5d at address 0x0000005b.
-# @ 39115: out file(93): ERROR: fffffb6c != fffffc41 at address 0x0000005c.
-# @ 39535: out file(94): ERROR: fffffc2e != fffffa5b at address 0x0000005d.
-# @ 39955: out file(95): ERROR: fffffa9b != fffffd8f at address 0x0000005e.
-# @ 40375: out file(96): ERROR: fffffec1 != fffffcc6 at address 0x0000005f.
-# @ 40795: out file(97): ERROR: fffffb0b != fffffbb8 at address 0x00000060.
-# @ 41215: out file(98): ERROR: fffffa3f != fffff9bf at address 0x00000061.
-# @ 41635: out file(99): ERROR: fffffc1b != fffffb76 at address 0x00000062.
-# @ 42055: out file(100): ERROR: fffffd62 != 00000030 at address 0x00000063.
-# @ 42065: Simulation completed.
-# Total simulation cycle count: 4203
-# Total error count: 100
-# ** Note: $finish    : /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv(76)
-#    Time: 42065 ns  Iteration: 2  Instance: /fir_tb
-# 1
-# Break in NamedBeginStat tb_process at /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv line 76
-vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv
+# do ./FMRadioSIM.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Copying /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 00:47:17 on Mar 04,2024
-# vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv 
-# -- Compiling module fir
-# ** Error: /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv(203): (vlog-2730) Undefined variable: 'y_wr_en'.
-# ** Error: /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv(210): (vlog-2730) Undefined variable: 'y_wr_en'.
-# ** Error: /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv(218): (vlog-2730) Undefined variable: 'x_rd_en'.
-# ** Error: /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv(224): (vlog-2730) Undefined variable: 'x_empty'.
-# End time: 00:47:17 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 4, Warnings: 0
-vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 00:48:55 on Mar 04,2024
-# vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv 
-# -- Compiling module fir
+# Start time: 07:30:35 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir.sv 
+# -- Compiling module iir
 # 
 # Top level modules:
-# 	fir
-# End time: 00:48:55 on Mar 04,2024, Elapsed time: 0:00:00
+# 	iir
+# End time: 07:30:35 on Mar 06,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.fir_tb
-# End time: 00:49:03 on Mar 04,2024, Elapsed time: 0:05:37
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:30:35 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir_top.sv 
+# -- Compiling module iir_top
+# 
+# Top level modules:
+# 	iir_top
+# End time: 07:30:35 on Mar 06,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" work.fir_tb 
-# Start time: 00:49:03 on Mar 04,2024
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:30:35 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir_tb.sv 
+# ** Error: (vlog-7) Failed to open design unit file "../iir_tb.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 07:30:35 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Error in macro ././FMRadioSIM.do line 7
+# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -reportprogress 300 -work work ../iir_tb.sv"
+do ./FMRadioSIM.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:30:47 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir.sv 
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 07:30:47 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:30:47 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir_top.sv 
+# -- Compiling module iir_top
+# 
+# Top level modules:
+# 	iir_top
+# End time: 07:30:47 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:30:47 on Mar 06,2024
+# vlog -reportprogress 300 -work work iir_tb.sv 
+# -- Compiling module iir_tb
+# 
+# Top level modules:
+# 	iir_tb
+# End time: 07:30:47 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim work.iir -voptargs="+acc" 
+# Start time: 07:30:47 on Mar 06,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "iir(fast)".
 # Loading sv_std.std
-# Loading work.fir_tb(fast)
-# Loading work.fir_top(fast)
-# Loading work.fifo(fast)
-# Loading work.fir(fast)
-run -all
-# @ 20: Loading file ../data/demodulate_n.txt...
-# @ 30: Beginning simulation...
-# @ 30: Comparing file ../data/l_plus_r_lowpass.txt...
-# @ 475: out file(1): ERROR: ffffff99 != ffffff9f at address 0x00000000.
-# @ 885: out file(2): ERROR: 00000701 != 0000070b at address 0x00000001.
-# @ 1295: out file(3): ERROR: 00001311 != 0000131b at address 0x00000002.
-# @ 1705: out file(4): ERROR: 0000067d != 0000068b at address 0x00000003.
-# @ 2115: out file(5): ERROR: 00000763 != 00000773 at address 0x00000004.
-# @ 2525: out file(6): ERROR: 00000653 != 00000663 at address 0x00000005.
-# @ 2935: out file(7): ERROR: 0000065a != 0000066a at address 0x00000006.
-# @ 3345: out file(8): ERROR: 000006bd != 000006cd at address 0x00000007.
-# @ 3755: out file(9): ERROR: 0000062d != 0000063d at address 0x00000008.
-# @ 4165: out file(10): ERROR: 00000766 != 00000776 at address 0x00000009.
-# @ 4575: out file(11): ERROR: 0000068c != 0000069c at address 0x0000000a.
-# @ 4985: out file(12): ERROR: 0000073e != 0000074e at address 0x0000000b.
-# @ 5395: out file(13): ERROR: 0000072a != 0000073a at address 0x0000000c.
-# @ 5805: out file(14): ERROR: 000005db != 000005eb at address 0x0000000d.
-# @ 6215: out file(15): ERROR: 000005fe != 0000060e at address 0x0000000e.
-# @ 6625: out file(16): ERROR: 000003d0 != 000003de at address 0x0000000f.
-# @ 7035: out file(17): ERROR: 000003f6 != 00000408 at address 0x00000010.
-# @ 7445: out file(18): ERROR: 000002d9 != 000002e9 at address 0x00000011.
-# @ 7855: out file(19): ERROR: 00000202 != 00000210 at address 0x00000012.
-# @ 8265: out file(20): ERROR: 00000367 != 0000037b at address 0x00000013.
-# @ 8675: out file(21): ERROR: 0000026b != 0000027b at address 0x00000014.
-# @ 9085: out file(22): ERROR: 000004ce != 000004dc at address 0x00000015.
-# @ 9495: out file(23): ERROR: 000004e4 != 000004f4 at address 0x00000016.
-# @ 9905: out file(24): ERROR: 000005c9 != 000005d9 at address 0x00000017.
-# @ 10315: out file(25): ERROR: 00000698 != 000006a8 at address 0x00000018.
-# @ 10725: out file(26): ERROR: 0000062f != 0000063f at address 0x00000019.
-# @ 11135: out file(27): ERROR: 00000744 != 00000754 at address 0x0000001a.
-# @ 11545: out file(28): ERROR: 000006a2 != 000006b1 at address 0x0000001b.
-# @ 11955: out file(29): ERROR: 000006ba != 000006ca at address 0x0000001c.
-# @ 12365: out file(30): ERROR: 00000656 != 00000666 at address 0x0000001d.
-# @ 12775: out file(31): ERROR: 0000055b != 0000056a at address 0x0000001e.
-# @ 13185: out file(32): ERROR: 000006aa != 000006ba at address 0x0000001f.
-# @ 13595: out file(33): ERROR: 000006b8 != 000006c8 at address 0x00000020.
-# @ 14005: out file(34): ERROR: 000007f9 != 00000809 at address 0x00000021.
-# @ 14415: out file(35): ERROR: 000008ed != 000008fd at address 0x00000022.
-# @ 14825: out file(36): ERROR: 000008c2 != 000008d2 at address 0x00000023.
-# @ 15235: out file(37): ERROR: 000009f3 != 00000a03 at address 0x00000024.
-# @ 15645: out file(38): ERROR: 000008d0 != 000008e0 at address 0x00000025.
-# @ 16055: out file(39): ERROR: 00000927 != 00000937 at address 0x00000026.
-# @ 16465: out file(40): ERROR: 00000982 != 00000992 at address 0x00000027.
-# @ 16875: out file(41): ERROR: 0000089d != 000008ad at address 0x00000028.
-# @ 17285: out file(42): ERROR: 000008dc != 000008ec at address 0x00000029.
-# @ 17695: out file(43): ERROR: 00000761 != 00000771 at address 0x0000002a.
-# @ 18105: out file(44): ERROR: 0000077b != 0000078b at address 0x0000002b.
-# @ 18515: out file(45): ERROR: 00000796 != 000007a6 at address 0x0000002c.
-# @ 18925: out file(46): ERROR: 00000676 != 00000686 at address 0x0000002d.
-# @ 19335: out file(47): ERROR: 00000779 != 00000789 at address 0x0000002e.
-# @ 19745: out file(48): ERROR: 00000636 != 00000646 at address 0x0000002f.
-# @ 20155: out file(49): ERROR: 000006e1 != 000006f1 at address 0x00000030.
-# @ 20565: out file(50): ERROR: 000006e6 != 000006f6 at address 0x00000031.
-# @ 20975: out file(51): ERROR: 000005c1 != 000005d0 at address 0x00000032.
-# @ 21385: out file(52): ERROR: 000006d9 != 000006ea at address 0x00000033.
-# @ 21795: out file(53): ERROR: 0000057c != 0000058b at address 0x00000034.
-# @ 22205: out file(54): ERROR: 00000698 != 000006a9 at address 0x00000035.
-# @ 22615: out file(55): ERROR: 0000066d != 0000067e at address 0x00000036.
-# @ 23025: out file(56): ERROR: 00000621 != 00000630 at address 0x00000037.
-# @ 23435: out file(57): ERROR: 00000796 != 000007a7 at address 0x00000038.
-# @ 23845: out file(58): ERROR: 0000069d != 000006ac at address 0x00000039.
-# @ 24255: out file(59): ERROR: 000007f4 != 00000804 at address 0x0000003a.
-# @ 24665: out file(60): ERROR: 000007c8 != 000007d8 at address 0x0000003b.
-# @ 25075: out file(61): ERROR: 000007da != 000007ea at address 0x0000003c.
-# @ 25485: out file(62): ERROR: 000008aa != 000008ba at address 0x0000003d.
-# @ 25895: out file(63): ERROR: 000007dd != 000007ed at address 0x0000003e.
-# @ 26305: out file(64): ERROR: 000008a2 != 000008b2 at address 0x0000003f.
-# @ 26715: out file(65): ERROR: 00000766 != 00000776 at address 0x00000040.
-# @ 27125: out file(66): ERROR: 000006ca != 000006d7 at address 0x00000041.
-# @ 27535: out file(67): ERROR: 000001c7 != 000001d5 at address 0x00000042.
-# @ 27945: out file(68): ERROR: fffffcc1 != fffffcd4 at address 0x00000043.
-# @ 28355: out file(69): ERROR: fffff999 != fffff9a9 at address 0x00000044.
-# @ 28765: out file(70): ERROR: fffffa45 != fffffa59 at address 0x00000045.
-# @ 29175: out file(71): ERROR: fffffdb4 != fffffdc8 at address 0x00000046.
-# @ 29585: out file(72): ERROR: 000002f0 != 000002fc at address 0x00000047.
-# @ 29995: out file(73): ERROR: 0000069c != 000006ab at address 0x00000048.
-# @ 30405: out file(74): ERROR: 000003e6 != 000003f2 at address 0x00000049.
-# @ 30815: out file(75): ERROR: 00000360 != 0000036e at address 0x0000004a.
-# @ 31225: out file(76): ERROR: fffffedf != fffffef3 at address 0x0000004b.
-# @ 31635: out file(77): ERROR: fffffbe6 != fffffbf5 at address 0x0000004c.
-# @ 32045: out file(78): ERROR: fffffa3f != fffffa4e at address 0x0000004d.
-# @ 32455: out file(79): ERROR: fffff7e0 != fffff7f2 at address 0x0000004e.
-# @ 32865: out file(80): ERROR: fffff848 != fffff85b at address 0x0000004f.
-# @ 33275: out file(81): ERROR: fffff8ea != fffff8fa at address 0x00000050.
-# @ 33685: out file(82): ERROR: fffffb75 != fffffb84 at address 0x00000051.
-# @ 34095: out file(83): ERROR: fffffd3f != fffffd4f at address 0x00000052.
-# @ 34505: out file(84): ERROR: fffffcd3 != fffffce3 at address 0x00000053.
-# @ 34915: out file(85): ERROR: ffffffb4 != ffffffc3 at address 0x00000054.
-# @ 35325: out file(86): ERROR: fffffe7f != fffffe8b at address 0x00000055.
-# @ 35735: out file(87): ERROR: fffffcd2 != fffffce3 at address 0x00000056.
-# @ 36145: out file(88): ERROR: fffffb96 != fffffba9 at address 0x00000057.
-# @ 36555: out file(89): ERROR: fffff978 != fffff987 at address 0x00000058.
-# @ 36965: out file(90): ERROR: fffffaab != fffffabe at address 0x00000059.
-# @ 37375: out file(91): ERROR: fffffb82 != fffffb8f at address 0x0000005a.
-# @ 37785: out file(92): ERROR: fffffe50 != fffffe5d at address 0x0000005b.
-# @ 38195: out file(93): ERROR: fffffc2e != fffffc41 at address 0x0000005c.
-# @ 38605: out file(94): ERROR: fffffa49 != fffffa5b at address 0x0000005d.
-# @ 39015: out file(95): ERROR: fffffd7f != fffffd8f at address 0x0000005e.
-# @ 39425: out file(96): ERROR: fffffcba != fffffcc6 at address 0x0000005f.
-# @ 39835: out file(97): ERROR: fffffba8 != fffffbb8 at address 0x00000060.
-# @ 40245: out file(98): ERROR: fffff9ad != fffff9bf at address 0x00000061.
-# @ 40655: out file(99): ERROR: fffffb61 != fffffb76 at address 0x00000062.
-# @ 41065: out file(100): ERROR: 0000001d != 00000030 at address 0x00000063.
-# @ 41075: Simulation completed.
-# Total simulation cycle count: 4104
-# Total error count: 100
-# ** Note: $finish    : /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv(76)
-#    Time: 41075 ns  Iteration: 2  Instance: /fir_tb
-# 1
-# Break in NamedBeginStat tb_process at /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv line 76
+# Loading work.iir(fast)
+add wave -position insertpoint sim:/iir/*
 quit -sim
-# End time: 00:58:43 on Mar 04,2024, Elapsed time: 0:09:40
+# End time: 07:31:12 on Mar 06,2024, Elapsed time: 0:00:25
 # Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 00:58:45 on Mar 04,2024
-# vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv 
-# -- Compiling module fir
-# 
-# Top level modules:
-# 	fir
-# End time: 00:58:45 on Mar 04,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.fir_tb
-# vsim -voptargs="+acc" work.fir_tb 
-# Start time: 00:58:52 on Mar 04,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast)".
+vsim -voptargs=+acc work.iir_tb
+# vsim -voptargs="+acc" work.iir_tb 
+# Start time: 07:31:23 on Mar 06,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "iir(fast)".
 # Loading sv_std.std
-# Loading work.fir_tb(fast)
-# Loading work.fir_top(fast)
+# Loading work.iir_tb(fast)
+# Loading work.iir_top(fast)
 # Loading work.fifo(fast)
-# Loading work.fir(fast)
+# Loading work.iir(fast)
+add wave -position insertpoint sim:/iir_tb/dut/*
+add wave -position insertpoint sim:/iir_tb/dut/fifo_in/*
+add wave -position insertpoint sim:/iir_tb/dut/iir_inst/*
+add wave -position insertpoint sim:/iir_tb/dut/fifo_out/*
 run -all
-# @ 20: Loading file ../data/demodulate_n.txt...
+# @ 20: Loading file ../left_channel.txt...
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../left_channel.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : iir_tb.sv(85)
+#    Time: 20 ns  Iteration: 2  Instance: /iir_tb
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 25 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
 # @ 30: Beginning simulation...
-# @ 30: Comparing file ../data/l_plus_r_lowpass.txt...
-# @ 475: out file(1): ERROR: ffffff99 != ffffff9f at address 0x00000000.
-# @ 895: out file(2): ERROR: 00000701 != 0000070b at address 0x00000001.
-# @ 1315: out file(3): ERROR: 00001311 != 0000131b at address 0x00000002.
-# @ 1735: out file(4): ERROR: 0000067d != 0000068b at address 0x00000003.
-# @ 2155: out file(5): ERROR: 00000763 != 00000773 at address 0x00000004.
-# @ 2575: out file(6): ERROR: 00000653 != 00000663 at address 0x00000005.
-# @ 2995: out file(7): ERROR: 0000065a != 0000066a at address 0x00000006.
-# @ 3415: out file(8): ERROR: 000006bd != 000006cd at address 0x00000007.
-# @ 3835: out file(9): ERROR: 0000062d != 0000063d at address 0x00000008.
-# @ 4255: out file(10): ERROR: 00000766 != 00000776 at address 0x00000009.
-# @ 4675: out file(11): ERROR: 0000068c != 0000069c at address 0x0000000a.
-# @ 5095: out file(12): ERROR: 0000073e != 0000074e at address 0x0000000b.
-# @ 5515: out file(13): ERROR: 0000072a != 0000073a at address 0x0000000c.
-# @ 5935: out file(14): ERROR: 000005db != 000005eb at address 0x0000000d.
-# @ 6355: out file(15): ERROR: 000005fe != 0000060e at address 0x0000000e.
-# @ 6775: out file(16): ERROR: 000003d0 != 000003de at address 0x0000000f.
-# @ 7195: out file(17): ERROR: 000003f6 != 00000408 at address 0x00000010.
-# @ 7615: out file(18): ERROR: 000002d9 != 000002e9 at address 0x00000011.
-# @ 8035: out file(19): ERROR: 00000202 != 00000210 at address 0x00000012.
-# @ 8455: out file(20): ERROR: 00000367 != 0000037b at address 0x00000013.
-# @ 8875: out file(21): ERROR: 0000026b != 0000027b at address 0x00000014.
-# @ 9295: out file(22): ERROR: 000004ce != 000004dc at address 0x00000015.
-# @ 9715: out file(23): ERROR: 000004e4 != 000004f4 at address 0x00000016.
-# @ 10135: out file(24): ERROR: 000005c9 != 000005d9 at address 0x00000017.
-# @ 10555: out file(25): ERROR: 00000698 != 000006a8 at address 0x00000018.
-# @ 10975: out file(26): ERROR: 0000062f != 0000063f at address 0x00000019.
-# @ 11395: out file(27): ERROR: 00000744 != 00000754 at address 0x0000001a.
-# @ 11815: out file(28): ERROR: 000006a2 != 000006b1 at address 0x0000001b.
-# @ 12235: out file(29): ERROR: 000006ba != 000006ca at address 0x0000001c.
-# @ 12655: out file(30): ERROR: 00000656 != 00000666 at address 0x0000001d.
-# @ 13075: out file(31): ERROR: 0000055b != 0000056a at address 0x0000001e.
-# @ 13495: out file(32): ERROR: 000006aa != 000006ba at address 0x0000001f.
-# @ 13915: out file(33): ERROR: 000006b8 != 000006c8 at address 0x00000020.
-# @ 14335: out file(34): ERROR: 000007f9 != 00000809 at address 0x00000021.
-# @ 14755: out file(35): ERROR: 000008ed != 000008fd at address 0x00000022.
-# @ 15175: out file(36): ERROR: 000008c2 != 000008d2 at address 0x00000023.
-# @ 15595: out file(37): ERROR: 000009f3 != 00000a03 at address 0x00000024.
-# @ 16015: out file(38): ERROR: 000008d0 != 000008e0 at address 0x00000025.
-# @ 16435: out file(39): ERROR: 00000927 != 00000937 at address 0x00000026.
-# @ 16855: out file(40): ERROR: 00000982 != 00000992 at address 0x00000027.
-# @ 17275: out file(41): ERROR: 0000089d != 000008ad at address 0x00000028.
-# @ 17695: out file(42): ERROR: 000008dc != 000008ec at address 0x00000029.
-# @ 18115: out file(43): ERROR: 00000761 != 00000771 at address 0x0000002a.
-# @ 18535: out file(44): ERROR: 0000077b != 0000078b at address 0x0000002b.
-# @ 18955: out file(45): ERROR: 00000796 != 000007a6 at address 0x0000002c.
-# @ 19375: out file(46): ERROR: 00000676 != 00000686 at address 0x0000002d.
-# @ 19795: out file(47): ERROR: 00000779 != 00000789 at address 0x0000002e.
-# @ 20215: out file(48): ERROR: 00000636 != 00000646 at address 0x0000002f.
-# @ 20635: out file(49): ERROR: 000006e1 != 000006f1 at address 0x00000030.
-# @ 21055: out file(50): ERROR: 000006e6 != 000006f6 at address 0x00000031.
-# @ 21475: out file(51): ERROR: 000005c1 != 000005d0 at address 0x00000032.
-# @ 21895: out file(52): ERROR: 000006d9 != 000006ea at address 0x00000033.
-# @ 22315: out file(53): ERROR: 0000057c != 0000058b at address 0x00000034.
-# @ 22735: out file(54): ERROR: 00000698 != 000006a9 at address 0x00000035.
-# @ 23155: out file(55): ERROR: 0000066d != 0000067e at address 0x00000036.
-# @ 23575: out file(56): ERROR: 00000621 != 00000630 at address 0x00000037.
-# @ 23995: out file(57): ERROR: 00000796 != 000007a7 at address 0x00000038.
-# @ 24415: out file(58): ERROR: 0000069d != 000006ac at address 0x00000039.
-# @ 24835: out file(59): ERROR: 000007f4 != 00000804 at address 0x0000003a.
-# @ 25255: out file(60): ERROR: 000007c8 != 000007d8 at address 0x0000003b.
-# @ 25675: out file(61): ERROR: 000007da != 000007ea at address 0x0000003c.
-# @ 26095: out file(62): ERROR: 000008aa != 000008ba at address 0x0000003d.
-# @ 26515: out file(63): ERROR: 000007dd != 000007ed at address 0x0000003e.
-# @ 26935: out file(64): ERROR: 000008a2 != 000008b2 at address 0x0000003f.
-# @ 27355: out file(65): ERROR: 00000766 != 00000776 at address 0x00000040.
-# @ 27775: out file(66): ERROR: 000006ca != 000006d7 at address 0x00000041.
-# @ 28195: out file(67): ERROR: 000001c7 != 000001d5 at address 0x00000042.
-# @ 28615: out file(68): ERROR: fffffcc1 != fffffcd4 at address 0x00000043.
-# @ 29035: out file(69): ERROR: fffff999 != fffff9a9 at address 0x00000044.
-# @ 29455: out file(70): ERROR: fffffa45 != fffffa59 at address 0x00000045.
-# @ 29875: out file(71): ERROR: fffffdb4 != fffffdc8 at address 0x00000046.
-# @ 30295: out file(72): ERROR: 000002f0 != 000002fc at address 0x00000047.
-# @ 30715: out file(73): ERROR: 0000069c != 000006ab at address 0x00000048.
-# @ 31135: out file(74): ERROR: 000003e6 != 000003f2 at address 0x00000049.
-# @ 31555: out file(75): ERROR: 00000360 != 0000036e at address 0x0000004a.
-# @ 31975: out file(76): ERROR: fffffedf != fffffef3 at address 0x0000004b.
-# @ 32395: out file(77): ERROR: fffffbe6 != fffffbf5 at address 0x0000004c.
-# @ 32815: out file(78): ERROR: fffffa3f != fffffa4e at address 0x0000004d.
-# @ 33235: out file(79): ERROR: fffff7e0 != fffff7f2 at address 0x0000004e.
-# @ 33655: out file(80): ERROR: fffff848 != fffff85b at address 0x0000004f.
-# @ 34075: out file(81): ERROR: fffff8ea != fffff8fa at address 0x00000050.
-# @ 34495: out file(82): ERROR: fffffb75 != fffffb84 at address 0x00000051.
-# @ 34915: out file(83): ERROR: fffffd3f != fffffd4f at address 0x00000052.
-# @ 35335: out file(84): ERROR: fffffcd3 != fffffce3 at address 0x00000053.
-# @ 35755: out file(85): ERROR: ffffffb4 != ffffffc3 at address 0x00000054.
-# @ 36175: out file(86): ERROR: fffffe7f != fffffe8b at address 0x00000055.
-# @ 36595: out file(87): ERROR: fffffcd2 != fffffce3 at address 0x00000056.
-# @ 37015: out file(88): ERROR: fffffb96 != fffffba9 at address 0x00000057.
-# @ 37435: out file(89): ERROR: fffff978 != fffff987 at address 0x00000058.
-# @ 37855: out file(90): ERROR: fffffaab != fffffabe at address 0x00000059.
-# @ 38275: out file(91): ERROR: fffffb82 != fffffb8f at address 0x0000005a.
-# @ 38695: out file(92): ERROR: fffffe50 != fffffe5d at address 0x0000005b.
-# @ 39115: out file(93): ERROR: fffffc2e != fffffc41 at address 0x0000005c.
-# @ 39535: out file(94): ERROR: fffffa49 != fffffa5b at address 0x0000005d.
-# @ 39955: out file(95): ERROR: fffffd7f != fffffd8f at address 0x0000005e.
-# @ 40375: out file(96): ERROR: fffffcba != fffffcc6 at address 0x0000005f.
-# @ 40795: out file(97): ERROR: fffffba8 != fffffbb8 at address 0x00000060.
-# @ 41215: out file(98): ERROR: fffff9ad != fffff9bf at address 0x00000061.
-# @ 41635: out file(99): ERROR: fffffb61 != fffffb76 at address 0x00000062.
-# @ 42055: out file(100): ERROR: 0000001d != 00000030 at address 0x00000063.
-# @ 42065: Simulation completed.
-# Total simulation cycle count: 4203
-# Total error count: 100
-# ** Note: $finish    : /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv(76)
-#    Time: 42065 ns  Iteration: 2  Instance: /fir_tb
+# @ 30: Comparing file ../left_deemph.txt...
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../left_deemph.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : iir_tb.sv(115)
+#    Time: 30 ns  Iteration: 1  Instance: /iir_tb
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 35 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 45 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 55 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 65 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 75 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 85 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 95 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 95 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 105 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 115 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 125 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 145 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 155 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 165 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 185 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 195 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 205 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 225 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 235 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 245 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 265 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 275 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 285 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 305 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 315 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 325 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 345 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 355 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 365 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 385 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 395 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 405 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 425 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 435 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 445 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 465 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 475 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 485 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 505 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 515 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 525 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 545 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 555 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 565 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 585 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 595 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 605 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 625 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 635 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 645 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 665 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 675 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 685 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 705 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 715 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 725 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 745 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 755 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 765 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 785 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 795 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 805 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 825 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 835 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 845 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 865 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 875 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 885 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 905 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 915 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 925 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 945 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 955 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 965 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 985 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 995 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1005 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#78(read_process) File: iir_tb.sv Line: 91
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1095 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2095 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3095 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 4015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 4055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# @ 4065: Simulation completed.
+# Total simulation cycle count: 403
+# Total error count: 0
+# ** Note: $finish    : iir_tb.sv(75)
+#    Time: 4065 ns  Iteration: 2  Instance: /iir_tb
 # 1
-# Break in NamedBeginStat tb_process at /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv line 76
+# Break in NamedBeginStat tb_process at iir_tb.sv line 75
 quit -sim
-# End time: 00:59:48 on Mar 04,2024, Elapsed time: 0:00:56
-# Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv
+# End time: 07:33:16 on Mar 06,2024, Elapsed time: 0:01:53
+# Errors: 200, Warnings: 2
+do ./FMRadioSIM.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 00:59:51 on Mar 04,2024
-# vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/fir.sv 
-# -- Compiling module fir
+# Start time: 07:33:20 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir.sv 
+# -- Compiling module iir
 # 
 # Top level modules:
-# 	fir
-# End time: 00:59:51 on Mar 04,2024, Elapsed time: 0:00:00
+# 	iir
+# End time: 07:33:20 on Mar 06,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -voptargs=+acc work.fir_tb
-# vsim -voptargs="+acc" work.fir_tb 
-# Start time: 01:00:07 on Mar 04,2024
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:33:20 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir_top.sv 
+# -- Compiling module iir_top
+# 
+# Top level modules:
+# 	iir_top
+# End time: 07:33:20 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:33:20 on Mar 06,2024
+# vlog -reportprogress 300 -work work iir_tb.sv 
+# -- Compiling module iir_tb
+# 
+# Top level modules:
+# 	iir_tb
+# End time: 07:33:20 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.iir_tb 
+# Start time: 07:33:20 on Mar 06,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast)".
 # Loading sv_std.std
-# Loading work.fir_tb(fast)
-# Loading work.fir_top(fast)
+# Loading work.iir_tb(fast)
+# Loading work.iir_top(fast)
 # Loading work.fifo(fast)
-# Loading work.fir(fast)
-run -all
-# @ 20: Loading file ../data/demodulate_n.txt...
+# Loading work.iir(fast)
+# @ 20: Loading file ../data/left_channel.txt...
 # @ 30: Beginning simulation...
-# @ 30: Comparing file ../data/l_plus_r_lowpass.txt...
-# @ 475: out file(1): ERROR: ffffff99 != ffffff9f at address 0x00000000.
-# @ 885: out file(2): ERROR: 00000701 != 0000070b at address 0x00000001.
-# @ 1295: out file(3): ERROR: 00001311 != 0000131b at address 0x00000002.
-# @ 1705: out file(4): ERROR: 0000067d != 0000068b at address 0x00000003.
-# @ 2115: out file(5): ERROR: 00000763 != 00000773 at address 0x00000004.
-# @ 2525: out file(6): ERROR: 00000653 != 00000663 at address 0x00000005.
-# @ 2935: out file(7): ERROR: 0000065a != 0000066a at address 0x00000006.
-# @ 3345: out file(8): ERROR: 000006bd != 000006cd at address 0x00000007.
-# @ 3755: out file(9): ERROR: 0000062d != 0000063d at address 0x00000008.
-# @ 4165: out file(10): ERROR: 00000766 != 00000776 at address 0x00000009.
-# @ 4575: out file(11): ERROR: 0000068c != 0000069c at address 0x0000000a.
-# @ 4985: out file(12): ERROR: 0000073e != 0000074e at address 0x0000000b.
-# @ 5395: out file(13): ERROR: 0000072a != 0000073a at address 0x0000000c.
-# @ 5805: out file(14): ERROR: 000005db != 000005eb at address 0x0000000d.
-# @ 6215: out file(15): ERROR: 000005fe != 0000060e at address 0x0000000e.
-# @ 6625: out file(16): ERROR: 000003d0 != 000003de at address 0x0000000f.
-# @ 7035: out file(17): ERROR: 000003f6 != 00000408 at address 0x00000010.
-# @ 7445: out file(18): ERROR: 000002d9 != 000002e9 at address 0x00000011.
-# @ 7855: out file(19): ERROR: 00000202 != 00000210 at address 0x00000012.
-# @ 8265: out file(20): ERROR: 00000367 != 0000037b at address 0x00000013.
-# @ 8675: out file(21): ERROR: 0000026b != 0000027b at address 0x00000014.
-# @ 9085: out file(22): ERROR: 000004ce != 000004dc at address 0x00000015.
-# @ 9495: out file(23): ERROR: 000004e4 != 000004f4 at address 0x00000016.
-# @ 9905: out file(24): ERROR: 000005c9 != 000005d9 at address 0x00000017.
-# @ 10315: out file(25): ERROR: 00000698 != 000006a8 at address 0x00000018.
-# @ 10725: out file(26): ERROR: 0000062f != 0000063f at address 0x00000019.
-# @ 11135: out file(27): ERROR: 00000744 != 00000754 at address 0x0000001a.
-# @ 11545: out file(28): ERROR: 000006a2 != 000006b1 at address 0x0000001b.
-# @ 11955: out file(29): ERROR: 000006ba != 000006ca at address 0x0000001c.
-# @ 12365: out file(30): ERROR: 00000656 != 00000666 at address 0x0000001d.
-# @ 12775: out file(31): ERROR: 0000055b != 0000056a at address 0x0000001e.
-# @ 13185: out file(32): ERROR: 000006aa != 000006ba at address 0x0000001f.
-# @ 13595: out file(33): ERROR: 000006b8 != 000006c8 at address 0x00000020.
-# @ 14005: out file(34): ERROR: 000007f9 != 00000809 at address 0x00000021.
-# @ 14415: out file(35): ERROR: 000008ed != 000008fd at address 0x00000022.
-# @ 14825: out file(36): ERROR: 000008c2 != 000008d2 at address 0x00000023.
-# @ 15235: out file(37): ERROR: 000009f3 != 00000a03 at address 0x00000024.
-# @ 15645: out file(38): ERROR: 000008d0 != 000008e0 at address 0x00000025.
-# @ 16055: out file(39): ERROR: 00000927 != 00000937 at address 0x00000026.
-# @ 16465: out file(40): ERROR: 00000982 != 00000992 at address 0x00000027.
-# @ 16875: out file(41): ERROR: 0000089d != 000008ad at address 0x00000028.
-# @ 17285: out file(42): ERROR: 000008dc != 000008ec at address 0x00000029.
-# @ 17695: out file(43): ERROR: 00000761 != 00000771 at address 0x0000002a.
-# @ 18105: out file(44): ERROR: 0000077b != 0000078b at address 0x0000002b.
-# @ 18515: out file(45): ERROR: 00000796 != 000007a6 at address 0x0000002c.
-# @ 18925: out file(46): ERROR: 00000676 != 00000686 at address 0x0000002d.
-# @ 19335: out file(47): ERROR: 00000779 != 00000789 at address 0x0000002e.
-# @ 19745: out file(48): ERROR: 00000636 != 00000646 at address 0x0000002f.
-# @ 20155: out file(49): ERROR: 000006e1 != 000006f1 at address 0x00000030.
-# @ 20565: out file(50): ERROR: 000006e6 != 000006f6 at address 0x00000031.
-# @ 20975: out file(51): ERROR: 000005c1 != 000005d0 at address 0x00000032.
-# @ 21385: out file(52): ERROR: 000006d9 != 000006ea at address 0x00000033.
-# @ 21795: out file(53): ERROR: 0000057c != 0000058b at address 0x00000034.
-# @ 22205: out file(54): ERROR: 00000698 != 000006a9 at address 0x00000035.
-# @ 22615: out file(55): ERROR: 0000066d != 0000067e at address 0x00000036.
-# @ 23025: out file(56): ERROR: 00000621 != 00000630 at address 0x00000037.
-# @ 23435: out file(57): ERROR: 00000796 != 000007a7 at address 0x00000038.
-# @ 23845: out file(58): ERROR: 0000069d != 000006ac at address 0x00000039.
-# @ 24255: out file(59): ERROR: 000007f4 != 00000804 at address 0x0000003a.
-# @ 24665: out file(60): ERROR: 000007c8 != 000007d8 at address 0x0000003b.
-# @ 25075: out file(61): ERROR: 000007da != 000007ea at address 0x0000003c.
-# @ 25485: out file(62): ERROR: 000008aa != 000008ba at address 0x0000003d.
-# @ 25895: out file(63): ERROR: 000007dd != 000007ed at address 0x0000003e.
-# @ 26305: out file(64): ERROR: 000008a2 != 000008b2 at address 0x0000003f.
-# @ 26715: out file(65): ERROR: 00000766 != 00000776 at address 0x00000040.
-# @ 27125: out file(66): ERROR: 000006ca != 000006d7 at address 0x00000041.
-# @ 27535: out file(67): ERROR: 000001c7 != 000001d5 at address 0x00000042.
-# @ 27945: out file(68): ERROR: fffffcc1 != fffffcd4 at address 0x00000043.
-# @ 28355: out file(69): ERROR: fffff999 != fffff9a9 at address 0x00000044.
-# @ 28765: out file(70): ERROR: fffffa45 != fffffa59 at address 0x00000045.
-# @ 29175: out file(71): ERROR: fffffdb4 != fffffdc8 at address 0x00000046.
-# @ 29585: out file(72): ERROR: 000002f0 != 000002fc at address 0x00000047.
-# @ 29995: out file(73): ERROR: 0000069c != 000006ab at address 0x00000048.
-# @ 30405: out file(74): ERROR: 000003e6 != 000003f2 at address 0x00000049.
-# @ 30815: out file(75): ERROR: 00000360 != 0000036e at address 0x0000004a.
-# @ 31225: out file(76): ERROR: fffffedf != fffffef3 at address 0x0000004b.
-# @ 31635: out file(77): ERROR: fffffbe6 != fffffbf5 at address 0x0000004c.
-# @ 32045: out file(78): ERROR: fffffa3f != fffffa4e at address 0x0000004d.
-# @ 32455: out file(79): ERROR: fffff7e0 != fffff7f2 at address 0x0000004e.
-# @ 32865: out file(80): ERROR: fffff848 != fffff85b at address 0x0000004f.
-# @ 33275: out file(81): ERROR: fffff8ea != fffff8fa at address 0x00000050.
-# @ 33685: out file(82): ERROR: fffffb75 != fffffb84 at address 0x00000051.
-# @ 34095: out file(83): ERROR: fffffd3f != fffffd4f at address 0x00000052.
-# @ 34505: out file(84): ERROR: fffffcd3 != fffffce3 at address 0x00000053.
-# @ 34915: out file(85): ERROR: ffffffb4 != ffffffc3 at address 0x00000054.
-# @ 35325: out file(86): ERROR: fffffe7f != fffffe8b at address 0x00000055.
-# @ 35735: out file(87): ERROR: fffffcd2 != fffffce3 at address 0x00000056.
-# @ 36145: out file(88): ERROR: fffffb96 != fffffba9 at address 0x00000057.
-# @ 36555: out file(89): ERROR: fffff978 != fffff987 at address 0x00000058.
-# @ 36965: out file(90): ERROR: fffffaab != fffffabe at address 0x00000059.
-# @ 37375: out file(91): ERROR: fffffb82 != fffffb8f at address 0x0000005a.
-# @ 37785: out file(92): ERROR: fffffe50 != fffffe5d at address 0x0000005b.
-# @ 38195: out file(93): ERROR: fffffc2e != fffffc41 at address 0x0000005c.
-# @ 38605: out file(94): ERROR: fffffa49 != fffffa5b at address 0x0000005d.
-# @ 39015: out file(95): ERROR: fffffd7f != fffffd8f at address 0x0000005e.
-# @ 39425: out file(96): ERROR: fffffcba != fffffcc6 at address 0x0000005f.
-# @ 39835: out file(97): ERROR: fffffba8 != fffffbb8 at address 0x00000060.
-# @ 40245: out file(98): ERROR: fffff9ad != fffff9bf at address 0x00000061.
-# @ 40655: out file(99): ERROR: fffffb61 != fffffb76 at address 0x00000062.
-# @ 41065: out file(100): ERROR: 0000001d != 00000030 at address 0x00000063.
-# @ 41075: Simulation completed.
-# Total simulation cycle count: 4104
-# Total error count: 100
-# ** Note: $finish    : /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv(76)
-#    Time: 41075 ns  Iteration: 2  Instance: /fir_tb
+# @ 30: Comparing file ../data/left_deemph.txt...
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../data/left_deemph.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : iir_tb.sv(115)
+#    Time: 30 ns  Iteration: 1  Instance: /iir_tb
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 95 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1095 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 1975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2095 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 2975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3095 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3135 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3175 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3215 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3255 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3295 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3335 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3375 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3415 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3455 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3495 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3535 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3575 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3615 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3655 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3695 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3735 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3775 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3815 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3855 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3895 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3935 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 3975 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 4015 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# ** Error (suppressible): (vsim-PLI-3084) $fscanf : Argument 1 is not a valid file descriptor.
+#    Time: 4055 ns  Iteration: 1  Process: /iir_tb/#INITIAL#105(comp_process) File: iir_tb.sv Line: 123
+# @ 4065: Simulation completed.
+# Total simulation cycle count: 403
+# Total error count: 0
+# ** Note: $finish    : iir_tb.sv(75)
+#    Time: 4065 ns  Iteration: 2  Instance: /iir_tb
 # 1
-# Break in NamedBeginStat tb_process at /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench/fir_tb.sv line 76
-# End time: 01:04:33 on Mar 04,2024, Elapsed time: 0:04:26
+# Break in NamedBeginStat tb_process at iir_tb.sv line 75
+pwd
+# /home/pgn7690/CE387/project/FMRadioFPGA/sv/testbench
+ls ../
+# data
+# div.sv
+# fifo.sv
+# fir_cmplx.sv
+# fir_cmplx_top.sv
+# fir.sv
+# fir.sv.bak
+# fir_top.sv
+# iir.sv
+# iir_top.sv
+# mul.sv
+# testbench
+do ./FMRadioSIM.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:34:07 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir.sv 
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 07:34:07 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:34:07 on Mar 06,2024
+# vlog -reportprogress 300 -work work ../iir_top.sv 
+# -- Compiling module iir_top
+# 
+# Top level modules:
+# 	iir_top
+# End time: 07:34:07 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 07:34:07 on Mar 06,2024
+# vlog -reportprogress 300 -work work iir_tb.sv 
+# -- Compiling module iir_tb
+# 
+# Top level modules:
+# 	iir_tb
+# End time: 07:34:07 on Mar 06,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 07:34:07 on Mar 06,2024, Elapsed time: 0:00:47
+# Errors: 100, Warnings: 1
+# vsim -voptargs="+acc" work.iir_tb 
+# Start time: 07:34:07 on Mar 06,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.iir_tb(fast)
+# Loading work.iir_top(fast)
+# Loading work.fifo(fast)
+# Loading work.iir(fast)
+# @ 20: Loading file ../data/left_channel.txt...
+# @ 30: Beginning simulation...
+# @ 30: Comparing file ../data/left_deemph.txt...
+# @ 135: out file(2): ERROR: ffffffef != fffffff0 at address 0x00000001.
+# @ 215: out file(4): ERROR: 000003c3 != 000003c4 at address 0x00000003.
+# @ 255: out file(5): ERROR: 00000204 != 00000205 at address 0x00000004.
+# @ 335: out file(7): ERROR: 000001c1 != 000001c2 at address 0x00000006.
+# @ 375: out file(8): ERROR: 00000173 != 00000174 at address 0x00000007.
+# @ 415: out file(9): ERROR: 000001d9 != 000001da at address 0x00000008.
+# @ 495: out file(11): ERROR: 00000192 != 00000193 at address 0x0000000a.
+# @ 575: out file(13): ERROR: 0000017f != 00000180 at address 0x0000000c.
+# @ 615: out file(14): ERROR: 00000195 != 00000196 at address 0x0000000d.
+# @ 695: out file(16): ERROR: 00000146 != 00000147 at address 0x0000000f.
+# @ 735: out file(17): ERROR: 000000ee != 000000ef at address 0x00000010.
+# @ 815: out file(19): ERROR: 000000b5 != 000000b6 at address 0x00000012.
+# @ 895: out file(21): ERROR: 000000b4 != 000000b5 at address 0x00000014.
+# @ 935: out file(22): ERROR: 00000097 != 00000098 at address 0x00000015.
+# @ 975: out file(23): ERROR: 000000e6 != 000000e7 at address 0x00000016.
+# @ 1055: out file(25): ERROR: 0000012b != 0000012c at address 0x00000018.
+# @ 1135: out file(27): ERROR: 00000157 != 00000158 at address 0x0000001a.
+# @ 1175: out file(28): ERROR: 00000184 != 00000185 at address 0x0000001b.
+# @ 1255: out file(30): ERROR: 00000168 != 00000169 at address 0x0000001d.
+# @ 1295: out file(31): ERROR: 00000168 != 00000169 at address 0x0000001e.
+# @ 1335: out file(32): ERROR: 0000012d != 0000012e at address 0x0000001f.
+# @ 1415: out file(34): ERROR: 0000017e != 0000017f at address 0x00000021.
+# @ 1495: out file(36): ERROR: 000001ed != 000001ee at address 0x00000023.
+# @ 1575: out file(38): ERROR: 00000215 != 00000216 at address 0x00000025.
+# @ 1655: out file(40): ERROR: 000001eb != 000001ec at address 0x00000027.
+# @ 1695: out file(41): ERROR: 00000218 != 00000219 at address 0x00000028.
+# @ 1775: out file(43): ERROR: 000001e5 != 000001e6 at address 0x0000002a.
+# @ 1855: out file(45): ERROR: 00000190 != 00000191 at address 0x0000002c.
+# @ 1895: out file(46): ERROR: 000001ac != 000001ad at address 0x0000002d.
+# @ 1975: out file(48): ERROR: 0000018f != 00000190 at address 0x0000002f.
+# @ 2055: out file(50): ERROR: 00000168 != 00000169 at address 0x00000031.
+# @ 2095: out file(51): ERROR: 0000018b != 0000018c at address 0x00000032.
+# @ 2175: out file(53): ERROR: 0000016f != 00000170 at address 0x00000034.
+# @ 2255: out file(55): ERROR: 00000155 != 00000156 at address 0x00000036.
+# @ 2335: out file(57): ERROR: 0000014e != 0000014f at address 0x00000038.
+# @ 2375: out file(58): ERROR: 0000019c != 0000019d at address 0x00000039.
+# @ 2455: out file(60): ERROR: 000001a3 != 000001a4 at address 0x0000003b.
+# @ 2535: out file(62): ERROR: 000001a8 != 000001a9 at address 0x0000003d.
+# @ 2615: out file(64): ERROR: 000001ba != 000001bb at address 0x0000003f.
+# @ 2695: out file(66): ERROR: 000001ad != 000001ae at address 0x00000041.
+# @ 2735: out file(67): ERROR: 00000170 != 00000171 at address 0x00000042.
+# @ 2775: out file(68): ERROR: 000000a0 != 000000a1 at address 0x00000043.
+# @ 2815: out file(69): ERROR: ffffff6d != ffffff6f at address 0x00000044.
+# @ 2855: out file(70): ERROR: fffffec2 != fffffec3 at address 0x00000045.
+# @ 2895: out file(71): ERROR: fffffeae != fffffeb0 at address 0x00000046.
+# @ 2935: out file(72): ERROR: ffffff4c != ffffff4d at address 0x00000047.
+# @ 3015: out file(74): ERROR: 00000136 != 00000137 at address 0x00000049.
+# @ 3095: out file(76): ERROR: 000000af != 000000b0 at address 0x0000004b.
+# @ 3135: out file(77): ERROR: fffffffe != ffffffff at address 0x0000004c.
+# @ 3175: out file(78): ERROR: ffffff20 != ffffff21 at address 0x0000004d.
+# @ 3215: out file(79): ERROR: fffffede != fffffee0 at address 0x0000004e.
+# @ 3255: out file(80): ERROR: fffffe52 != fffffe53 at address 0x0000004f.
+# @ 3295: out file(81): ERROR: fffffe50 != fffffe52 at address 0x00000050.
+# @ 3335: out file(82): ERROR: fffffe81 != fffffe82 at address 0x00000051.
+# @ 3375: out file(83): ERROR: fffffeed != fffffeee at address 0x00000052.
+# @ 3415: out file(84): ERROR: ffffff67 != ffffff69 at address 0x00000053.
+# @ 3455: out file(85): ERROR: ffffff5a != ffffff5b at address 0x00000054.
+# @ 3495: out file(86): ERROR: ffffffcd != ffffffcf at address 0x00000055.
+# @ 3575: out file(88): ERROR: ffffff50 != ffffff52 at address 0x00000057.
+# @ 3615: out file(89): ERROR: ffffff23 != ffffff24 at address 0x00000058.
+# @ 3655: out file(90): ERROR: fffffeab != fffffead at address 0x00000059.
+# @ 3695: out file(91): ERROR: fffffecf != fffffed0 at address 0x0000005a.
+# @ 3735: out file(92): ERROR: ffffff12 != ffffff13 at address 0x0000005b.
+# @ 3775: out file(93): ERROR: ffffff83 != ffffff85 at address 0x0000005c.
+# @ 3855: out file(95): ERROR: fffffec5 != fffffec7 at address 0x0000005e.
+# @ 3895: out file(96): ERROR: ffffff5e != ffffff5f at address 0x0000005f.
+# @ 3935: out file(97): ERROR: ffffff63 != ffffff64 at address 0x00000060.
+# @ 3975: out file(98): ERROR: ffffff0e != ffffff0f at address 0x00000061.
+# @ 4015: out file(99): ERROR: fffffec2 != fffffec3 at address 0x00000062.
+# @ 4055: out file(100): ERROR: fffffee4 != fffffee6 at address 0x00000063.
+# @ 4065: Simulation completed.
+# Total simulation cycle count: 403
+# Total error count: 70
+# ** Note: $finish    : iir_tb.sv(75)
+#    Time: 4065 ns  Iteration: 2  Instance: /iir_tb
+# 1
+# Break in NamedBeginStat tb_process at iir_tb.sv line 75
+# End time: 07:34:35 on Mar 06,2024, Elapsed time: 0:00:28
 # Errors: 0, Warnings: 0

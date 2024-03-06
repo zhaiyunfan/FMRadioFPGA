@@ -11,6 +11,9 @@ add_file -verilog -vlog_std sysv "../sv/fir_cmplx_top.sv"
 add_file -verilog -vlog_std sysv "../sv/mul.sv"
 add_file -verilog -vlog_std sysv "../sv/fir.sv"
 add_file -verilog -vlog_std sysv "../sv/fir_top.sv"
+add_file -verilog -vlog_std sysv "../sv/iir.sv"
+add_file -verilog -vlog_std sysv "../sv/iir_top.sv"
+
 
 
 #implementation: "rev_2"
@@ -35,7 +38,8 @@ set_option -part_companion ""
 #compilation/mapping options
 set_option -use_fsm_explorer 0
 # set_option -top_module "fir_cmplx_top"
-set_option -top_module "fir_top"
+# set_option -top_module "fir_top"
+set_option -top_module "iir_top"
 
 # hdl_compiler_options
 set_option -distributed_compile 1
