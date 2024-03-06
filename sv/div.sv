@@ -1,10 +1,10 @@
 function logic[5:0] msb;
-input  logic [DATA_WIDTH-1:0] div_num;
 input  logic [5:0] DATA_WIDTH;
+input  logic [DATA_WIDTH-1:0] div_num;
     begin
 		if (DATA_WIDTH >= 1) begin
-        	logic [(DATA_WIDTH/2)-1:0] lhs = div_num[DATA_WIDTH-1:DATA_WIDTH/2];
-			logic [(DATA_WIDTH/2)-1:0] rhs = div_num[(DATA_WIDTH/2)-1:0];
+        	automatic logic [(DATA_WIDTH/2)-1:0] lhs = div_num[DATA_WIDTH-1:DATA_WIDTH/2];
+			automatic logic [(DATA_WIDTH/2)-1:0] rhs = div_num[(DATA_WIDTH/2)-1:0];
 
 			if (lhs > 0) begin
 				return msb(lhs,DATA_WIDTH/2) + (DATA_WIDTH/2);
@@ -33,12 +33,18 @@ module div #(
     output logic                        overflow
 );
 
-typedef enum logic [2:0] { INIT, IDLE, B_EQ_1, LOOP, EPILOGUE, DONE } state_t;
+typedef enum logic [2:0] { IDLE, INIT, B_EQ_1, LOOP, EPILOGUE, DONE } state_t;
 state_t state, state_c;
 
 logic [DIVIDEND_WIDTH-1:0] a, a_c;
 logic [DIVISOR_WIDTH-1:0] b, b_c;
 logic [DIVIDEND_WIDTH-1:0] q, q_c;
+
+logic sign;
+logic [DIVIDEND_WIDTH-1:0] ab; //a-b
+logic [DIVIDEND_WIDTH-1:0] remainder_condition;
+logic [7:0] p;
+
 
 always_ff @( posedge clk or posedge reset ) begin
 	if (reset == 1'b1) begin
@@ -54,7 +60,7 @@ always_ff @( posedge clk or posedge reset ) begin
 	end			
 end
 
-always_comb begin : 
+always_comb begin
 	a_c = a;
 	b_c = b;
 	q_c = q;
@@ -71,7 +77,7 @@ always_comb begin :
 
 		INIT: begin
 			overflow = 1'b0;
-			a_c = (dividend[31] == 1'b0) ? $signed(dividend) : $signed(-dividend);
+			a_c = (dividend[63] == 1'b0) ? $signed(dividend) : $signed(-dividend);
             b_c = (divisor[31] == 1'b0) ? $signed(divisor) : $signed(-divisor);
             q_c = '0;
             p = 0;
@@ -88,19 +94,39 @@ always_comb begin :
 
 		B_EQ_1: begin
 			state_c = EPILOGUE;
-			b_c = b; // 
+			//b_c = b; // 
 			q_c = dividend;
 			a_c = '0;
 		end
 
 		LOOP: begin
-			p = msb(a,DIVIDEND_WIDTH) - msb(b,DIVISOR_WIDTH);
-			
+			p = msb(DIVIDEND_WIDTH,a) - msb(DIVISOR_WIDTH,b);
+			if (($signed(b) << p) < $signed(a)) begin
+				p = p - 1;
+			end	
+
+			q_c = DIVIDEND_WIDTH'(q) + (1 << p);
+
+			if (b != 0 && $signed(b) < $signed(a)) begin
+				state_c = LOOP;
+				ab = $signed(a) - $signed($signed(b) << p);
+				a_c = ab;
+			end else begin
+				state_c = EPILOGUE;
+				//q_c = q;
+				//a_c = a;
+			end
 		end
 
 		EPILOGUE: begin
-			
+			sign = dividend[DIVIDEND_WIDTH-1] ^ divisor[DIVISOR_WIDTH-1];
 
+			quotient = (sign == 1'b0) ? q : -q;
+
+			remainder_condition = $signed(dividend) >>> (DIVIDEND_WIDTH - 1);
+            remainder = (remainder_condition != 1) ? a : -a;
+
+            valid_out = 1'b1;
 			state_c = IDLE;
 		end
 
