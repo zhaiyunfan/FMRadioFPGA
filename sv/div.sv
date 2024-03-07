@@ -103,14 +103,15 @@ always_comb begin
 		end
 
 		LOOP: begin
+			b_c = b; 
 			p = msb(DIVIDEND_WIDTH,a) - msb(DIVISOR_WIDTH,b);
-			if (($signed(b) << p) < $signed(a)) begin
+			if (($signed(b) << p) > $signed(a)) begin
 				p = p - 1;
 			end	
 
 			q_c = DIVIDEND_WIDTH'(q) + (1 << p);
 
-			if (b != 0 && $signed(b) < $signed(a)) begin
+			if (b != 0 && $signed(b) <= $signed(a)) begin
 				state_c = LOOP;
 				ab = $signed(a) - $signed($signed(b) << p);
 				a_c = ab;
