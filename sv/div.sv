@@ -1,21 +1,24 @@
-function logic[5:0] msb;
-input  logic [5:0] DATA_WIDTH;
-input  logic [DATA_WIDTH-1:0] div_num;
+function automatic logic [5:0] msb;
+	localparam MAX_DATA_WIDTH = 64;
+    input logic [5:0] DATA_WIDTH;
+    input logic [MAX_DATA_WIDTH-1:0] div_num;
+    logic [5:0] idx;
     begin
-		if (DATA_WIDTH >= 1) begin
-        	automatic logic [(DATA_WIDTH/2)-1:0] lhs = div_num[DATA_WIDTH-1:DATA_WIDTH/2];
-			automatic logic [(DATA_WIDTH/2)-1:0] rhs = div_num[(DATA_WIDTH/2)-1:0];
-
-			if (lhs > 0) begin
-				return msb(lhs,DATA_WIDTH/2) + (DATA_WIDTH/2);
-			end else if (rhs > 0) begin
-				return msb(rhs,DATA_WIDTH/2);
-			end else begin
-				return 0;
-			end
-		end
+        // 初始化最高有效位的索引为0，表示还没有找到
+        msb = 0;
+        // 从最高位到最低位遍历div_num的每一位
+        for (idx = DATA_WIDTH-1; idx >= 0; idx = idx - 1) begin
+            // 检查当前位是否不为0
+            if (div_num[idx] != 0) begin
+                // 更新最高有效位的索引
+                msb = idx;
+                // 找到最高非零位后退出循环
+                break;
+            end
+        end
     end
 endfunction
+
 
 module div #(
     parameter DIVIDEND_WIDTH = 64,

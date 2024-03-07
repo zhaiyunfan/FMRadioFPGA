@@ -22,7 +22,7 @@ logic [(DIVIDEND_WIDTH/2)-1:0] temp_left_a;
 logic [DIVISOR_WIDTH-1:0] b, b_next;
 logic [DIVIDEND_WIDTH-1:0] q, q_next;
 logic [DIVIDEND_WIDTH:0] shifted_divisor; // Extended for possible shift
-//logic [5:0] n, n_next;
+integer n, n_next;
 integer bit_pos; //  shut down setting should be set for ? wait for remainder(unsigned) < divisor(unsigned)
 
 always_ff @(posedge clk or posedge reset) begin
@@ -36,6 +36,7 @@ always_ff @(posedge clk or posedge reset) begin
         a <= a_next;
         b <= b_next;
         q <= q_next;
+		n <= n_next;
     end
 end
 
@@ -44,6 +45,7 @@ always_comb begin
     a_next = a;
     b_next = b;
     q_next = q;
+	n_next = 0;
     next_state = state;
     valid_out = 0;
     overflow = 0;
@@ -51,9 +53,9 @@ always_comb begin
     case(state)
 		IDLE: begin
 			if (valid_in) begin
-				state_c = INIT;
+				next_state = LOAD;
 			end else begin
-				state_c = IDLE;
+				next_state = IDLE;
 			end
 		end
 
@@ -78,18 +80,18 @@ always_comb begin
             // Perform the subtraction if the shifted divisor is less than or equal to the remainder
             a_next[63:32] = a[63:32] - b;
             next_state = TEST_RE;
-			// n_next = n + 1;
+			n_next = n + 1;
         end
 
 		TEST_RE: begin
-			if(a[63] = 0) begin
+			if(a[63] == 0) begin
 				a_next = a << 1;
 				a_next[0] = 1;
 			end else begin
 				temp_left_a = a[63:32] + b;
 				a_next[63:33] = temp_left_a[30:0];
 				a_next[32:1]  = a[31:0];
-				a_next[1]	  = '0
+				a_next[1]	  = '0;
 			end
 			next_state = CHECK;
 		end
@@ -99,33 +101,35 @@ always_comb begin
 			// a[n-1:0] is quotient
 			// a[63:n]  is remainder
 
-			/*
+			
 			if (a[63:n] < b) begin
+				q_next = a[n-1:0];
+				b_next = a[63:n];
                 next_state = FINISH;
 			end else begin
                 next_state = SUBTRACT; // Go back to SHIFT to process the next bit
             end
-			*/
-
+			
+		/*
             if (bit_pos == 0) begin
                 next_state = FINISH;
 			end else begin
                 bit_pos = bit_pos - 1;
                 next_state = SUBTRACT; // Go back to SHIFT to process the next bit
-            end
+            end */
         end
-
+		
 		B_EQ_1: begin
 			next_state = FINISH;
 			//b_c = b; // 
-			q_c = dividend;
-			a_c = '0;
+			q_next = dividend;
+			b_next = '0;
 		end
 
         FINISH: begin
             // Finalize the outputs
-            quotient = q_next;
-            remainder = a_next;
+            quotient = q;
+            remainder = b;
             valid_out = 1;
             next_state = IDLE;
         end
