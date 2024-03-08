@@ -1,9 +1,10 @@
-# //  ModelSim SE-64 2020.1 Jan 28 2020 Linux 4.18.0-513.18.1.el8_9.x86_64
+# //  Questa Sim
+# //  Version 2019.3_2 linux Sep 24 2019
 # //
-# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  Copyright 1991-2019 Mentor Graphics Corporation
 # //  All Rights Reserved.
 # //
-# //  ModelSim SE-64 and its associated documentation contain trade
+# //  QuestaSim and its associated documentation contain trade
 # //  secrets and commercial or financial information that are the property of
 # //  Mentor Graphics Corporation and are privileged, confidential,
 # //  and exempt from disclosure under the Freedom of Information Act,
@@ -14,137 +15,137 @@
 # do fm_radio_sim_uvm.do
 # -9
 # ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# QuestaSim vmap 2019.3_2 Lib Mapping Utility 2019.09 Sep 24 2019
 # vmap work work 
 # Modifying modelsim.ini
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:23 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../demodulate.sv 
 # -- Compiling module demodulate
 # 
 # Top level modules:
 # 	demodulate
-# End time: 02:55:23 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:23 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../div.sv 
 # -- Compiling package div_sv_unit
 # -- Compiling module div
 # 
 # Top level modules:
 # 	div
-# End time: 02:55:23 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:23 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../fifo.sv 
 # -- Compiling module fifo
 # 
 # Top level modules:
 # 	fifo
-# End time: 02:55:23 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:23 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../fir_cmplx.sv 
 # -- Compiling module fir_cmplx
 # 
 # Top level modules:
 # 	fir_cmplx
-# End time: 02:55:23 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:23 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../fir.sv 
 # -- Compiling module fir
 # 
 # Top level modules:
 # 	fir
-# End time: 02:55:23 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:23 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../fm_radio_top.sv 
 # -- Compiling package fm_radio_top_sv_unit
 # -- Compiling module fm_radio_top
 # 
 # Top level modules:
 # 	fm_radio_top
-# End time: 02:55:24 on Mar 08,2024, Elapsed time: 0:00:01
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:24 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../gain.sv 
 # -- Compiling module gain
 # 
 # Top level modules:
 # 	gain
-# End time: 02:55:24 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:24 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../iir.sv 
 # -- Compiling module iir
 # 
 # Top level modules:
 # 	iir
-# End time: 02:55:24 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:20 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:24 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:20 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../multiply.sv 
 # -- Compiling module multiply
 # 
 # Top level modules:
 # 	multiply
-# End time: 02:55:24 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:21 on Mar 08,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:24 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:21 on Mar 08,2024
 # vlog -reportprogress 300 -work work ../qarctan.sv 
 # -- Compiling module qarctan
 # 
 # Top level modules:
 # 	qarctan
-# End time: 02:55:24 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:21 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:24 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:21 on Mar 08,2024
 # vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/uvm.sv 
 # -- Compiling package uvm_pkg (uvm-1.2 Built-in)
 # 
 # Top level modules:
 # 	--none--
-# End time: 02:55:24 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:21 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:24 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:21 on Mar 08,2024
 # vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/uvm_macros.svh 
-# End time: 02:55:25 on Mar 08,2024, Elapsed time: 0:00:01
+# End time: 13:20:21 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:25 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:21 on Mar 08,2024
 # vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv 
 # -- Compiling package questa_uvm_pkg
 # -- Importing package uvm_pkg (uvm-1.2 Built-in)
 # 
 # Top level modules:
 # 	--none--
-# End time: 02:55:25 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:22 on Mar 08,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:25 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:22 on Mar 08,2024
 # vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" ../../uvm/my_uvm_pkg.sv 
 # -- Compiling package my_uvm_package
 # -- Importing package uvm_pkg (uvm-1.2 Built-in)
 # 
 # Top level modules:
 # 	--none--
-# End time: 02:55:25 on Mar 08,2024, Elapsed time: 0:00:00
+# End time: 13:20:22 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 02:55:25 on Mar 08,2024
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:20:22 on Mar 08,2024
 # vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" ../../uvm/my_uvm_tb.sv 
 # -- Compiling package my_uvm_tb_sv_unit
 # -- Importing package uvm_pkg (uvm-1.2 Built-in)
@@ -154,12 +155,16 @@
 # 
 # Top level modules:
 # 	my_uvm_tb
-# End time: 02:55:26 on Mar 08,2024, Elapsed time: 0:00:01
+# End time: 13:20:23 on Mar 08,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.my_uvm_tb -wlf my_uvm_tb.wlf -sv_lib lib/uvm_dpi -dpicpppath /usr/bin/gcc "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/questa_uvm_pkg-1.2/src/" 
-# Start time: 02:55:26 on Mar 08,2024
-# Loading /tmp/pgn7690@batgirl.ece.northwestern.edu_dpi_404921/linux_x86_64_gcc-8/export_tramp.so
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Start time: 13:20:23 on Mar 08,2024
+# Loading /tmp/pgn7690@harley.ece.northwestern.edu_dpi_223093/linux_gcc-8/export_tramp.so
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__2)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__3)".
 # Loading sv_std.std
 # Loading work.my_uvm_if(fast)
 # Loading work.uvm_pkg(fast)
@@ -167,7 +172,7 @@
 # Loading work.my_uvm_tb_sv_unit(fast)
 # Loading work.questa_uvm_pkg(fast)
 # Loading work.my_uvm_tb(fast)
-# Loading work.my_uvm_if(fast__2)
+# Loading work.my_uvm_if(fast)
 # Loading work.fm_radio_top_sv_unit(fast)
 # Loading work.fm_radio_top(fast)
 # Loading work.fifo(fast)
@@ -183,8 +188,8 @@
 # Loading work.fir(fast__3)
 # Loading work.iir(fast)
 # Loading work.gain(fast)
-# Compiling /tmp/pgn7690@batgirl.ece.northwestern.edu_dpi_404921/linux_x86_64_gcc-8/exportwrapper.c
-# Loading /tmp/pgn7690@batgirl.ece.northwestern.edu_dpi_404921/linux_x86_64_gcc-8/vsim_auto_compile.so
+# Compiling /tmp/pgn7690@harley.ece.northwestern.edu_dpi_223093/linux_gcc-8/exportwrapper.c
+# Loading /tmp/pgn7690@harley.ece.northwestern.edu_dpi_223093/linux_gcc-8/vsim_auto_compile.so
 # Loading ./lib/uvm_dpi.so
 # UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
 # ----------------------------------------------------------------
@@ -266,13 +271,309 @@
 # ----------------------------------------------------------------------
 # 
 # UVM_INFO ../../uvm/my_uvm_sequence.sv(32) @ 0: uvm_test_top.env.agent.seqr@@seq [SEQ_RUN] Loading file ../data/read_iq.txt...
-# UVM_INFO ../../uvm/my_uvm_sequence.sv(63) @ 127972295: uvm_test_top.env.agent.seqr@@seq [SEQ_RUN] Closing file ../data/read_iq.txt...
-# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 127972295: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO ../../uvm/my_uvm_monitor.sv(145) @ 127972295: uvm_test_top.env.agent.mon_cmp [LEFT_MON_CMP_FINAL] Closing file ../data/left_volume.txt...
-# UVM_INFO ../../uvm/my_uvm_monitor.sv(147) @ 127972295: uvm_test_top.env.agent.mon_cmp [RIGHT_MON_CMP_FINAL] Closing file ../data/right_volume.txt...
-# UVM_INFO ../../uvm/my_uvm_monitor.sv(67) @ 127972295: uvm_test_top.env.agent.mon_out [LEFT_MON_OUT_FINAL] Closing file ../data/left_out_uvm.txt...
-# UVM_INFO ../../uvm/my_uvm_monitor.sv(69) @ 127972295: uvm_test_top.env.agent.mon_out [RIGHT_MON_OUT_FINAL] Closing file ../data/right_out_uvm.txt...
-# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 127972295: reporter [UVM/REPORT/SERVER] 
+# UVM_INFO ../../uvm/my_uvm_scoreboard.sv(67) @ 6955: uvm_test_top.env.sb [SB_CMP] ---------------------------------------------
+# Name     Type                Size  Value     
+# ---------------------------------------------
+# tx_out   my_uvm_transaction  -     @923      
+#   iq_in  integral            64    'hfffffe50
+# ---------------------------------------------
+# 
+# UVM_INFO ../../uvm/my_uvm_scoreboard.sv(68) @ 6955: uvm_test_top.env.sb [SB_CMP] ---------------------------------------------
+# Name     Type                Size  Value     
+# ---------------------------------------------
+# tx_cmp   my_uvm_transaction  -     @927      
+#   iq_in  integral            64    'hffffff00
+# ---------------------------------------------
+# 
+# UVM_FATAL ../../uvm/my_uvm_scoreboard.sv(69) @ 6955: uvm_test_top.env.sb [SB_CMP] Test: Failed! Expecting: ffffff00, Received: fffffe50
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 6955: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    8
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    1
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [SB_CMP]     3
+# [SEQ_RUN]     1
+# [UVM/RELNOTES]     1
+# [UVMTOP]     1
+# 
+# ** Note: $finish    : /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(135)
+#    Time: 6955 ns  Iteration: 2  Region: /uvm_pkg::uvm_task_phase::execute
+# 1
+# Break in Function uvm_pkg/uvm_root::die at /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh line 135
+do fm_radio_sim_uvm.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# QuestaSim vmap 2019.3_2 Lib Mapping Utility 2019.09 Sep 24 2019
+# vmap work work 
+# Modifying modelsim.ini
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:05 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../demodulate.sv 
+# -- Compiling module demodulate
+# 
+# Top level modules:
+# 	demodulate
+# End time: 13:22:05 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:05 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../div.sv 
+# -- Compiling package div_sv_unit
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# End time: 13:22:05 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:05 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../fifo.sv 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 13:22:05 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:05 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../fir_cmplx.sv 
+# -- Compiling module fir_cmplx
+# 
+# Top level modules:
+# 	fir_cmplx
+# End time: 13:22:05 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:05 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../fir.sv 
+# -- Compiling module fir
+# 
+# Top level modules:
+# 	fir
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../fm_radio_top.sv 
+# -- Compiling package fm_radio_top_sv_unit
+# -- Compiling module fm_radio_top
+# 
+# Top level modules:
+# 	fm_radio_top
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../gain.sv 
+# -- Compiling module gain
+# 
+# Top level modules:
+# 	gain
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../iir.sv 
+# -- Compiling module iir
+# 
+# Top level modules:
+# 	iir
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../multiply.sv 
+# -- Compiling module multiply
+# 
+# Top level modules:
+# 	multiply
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../qarctan.sv 
+# -- Compiling module qarctan
+# 
+# Top level modules:
+# 	qarctan
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/uvm.sv 
+# -- Compiling package uvm_pkg (uvm-1.2 Built-in)
+# 
+# Top level modules:
+# 	--none--
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/uvm_macros.svh 
+# End time: 13:22:06 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:06 on Mar 08,2024
+# vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv 
+# -- Compiling package questa_uvm_pkg
+# -- Importing package uvm_pkg (uvm-1.2 Built-in)
+# 
+# Top level modules:
+# 	--none--
+# End time: 13:22:07 on Mar 08,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:07 on Mar 08,2024
+# vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" ../../uvm/my_uvm_pkg.sv 
+# -- Compiling package my_uvm_package
+# -- Importing package uvm_pkg (uvm-1.2 Built-in)
+# 
+# Top level modules:
+# 	--none--
+# End time: 13:22:07 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim vlog 2019.3_2 Compiler 2019.09 Sep 24 2019
+# Start time: 13:22:07 on Mar 08,2024
+# vlog -reportprogress 300 -work work "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src" ../../uvm/my_uvm_tb.sv 
+# -- Compiling package my_uvm_tb_sv_unit
+# -- Importing package uvm_pkg (uvm-1.2 Built-in)
+# -- Importing package my_uvm_package
+# -- Compiling interface my_uvm_if
+# -- Compiling module my_uvm_tb
+# 
+# Top level modules:
+# 	my_uvm_tb
+# End time: 13:22:08 on Mar 08,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 13:22:08 on Mar 08,2024, Elapsed time: 0:01:45
+# Errors: 0, Warnings: 0
+# vsim -classdebug -voptargs="+acc" "+notimingchecks" -L work work.my_uvm_tb -wlf my_uvm_tb.wlf -sv_lib lib/uvm_dpi -dpicpppath /usr/bin/gcc "+incdir+/vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/questa_uvm_pkg-1.2/src/" 
+# Start time: 13:22:08 on Mar 08,2024
+# Loading /tmp/pgn7690@harley.ece.northwestern.edu_dpi_226329/linux_gcc-8/export_tramp.so
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__2)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fir(fast__3)".
+# Loading sv_std.std
+# Loading work.my_uvm_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.my_uvm_package(fast)
+# Loading work.my_uvm_tb_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.my_uvm_tb(fast)
+# Loading work.my_uvm_if(fast)
+# Loading work.fm_radio_top_sv_unit(fast)
+# Loading work.fm_radio_top(fast)
+# Loading work.fifo(fast)
+# Loading work.fir_cmplx(fast)
+# Loading work.demodulate(fast)
+# Loading work.qarctan(fast)
+# Loading work.div_sv_unit(fast)
+# Loading work.div(fast)
+# Loading work.fir(fast)
+# Loading work.fir(fast__1)
+# Loading work.multiply(fast)
+# Loading work.fir(fast__2)
+# Loading work.fir(fast__3)
+# Loading work.iir(fast)
+# Loading work.gain(fast)
+# Compiling /tmp/pgn7690@harley.ece.northwestern.edu_dpi_226329/linux_gcc-8/exportwrapper.c
+# Loading /tmp/pgn7690@harley.ece.northwestern.edu_dpi_226329/linux_gcc-8/vsim_auto_compile.so
+# Loading ./lib/uvm_dpi.so
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test my_uvm_test...
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# ----------------------------------------------------------------------
+# Name                           Type                        Size  Value
+# ----------------------------------------------------------------------
+# uvm_test_top                   my_uvm_test                 -     @359 
+#   env                          my_uvm_env                  -     @371 
+#     agent                      my_uvm_agent                -     @379 
+#       agent_ap_compare         uvm_analysis_port           -     @421 
+#       agent_ap_output          uvm_analysis_port           -     @412 
+#       drvr                     my_uvm_driver               -     @553 
+#         rsp_port               uvm_analysis_port           -     @570 
+#         seq_item_port          uvm_seq_item_pull_port      -     @561 
+#       mon_cmp                  my_uvm_monitor_compare      -     @587 
+#         mon_ap_compare         uvm_analysis_port           -     @597 
+#       mon_out                  my_uvm_monitor_output       -     @579 
+#         mon_ap_output          uvm_analysis_port           -     @607 
+#       seqr                     uvm_sequencer               -     @430 
+#         rsp_export             uvm_analysis_export         -     @438 
+#         seq_item_export        uvm_seq_item_pull_imp       -     @544 
+#         arbitration_queue      array                       0     -    
+#         lock_queue             array                       0     -    
+#         num_last_reqs          integral                    32    'd1  
+#         num_last_rsps          integral                    32    'd1  
+#     sb                         my_uvm_scoreboard           -     @387 
+#       left_compare_fifo        uvm_tlm_analysis_fifo #(T)  -     @763 
+#         analysis_export        uvm_analysis_imp            -     @807 
+#         get_ap                 uvm_analysis_port           -     @798 
+#         get_peek_export        uvm_get_peek_imp            -     @780 
+#         put_ap                 uvm_analysis_port           -     @789 
+#         put_export             uvm_put_imp                 -     @771 
+#       left_fifo                uvm_tlm_analysis_fifo #(T)  -     @657 
+#         analysis_export        uvm_analysis_imp            -     @701 
+#         get_ap                 uvm_analysis_port           -     @692 
+#         get_peek_export        uvm_get_peek_imp            -     @674 
+#         put_ap                 uvm_analysis_port           -     @683 
+#         put_export             uvm_put_imp                 -     @665 
+#       right_compare_fifo       uvm_tlm_analysis_fifo #(T)  -     @816 
+#         analysis_export        uvm_analysis_imp            -     @860 
+#         get_ap                 uvm_analysis_port           -     @851 
+#         get_peek_export        uvm_get_peek_imp            -     @833 
+#         put_ap                 uvm_analysis_port           -     @842 
+#         put_export             uvm_put_imp                 -     @824 
+#       right_fifo               uvm_tlm_analysis_fifo #(T)  -     @710 
+#         analysis_export        uvm_analysis_imp            -     @754 
+#         get_ap                 uvm_analysis_port           -     @745 
+#         get_peek_export        uvm_get_peek_imp            -     @727 
+#         put_ap                 uvm_analysis_port           -     @736 
+#         put_export             uvm_put_imp                 -     @718 
+#       sb_export_compare_left   uvm_analysis_export         -     @639 
+#       sb_export_compare_right  uvm_analysis_export         -     @648 
+#       sb_export_left           uvm_analysis_export         -     @621 
+#       sb_export_right          uvm_analysis_export         -     @630 
+# ----------------------------------------------------------------------
+# 
+# UVM_INFO ../../uvm/my_uvm_sequence.sv(32) @ 0: uvm_test_top.env.agent.seqr@@seq [SEQ_RUN] Loading file ../data/read_iq.txt...
+# UVM_INFO ../../uvm/my_uvm_sequence.sv(63) @ 244975175: uvm_test_top.env.agent.seqr@@seq [SEQ_RUN] Closing file ../data/read_iq.txt...
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 244975175: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../../uvm/my_uvm_monitor.sv(145) @ 244975175: uvm_test_top.env.agent.mon_cmp [LEFT_MON_CMP_FINAL] Closing file ../data/left_volume.txt...
+# UVM_INFO ../../uvm/my_uvm_monitor.sv(147) @ 244975175: uvm_test_top.env.agent.mon_cmp [RIGHT_MON_CMP_FINAL] Closing file ../data/right_volume.txt...
+# UVM_INFO ../../uvm/my_uvm_monitor.sv(67) @ 244975175: uvm_test_top.env.agent.mon_out [LEFT_MON_OUT_FINAL] Closing file ../data/left_out_uvm.txt...
+# UVM_INFO ../../uvm/my_uvm_monitor.sv(69) @ 244975175: uvm_test_top.env.agent.mon_out [RIGHT_MON_OUT_FINAL] Closing file ../data/right_out_uvm.txt...
+# UVM_INFO /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 244975175: reporter [UVM/REPORT/SERVER] 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
@@ -293,8 +594,9 @@
 # [UVMTOP]     1
 # 
 # ** Note: $finish    : /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
-#    Time: 127972295 ns  Iteration: 78  Instance: /my_uvm_tb
+#    Time: 244975175 ns  Iteration: 78  Instance: /my_uvm_tb
+# Break key hit
 # 1
 # Break in Task uvm_pkg/uvm_root::run_test at /vol/mentor/questa_sim-2019.3_2/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh line 517
-# End time: 02:56:39 on Mar 08,2024, Elapsed time: 0:01:13
+# End time: 13:23:58 on Mar 08,2024, Elapsed time: 0:01:50
 # Errors: 0, Warnings: 0

@@ -156,7 +156,7 @@ always_comb begin
 
 		DEQU: begin
 			state_c = WAITING;
-			demod_data_valid_c = 1'b1;//
+			demod_data_valid_c = 1'b1;
 			short_real_c = DEQUANTIZE(real_prev_times_curr[31:0]) - DEQUANTIZE(neg_imag_prev_times_imag);
     		short_imag_c = DEQUANTIZE(imag_prev_times_curr[31:0]) + DEQUANTIZE(neg_imag_prev_times_real);
 		end

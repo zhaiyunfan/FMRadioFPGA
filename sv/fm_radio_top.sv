@@ -462,9 +462,8 @@ logic empty_deemph_sub_out_fifo;
 logic empty_gain_left_out_fifo;
 logic empty_gain_right_out_fifo;
 
-//// END FIFO SIGNALS ////
 
-//// BEGIN COMBINATIONAL ASSIGNMENTS ////
+
 assign din_q_in_fifo = q;
 assign din_i_in_fifo = i;
 assign q_in_full = full_q_in_fifo;
@@ -474,34 +473,26 @@ assign right_audio = dout_gain_right_out_fifo;
 assign left_out_empty = empty_gain_left_out_fifo;
 assign right_out_empty = empty_gain_right_out_fifo;
 
-/* connecting fifos bc there are two input fifos that should be written to simultaneously*/
 assign wr_en_q_in_fifo = in_wr_en;
 assign wr_en_i_in_fifo = in_wr_en;
 
-/* connecting fifos bc multiply A is combinational */
 assign rd_en_fir_B_out_fifo = ~empty_fir_B_out_fifo & ~full_mult_A_out_fifo;;
 assign wr_en_mult_A_out_fifo = ~empty_fir_B_out_fifo & ~full_mult_A_out_fifo;
 
-/* connecting fifos bc multiply B is combinational
-   two inputs so we want to read at same time */
 assign rd_en_fir_A_out_fifo = ~empty_fir_A_out_fifo & ~empty_fir_C_out_fifo & ~full_mult_B_out_fifo;
 assign rd_en_fir_C_out_fifo = ~empty_fir_A_out_fifo & ~empty_fir_C_out_fifo & ~full_mult_B_out_fifo;
 assign wr_en_mult_B_out_fifo = ~empty_fir_A_out_fifo & ~empty_fir_C_out_fifo & ~full_mult_B_out_fifo;
 
-/* connecting fifos bc gain LEFT is combinational */
 assign rd_en_deemph_add_out_fifo = ~empty_deemph_add_out_fifo & ~full_gain_left_out_fifo;
 assign wr_en_gain_left_out_fifo = ~empty_deemph_add_out_fifo & ~full_gain_left_out_fifo;
 
-/* connecting fifos bc gain RIGHT is combinational */
 assign rd_en_deemph_sub_out_fifo = ~empty_deemph_sub_out_fifo & ~full_gain_right_out_fifo;
 assign wr_en_gain_right_out_fifo = ~empty_deemph_sub_out_fifo & ~full_gain_right_out_fifo;
 
-/* connecting fifos bc 2 output fifos that should be read simultaneously */
 assign rd_en_gain_right_out_fifo = out_rd_en;
 assign rd_en_gain_left_out_fifo = out_rd_en;
 
 
-//// BEGIN INSTANCES ////
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
@@ -614,13 +605,12 @@ fifo #(
     .empty(empty_demod_out_fifo)
 );
 
-// write to all three of these from demod_out_fifo at once!
-logic ABE_full;
-assign ABE_full = (full_fir_A_in_fifo | full_fir_B_in_fifo) | full_fir_E_in_fifo;
-assign wr_en_fir_A_in_fifo = ~empty_demod_out_fifo & ~ABE_full;
-assign wr_en_fir_B_in_fifo = ~empty_demod_out_fifo & ~ABE_full;
-assign wr_en_fir_E_in_fifo = ~empty_demod_out_fifo & ~ABE_full;
-assign rd_en_demod_out_fifo = ~empty_demod_out_fifo & ~ABE_full;
+logic fir_ABE_full;
+assign fir_ABE_full = (full_fir_A_in_fifo | full_fir_B_in_fifo) | full_fir_E_in_fifo;
+assign wr_en_fir_A_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+assign wr_en_fir_B_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+assign wr_en_fir_E_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+assign rd_en_demod_out_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
@@ -1002,6 +992,5 @@ fifo #(
     .empty(empty_gain_right_out_fifo)
 );
 
-//// END INSTANCES ////
 
 endmodule
