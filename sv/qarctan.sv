@@ -77,7 +77,7 @@ div #(
 
 always_ff @(posedge clk or posedge reset) begin
     if (reset == 1'b1) begin
-        state <= READY;
+        state <= IDLE;
         dividend <= '0;
         divisor <= '0;
     end else begin
@@ -115,6 +115,7 @@ always_comb begin
 		PRE_DIVISION: begin
 			pseudo_abs_y = ($signed(y) >= 0) ? y : -$signed(y);
     		abs_y = $signed(pseudo_abs_y) + 32'h00000001;
+			//one more state
     		x_minus_abs_y = $signed(x) - $signed(abs_y);
     		x_plus_abs_y = $signed(x) + $signed(abs_y);
     		abs_y_minus_x = $signed(abs_y) - $signed(x);
@@ -163,7 +164,7 @@ always_comb begin
                 end else begin
                     angle = ($signed(QUAD_THREE) - $signed(DEQUANTIZE(lower_quad_one_times_r))); 
                 end
-                data_out = ($signed(y) < 0) ? -$signed(angle) : angle;
+            data_out = ($signed(y) < 0) ? -$signed(angle) : angle;
 
 			state_c = IDLE;
 		end
