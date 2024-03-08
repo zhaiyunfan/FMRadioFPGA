@@ -103,11 +103,19 @@ void fm_radio_stereo(unsigned char *IQ, int *left_audio, int *right_audio)
 
 void read_IQ( unsigned char *IQ, int *I, int *Q, int samples )
 {
+
     int i = 0;
+    FILE *file = fopen("read_iq.txt", "w"); // Open the file for writing
+    if (file == NULL)
+    {
+        printf("Error opening file!\n");
+        return; // Exit if file couldn't be opened
+    }
     for ( i = 0; i < samples; i++ )
     {
         I[i] = QUANTIZE_I((short)(IQ[i*4+1] << 8) | (short)IQ[i*4+0]);
         Q[i] = QUANTIZE_I((short)(IQ[i*4+3] << 8) | (short)IQ[i*4+2]);
+        fprintf(file, "%08x%08x\n", I[i], Q[i]);
     }
 }
 
@@ -310,9 +318,17 @@ void sub_n( int *x_in, int *y_in, const int n_samples, int *output )
 void gain_n( int *input, const int n_samples, int gain, int *output )
 {
     int i = 0;
+    FILE *file = fopen("_volume.txt", "w"); // Open the file for writing
+    if (file == NULL)
+    {
+        printf("Error opening file!\n");
+        return; // Exit if file couldn't be opened
+    }
+
     for ( i = 0; i < n_samples; i++ )
     {
         output[i] = DEQUANTIZE(input[i] * gain) << (14-BITS);
+        fprintf(file, "%08x\n", output[i]); // Write the demod_out value to file in hexadecimal
     }
 }
 
