@@ -114,10 +114,16 @@ void read_IQ( unsigned char *IQ, int *I, int *Q, int samples )
 void demodulate_n( int *real, int *imag, int *real_prev, int *imag_prev, const int n_samples, const int gain, int *demod_out )
 {
     int i = 0;
+    FILE *file = fopen("demod_output.txt", "w"); // Open the file for writing
 
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return; // Exit if file couldn't be opened
+    }
     for ( i = 0; i < n_samples; i++ )
     {
         demodulate( real[i], imag[i], real_prev, imag_prev, gain, &demod_out[i] );
+        fprintf(file, "%08x\n", demod_out[i]); // Write the demod_out value to file in hexadecimal
     }
 }
 

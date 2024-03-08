@@ -8,3 +8,4 @@ stdout.*
 *.bak
 *.ini
 sv/testbench/transcript
+*.dat
