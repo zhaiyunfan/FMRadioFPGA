@@ -86,8 +86,8 @@ always_ff @(posedge clk or posedge reset) begin
     	imag_prev_times_curr <= imag_prev_times_curr_c;
     	neg_imag_prev_times_imag <= neg_imag_prev_times_imag_c;
     	neg_imag_prev_times_real <= neg_imag_prev_times_real_c;
-		short_real = short_real_c;
-    	short_imag = short_imag_c;
+		short_real <= short_real_c;
+    	short_imag <= short_imag_c;
     end
 end
 
