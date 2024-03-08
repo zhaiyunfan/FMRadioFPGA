@@ -46,7 +46,7 @@ class my_uvm_sequence extends uvm_sequence#(my_uvm_transaction);
             `uvm_fatal("SEQ_RUN", $sformatf("Failed to open comparison file %s...", RIGHT_CMP_NAME));
         end
 
-        iq_lines = 366149;
+        iq_lines = 262144;
 
         i = 0;
         while ( i < iq_lines) begin
