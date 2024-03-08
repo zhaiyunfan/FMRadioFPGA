@@ -126,21 +126,16 @@ always_comb begin
 			quant_x_minus_abs_y = QUANTIZE_I(x_minus_abs_y);
     		quant_x_plus_abs_y = QUANTIZE_I(x_plus_abs_y);
             // there is valid data from demod
-            if (demod_data_valid == 1'b1) begin
-                start_div = 1'b1;
-                state_c = WORKING;
-                if ($signed(x) >= 0) begin
-                    dividend_c = ($signed(quant_x_minus_abs_y) >= 0) ? {32'h0, quant_x_minus_abs_y} : {32'hffffffff, quant_x_minus_abs_y};
-                    divisor_c = x_plus_abs_y;
-                end else begin
-                    dividend_c = ($signed(quant_x_plus_abs_y) >= 0) ? {32'h0, quant_x_plus_abs_y} : {32'hffffffff, quant_x_plus_abs_y};
-                    divisor_c = abs_y_minus_x;
-                end
+            start_div = 1'b1;
+            state_c = WORKING;
+            if ($signed(x) >= 0) begin
+                dividend_c = ($signed(quant_x_minus_abs_y) >= 0) ? {32'h0, quant_x_minus_abs_y} : {32'hffffffff, quant_x_minus_abs_y};
+                divisor_c = x_plus_abs_y;
+            end else begin
+                dividend_c = ($signed(quant_x_plus_abs_y) >= 0) ? {32'h0, quant_x_plus_abs_y} : {32'hffffffff, quant_x_plus_abs_y};
+               	divisor_c = abs_y_minus_x;
             end
-            else begin
-                start_div = 1'b0;
-                state_c = READY;
-            end
+           
         end
         // the divider is doing a computation
         WORKING: begin
