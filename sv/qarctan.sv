@@ -1,4 +1,3 @@
-`include "coeffs.svh"
 module qarctan
 (
     input   logic           clk,
@@ -11,13 +10,36 @@ module qarctan
     output  logic           qarctan_done   
 );
 
-    
+function logic signed [31:0] QUANTIZE_I; 
+input logic signed [31:0] i;
+    begin
+        return i <<< 10;
+    end
+endfunction
+
+function logic signed [31:0] DEQUANTIZE; 
+input logic signed [31:0] i;
+    logic signed [31:0] offset_i;
+    begin
+		offset_i =  i[31] == 1 ? (i + ((1 << 10) - 1)): i;
+
+		return offset_i >>> 10;
+        // // 判断i是否为负数
+        // if (i < 0) begin
+        //     // 对负数进行调整以避免舍入错误
+        //     offset_i = (i + 1023) >>> 10;
+        // end else begin
+        //     // 正数或零不需要调整
+        //     offset_i = i >>> 10;
+        // end
+        // return offset_i;
+    end
+endfunction 
+
 const logic [31:0] QUAD_ONE = 32'h00000324;
 const logic [31:0] QUAD_THREE = 32'h0000096c;
 
-import macros::*;
-
-typedef enum logic {READY, WORKING} state_t;
+typedef enum logic [2:0] {IDLE, PRE_DIVISION, READY, WORKING, ANGLE_OUT} state_t;
 state_t state, state_c;
 
 // divider signals
@@ -82,7 +104,26 @@ always_comb begin
 
     case(state)
         // the divider is not doing anything
+		IDLE: begin
+			if (demod_data_valid == 1'b1) begin
+				state_c = PRE_DIVISION;
+			end else begin
+				state_c = IDLE;
+			end
+		end
+
+		PRE_DIVISION: begin
+			pseudo_abs_y = ($signed(y) >= 0) ? y : -$signed(y);
+    		abs_y = $signed(pseudo_abs_y) + 32'h00000001;
+    		x_minus_abs_y = $signed(x) - $signed(abs_y);
+    		x_plus_abs_y = $signed(x) + $signed(abs_y);
+    		abs_y_minus_x = $signed(abs_y) - $signed(x);
+			state_c = READY;
+		end
+
         READY: begin
+			quant_x_minus_abs_y = QUANTIZE_I(x_minus_abs_y);
+    		quant_x_plus_abs_y = QUANTIZE_I(x_plus_abs_y);
             // there is valid data from demod
             if (demod_data_valid == 1'b1) begin
                 start_div = 1'b1;
@@ -105,10 +146,17 @@ always_comb begin
             start_div = 1'b0;
             // if the divider has completed
             if (div_valid_out == 1'b1) begin
-                state_c = READY;
+                state_c = ANGLE_OUT;
                 quad_one_times_r = $signed(QUAD_ONE) * $signed(div_quotient_out);
                 lower_quad_one_times_r = quad_one_times_r[31:0];
-                if (x == '0 && y == '0) begin
+            // otherwise keep working
+            end else begin
+                state_c = WORKING;
+            end
+		end
+
+		ANGLE_OUT: begin
+			if (x == '0 && y == '0) begin
                     angle = 32'h648;
                 end else if ($signed(x) >= 0) begin
                     angle = ($signed(QUAD_ONE) - $signed(DEQUANTIZE(lower_quad_one_times_r)));
@@ -116,22 +164,10 @@ always_comb begin
                     angle = ($signed(QUAD_THREE) - $signed(DEQUANTIZE(lower_quad_one_times_r))); 
                 end
                 data_out = ($signed(y) < 0) ? -$signed(angle) : angle;
-            // otherwise keep working
-            end else begin
-                state_c = WORKING;
-            end
-        end
-    endcase
-end
 
-always_comb begin
-    pseudo_abs_y = ($signed(y) >= 0) ? y : -$signed(y);
-    abs_y = $signed(pseudo_abs_y) + 32'h00000001;
-    x_minus_abs_y = $signed(x) - $signed(abs_y);
-    x_plus_abs_y = $signed(x) + $signed(abs_y);
-    abs_y_minus_x = $signed(abs_y) - $signed(x);
-    quant_x_minus_abs_y = QUANTIZE_I(x_minus_abs_y);
-    quant_x_plus_abs_y = QUANTIZE_I(x_plus_abs_y);
+			state_c = IDLE;
+		end
+    endcase
 end
 
 endmodule
