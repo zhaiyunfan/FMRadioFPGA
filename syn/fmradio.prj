@@ -45,7 +45,7 @@ set_option -part_companion ""
 
 #compilation/mapping options
 set_option -use_fsm_explorer 0
-set_option -top_module "gain_top"
+set_option -top_module "fm_radio_top"
 
 # hdl_compiler_options
 set_option -distributed_compile 1
