@@ -52,13 +52,13 @@ logic [31:0] div_remainder_out;
 // internal signals
 logic [31:0] angle;
 logic [31:0] abs_y, pseudo_abs_y;
-logic [31:0] x_minus_abs_y;
-logic [31:0] x_plus_abs_y;
-logic [31:0] abs_y_minus_x;
+logic [31:0] x_minus_abs_y, x_minus_abs_y_c;
+logic [31:0] x_plus_abs_y, x_plus_abs_y_c;
+logic [31:0] abs_y_minus_x, abs_y_minus_x_c;
 logic [31:0] quant_x_minus_abs_y;
 logic [31:0] quant_x_plus_abs_y;
 logic [63:0] quad_one_times_r;
-logic [31:0] lower_quad_one_times_r;
+logic [31:0] lower_quad_one_times_r, lower_quad_one_times_r_c;
 
 div #(
     .DIVIDEND_WIDTH(64),
@@ -80,10 +80,18 @@ always_ff @(posedge clk or posedge reset) begin
         state <= IDLE;
         dividend <= '0;
         divisor <= '0;
+		x_minus_abs_y <= '0;
+		x_plus_abs_y <= '0;
+		abs_y_minus_x <= '0;
+		lower_quad_one_times_r <= '0;
     end else begin
         state <= state_c;
         dividend <= dividend_c;
         divisor <= divisor_c;
+		x_minus_abs_y <= x_minus_abs_y_c;
+		x_plus_abs_y <= x_plus_abs_y_c;
+		abs_y_minus_x <= abs_y_minus_x_c;
+		lower_quad_one_times_r <= lower_quad_one_times_r_c;
     end
 end
 
@@ -116,9 +124,9 @@ always_comb begin
 			pseudo_abs_y = ($signed(y) >= 0) ? y : -$signed(y);
     		abs_y = $signed(pseudo_abs_y) + 32'h00000001;
 			//one more state
-    		x_minus_abs_y = $signed(x) - $signed(abs_y);
-    		x_plus_abs_y = $signed(x) + $signed(abs_y);
-    		abs_y_minus_x = $signed(abs_y) - $signed(x);
+    		x_minus_abs_y_c = $signed(x) - $signed(abs_y);
+    		x_plus_abs_y_c = $signed(x) + $signed(abs_y);
+    		abs_y_minus_x_c = $signed(abs_y) - $signed(x);
 			state_c = READY;
 		end
 
@@ -144,7 +152,7 @@ always_comb begin
             if (div_valid_out == 1'b1) begin
                 state_c = ANGLE_OUT;
                 quad_one_times_r = $signed(QUAD_ONE) * $signed(div_quotient_out);
-                lower_quad_one_times_r = quad_one_times_r[31:0];
+                lower_quad_one_times_r_c = quad_one_times_r[31:0];
             // otherwise keep working
             end else begin
                 state_c = WORKING;
