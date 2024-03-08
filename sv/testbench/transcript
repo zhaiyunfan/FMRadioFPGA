@@ -11,35 +11,47 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/gain.sv
+# do fm_radio_sim_uvm.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
-# Start time: 11:51:52 on Mar 07,2024
-# vlog -reportprogress 300 -work work /home/pgn7690/CE387/project/FMRadioFPGA/sv/gain.sv 
-# -- Compiling module gain
+# Start time: 00:09:43 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../sv/demodulate.sv 
+# ** Error: (vlog-7) Failed to open design unit file "../sv/demodulate.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 00:09:43 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Error in macro ./fm_radio_sim_uvm.do line 8
+# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -work work "../sv/demodulate.sv""
+do fm_radio_sim_uvm.do
+# -9
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vmap 2020.1 Lib Mapping Utility 2020.01 Jan 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:11:07 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../demodulate.sv 
+# -- Compiling module demodulate
 # 
 # Top level modules:
-# 	gain
-# End time: 11:51:52 on Mar 07,2024, Elapsed time: 0:00:00
+# 	demodulate
+# End time: 00:11:07 on Mar 08,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim work.gain_tb -voptargs=+acc
-# vsim work.gain_tb -voptargs="+acc" 
-# Start time: 11:52:03 on Mar 07,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading sv_std.std
-# Loading work.gain_tb(fast)
-# Loading work.gain_top(fast)
-# Loading work.fifo(fast)
-# Loading work.gain(fast)
-run -all
-# @ 20: Loading file ../data/left_deemph.txt...
-# @ 30: Beginning simulation...
-# @ 30: Comparing file ../data/left_volume.txt...
-# @ 1065: Simulation completed.
-# Total simulation cycle count: 103
-# Total error count: 0
-# ** Note: $finish    : gain_tb.sv(75)
-#    Time: 1065 ns  Iteration: 2  Instance: /gain_tb
-# 1
-# Break in NamedBeginStat tb_process at gain_tb.sv line 75
-# End time: 11:52:12 on Mar 07,2024, Elapsed time: 0:00:09
-# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 00:11:07 on Mar 08,2024
+# vlog -reportprogress 300 -work work ../div.sv 
+# ** Error: (vlog-13069) ../div.sv(72): near "end": syntax error, unexpected end, expecting ';'.
+# End time: 00:11:07 on Mar 08,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+# Error in macro ./fm_radio_sim_uvm.do line 9
+# /vol/mentor/modelsim-2020.1/modeltech/linux_x86_64/vlog failed.
+#     while executing
+# "vlog -work work "../div.sv""
