@@ -2,7 +2,7 @@ function automatic logic [5:0] msb_64;
 	//localparam MAX_DATA_WIDTH = 64;
     //input logic [5:0] DATA_WIDTH;
     input logic [63:0] div_num;
-    logic [5:0] idx;
+    int idx;
     begin
         msb_64 = 0;
         for (idx = 63; idx >= 0; idx = idx - 1) begin
@@ -18,7 +18,7 @@ function automatic logic [5:0] msb_32;
 	//localparam MAX_DATA_WIDTH = 64;
     //input logic [5:0] DATA_WIDTH;
     input logic [31:0] div_num;
-    logic [5:0] idx;
+    int idx;
     begin
         msb_32 = 0;
         for (idx = 31; idx >= 0; idx = idx - 1) begin
@@ -80,6 +80,12 @@ always_comb begin
 	q_c = q;
 	valid_out = '0;
 	overflow = 1'b0;
+	remainder = '0;
+	quotient = '0;
+	p = '0;
+	ab = '0;
+	sign = '0;
+	remainder_condition = '0;
 
 	case(state)
 		IDLE: begin
