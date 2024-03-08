@@ -155,7 +155,7 @@ always_comb begin
 		end
 
 		DEQU: begin
-			state_c = WAITING
+			state_c = WAITING;
 			demod_data_valid_c = 1'b1;//
 			short_real_c = DEQUANTIZE(real_prev_times_curr[31:0]) - DEQUANTIZE(neg_imag_prev_times_imag);
     		short_imag_c = DEQUANTIZE(imag_prev_times_curr[31:0]) + DEQUANTIZE(neg_imag_prev_times_real);
@@ -183,13 +183,13 @@ always_comb begin
 end
 
     
-always_comb begin
-    //real_prev_times_curr = $signed(real_prev) * $signed(real_curr);
-    //imag_prev_times_curr = $signed(real_prev) * $signed(imag_curr);
-    //neg_imag_prev_times_imag = -$signed(imag_prev) * $signed(imag_curr);
-    //neg_imag_prev_times_real = -$signed(imag_prev) * $signed(real_curr);
-    short_real = DEQUANTIZE(real_prev_times_curr[31:0]) - DEQUANTIZE(neg_imag_prev_times_imag);
-    short_imag = DEQUANTIZE(imag_prev_times_curr[31:0]) + DEQUANTIZE(neg_imag_prev_times_real);
-end
+// always_comb begin
+//     //real_prev_times_curr = $signed(real_prev) * $signed(real_curr);
+//     //imag_prev_times_curr = $signed(real_prev) * $signed(imag_curr);
+//     //neg_imag_prev_times_imag = -$signed(imag_prev) * $signed(imag_curr);
+//     //neg_imag_prev_times_real = -$signed(imag_prev) * $signed(real_curr);
+//     //short_real = DEQUANTIZE(real_prev_times_curr[31:0]) - DEQUANTIZE(neg_imag_prev_times_imag);
+//     //short_imag = DEQUANTIZE(imag_prev_times_curr[31:0]) + DEQUANTIZE(neg_imag_prev_times_real);
+// end
 
 endmodule
