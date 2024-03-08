@@ -10,3 +10,4 @@ stdout.*
 sv/testbench/transcript
 *.dat
 Report.docx
+code.zip
