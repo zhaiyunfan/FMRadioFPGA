@@ -225,15 +225,9 @@ function logic signed [31:0] DEQUANTIZE;
 input logic signed [31:0] i;
     logic signed [31:0] offset_i;
     begin
-        // 判断i是否为负数
-        if (i < 0) begin
-            // 对负数进行调整以避免舍入错误
-            offset_i = (i + 1023) >>> 10;
-        end else begin
-            // 正数或零不需要调整
-            offset_i = i >>> 10;
-        end
-        return offset_i;
+		offset_i =  i[31] == 1 ? (i + ((1 << 10) - 1)): i;
+
+		return offset_i >>> 10;
     end
 endfunction
 
@@ -325,13 +319,12 @@ localparam logic [0:31][31:0] HP_COEFFS =
 localparam FIFO_DATA_WIDTH = 32;
 localparam DEEMPH_DATA_WIDTH = 32;
 
-//// BEGIN FIFO SIGNALS ////
 
-//// WRITE ENABLES ////
+
 logic wr_en_q_in_fifo;
 logic wr_en_i_in_fifo;
-logic wr_en_q_fir_complex_out_fifo;
-logic wr_en_i_fir_complex_out_fifo;
+logic wr_en_q_fir_cmplx_out_fifo;
+logic wr_en_i_fir_cmplx_out_fifo;
 logic wr_en_demod_out_fifo;
 logic wr_en_fir_A_in_fifo;
 logic wr_en_fir_B_in_fifo;
@@ -347,14 +340,15 @@ logic wr_en_add_out_fifo;
 logic wr_en_sub_out_fifo;
 logic wr_en_deemph_add_out_fifo;
 logic wr_en_deemph_sub_out_fifo;
-logic wr_en_gain_left_out_fifo;
-logic wr_en_gain_right_out_fifo;
+logic wr_en_gain_L_out_fifo;
+logic wr_en_gain_R_out_fifo;
 
-//// DATA IN ////
+
+
 logic [FIFO_DATA_WIDTH-1:0] din_q_in_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_i_in_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_q_fir_complex_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_i_fir_complex_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] din_q_fir_cmplx_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] din_i_fir_cmplx_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_demod_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_fir_A_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_fir_B_out_fifo;
@@ -367,14 +361,15 @@ logic [FIFO_DATA_WIDTH-1:0] din_add_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_sub_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_deemph_add_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_deemph_sub_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_gain_left_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_gain_right_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] din_gain_L_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] din_gain_R_out_fifo;
 
-//// FULL ////
+
+
 logic full_q_in_fifo;
 logic full_i_in_fifo;
-logic full_q_fir_complex_out_fifo;
-logic full_i_fir_complex_out_fifo;
+logic full_q_fir_cmplx_out_fifo;
+logic full_i_fir_cmplx_out_fifo;
 logic full_demod_out_fifo;
 logic full_fir_A_in_fifo;
 logic full_fir_B_in_fifo;
@@ -390,14 +385,15 @@ logic full_add_out_fifo;
 logic full_sub_out_fifo;
 logic full_deemph_add_out_fifo;
 logic full_deemph_sub_out_fifo;
-logic full_gain_left_out_fifo;
-logic full_gain_right_out_fifo;
+logic full_gain_L_out_fifo;
+logic full_gain_R_out_fifo;
 
-//// READ ENABLES ////
+
+
 logic rd_en_q_in_fifo;
 logic rd_en_i_in_fifo;
-logic rd_en_q_fir_complex_out_fifo;
-logic rd_en_i_fir_complex_out_fifo;
+logic rd_en_q_fir_cmplx_out_fifo;
+logic rd_en_i_fir_cmplx_out_fifo;
 logic rd_en_demod_out_fifo;
 logic rd_en_fir_A_in_fifo;
 logic rd_en_fir_B_in_fifo;
@@ -413,14 +409,15 @@ logic rd_en_add_out_fifo;
 logic rd_en_sub_out_fifo;
 logic rd_en_deemph_add_out_fifo;
 logic rd_en_deemph_sub_out_fifo;
-logic rd_en_gain_left_out_fifo;
-logic rd_en_gain_right_out_fifo;
+logic rd_en_gain_L_out_fifo;
+logic rd_en_gain_R_out_fifo;
 
-//// DATA OUT ////
+
+
 logic [FIFO_DATA_WIDTH-1:0] dout_q_in_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_i_in_fifo;
-logic [FIFO_DATA_WIDTH-1:0] dout_q_fir_complex_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] dout_i_fir_complex_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] dout_q_fir_cmplx_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] dout_i_fir_cmplx_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_demod_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_fir_A_in_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_fir_B_in_fifo;
@@ -436,14 +433,15 @@ logic [FIFO_DATA_WIDTH-1:0] dout_add_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_sub_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_deemph_add_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] dout_deemph_sub_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] dout_gain_left_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] dout_gain_right_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] dout_gain_L_out_fifo;
+logic [FIFO_DATA_WIDTH-1:0] dout_gain_R_out_fifo;
 
-//// EMPTY ////
+
+
 logic empty_q_in_fifo;
 logic empty_i_in_fifo;
-logic empty_q_fir_complex_out_fifo;
-logic empty_i_fir_complex_out_fifo;
+logic empty_q_fir_cmplx_out_fifo;
+logic empty_i_fir_cmplx_out_fifo;
 logic empty_demod_out_fifo;
 logic empty_fir_A_in_fifo;
 logic empty_fir_B_in_fifo;
@@ -459,8 +457,8 @@ logic empty_add_out_fifo;
 logic empty_sub_out_fifo;
 logic empty_deemph_add_out_fifo;
 logic empty_deemph_sub_out_fifo;
-logic empty_gain_left_out_fifo;
-logic empty_gain_right_out_fifo;
+logic empty_gain_L_out_fifo;
+logic empty_gain_R_out_fifo;
 
 
 
@@ -468,10 +466,10 @@ assign din_q_in_fifo = q;
 assign din_i_in_fifo = i;
 assign q_in_full = full_q_in_fifo;
 assign i_in_full = full_i_in_fifo;
-assign left_audio = dout_gain_left_out_fifo;
-assign right_audio = dout_gain_right_out_fifo;
-assign left_out_empty = empty_gain_left_out_fifo;
-assign right_out_empty = empty_gain_right_out_fifo;
+assign left_audio = dout_gain_L_out_fifo;
+assign right_audio = dout_gain_R_out_fifo;
+assign left_out_empty = empty_gain_L_out_fifo;
+assign right_out_empty = empty_gain_R_out_fifo;
 
 assign wr_en_q_in_fifo = in_wr_en;
 assign wr_en_i_in_fifo = in_wr_en;
@@ -483,15 +481,46 @@ assign rd_en_fir_A_out_fifo = ~empty_fir_A_out_fifo & ~empty_fir_C_out_fifo & ~f
 assign rd_en_fir_C_out_fifo = ~empty_fir_A_out_fifo & ~empty_fir_C_out_fifo & ~full_mult_B_out_fifo;
 assign wr_en_mult_B_out_fifo = ~empty_fir_A_out_fifo & ~empty_fir_C_out_fifo & ~full_mult_B_out_fifo;
 
-assign rd_en_deemph_add_out_fifo = ~empty_deemph_add_out_fifo & ~full_gain_left_out_fifo;
-assign wr_en_gain_left_out_fifo = ~empty_deemph_add_out_fifo & ~full_gain_left_out_fifo;
+assign rd_en_deemph_add_out_fifo = ~empty_deemph_add_out_fifo & ~full_gain_L_out_fifo;
+assign wr_en_gain_L_out_fifo = ~empty_deemph_add_out_fifo & ~full_gain_L_out_fifo;
 
-assign rd_en_deemph_sub_out_fifo = ~empty_deemph_sub_out_fifo & ~full_gain_right_out_fifo;
-assign wr_en_gain_right_out_fifo = ~empty_deemph_sub_out_fifo & ~full_gain_right_out_fifo;
+assign rd_en_deemph_sub_out_fifo = ~empty_deemph_sub_out_fifo & ~full_gain_R_out_fifo;
+assign wr_en_gain_R_out_fifo = ~empty_deemph_sub_out_fifo & ~full_gain_R_out_fifo;
 
-assign rd_en_gain_right_out_fifo = out_rd_en;
-assign rd_en_gain_left_out_fifo = out_rd_en;
+assign rd_en_gain_R_out_fifo = out_rd_en;
+assign rd_en_gain_L_out_fifo = out_rd_en;
 
+
+
+logic fir_input_fifos_empty;
+assign fir_input_fifos_empty = empty_i_fir_cmplx_out_fifo | empty_q_fir_cmplx_out_fifo;
+
+logic fir_input_fifos_rd_en;
+assign rd_en_i_fir_cmplx_out_fifo = fir_input_fifos_rd_en;
+assign rd_en_q_fir_cmplx_out_fifo = fir_input_fifos_rd_en;
+
+
+
+logic fir_ABE_full;
+assign fir_ABE_full = (full_fir_A_in_fifo | full_fir_B_in_fifo) | full_fir_E_in_fifo;
+assign wr_en_fir_A_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+assign wr_en_fir_B_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+assign wr_en_fir_E_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+assign rd_en_demod_out_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+
+
+
+assign din_add_out_fifo = $signed(dout_fir_D_out_fifo) + $signed(dout_fir_E_out_fifo);
+logic DE_empty_ADDSUB_full;
+assign DE_empty_ADDSUB_full = (empty_fir_D_out_fifo | empty_fir_E_out_fifo) | (full_add_out_fifo | full_sub_out_fifo);
+assign wr_en_add_out_fifo = ~DE_empty_ADDSUB_full;
+assign wr_en_sub_out_fifo = ~DE_empty_ADDSUB_full;
+assign rd_en_fir_D_out_fifo = ~DE_empty_ADDSUB_full;
+assign rd_en_fir_E_out_fifo = ~DE_empty_ADDSUB_full;
+
+
+
+assign din_sub_out_fifo = $signed(dout_fir_E_out_fifo) - $signed(dout_fir_D_out_fifo);
 
 
 fifo #(
@@ -533,58 +562,53 @@ fir_cmplx fir_cmplx_inst (
     .q_rd_en(rd_en_q_in_fifo),
     .i_empty(empty_i_in_fifo),
     .q_empty(empty_q_in_fifo),
-    .y_real_out(din_i_fir_complex_out_fifo),
-    .y_imag_out(din_q_fir_complex_out_fifo),
-    .y_real_wr_en(wr_en_i_fir_complex_out_fifo),
-    .y_imag_wr_en(wr_en_q_fir_complex_out_fifo),
-    .y_real_full(full_i_fir_complex_out_fifo),
-    .y_imag_full(full_q_fir_complex_out_fifo)
+    .y_real_out(din_i_fir_cmplx_out_fifo),
+    .y_imag_out(din_q_fir_cmplx_out_fifo),
+    .y_real_wr_en(wr_en_i_fir_cmplx_out_fifo),
+    .y_imag_wr_en(wr_en_q_fir_cmplx_out_fifo),
+    .y_real_full(full_i_fir_cmplx_out_fifo),
+    .y_imag_full(full_q_fir_cmplx_out_fifo)
 );
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
     .FIFO_DATA_WIDTH(FIFO_DATA_WIDTH)
-) q_fir_complex_out_fifo(
+) q_fir_cmplx_out_fifo(
     .reset(reset),
     .wr_clk(clk),
-    .wr_en(wr_en_q_fir_complex_out_fifo),
-    .din(din_q_fir_complex_out_fifo),
-    .full(full_q_fir_complex_out_fifo),
+    .wr_en(wr_en_q_fir_cmplx_out_fifo),
+    .din(din_q_fir_cmplx_out_fifo),
+    .full(full_q_fir_cmplx_out_fifo),
     .rd_clk(clk),
-    .rd_en(rd_en_q_fir_complex_out_fifo),
-    .dout(dout_q_fir_complex_out_fifo),
-    .empty(empty_q_fir_complex_out_fifo)
+    .rd_en(rd_en_q_fir_cmplx_out_fifo),
+    .dout(dout_q_fir_cmplx_out_fifo),
+    .empty(empty_q_fir_cmplx_out_fifo)
 );
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
     .FIFO_DATA_WIDTH(FIFO_DATA_WIDTH)
-) i_fir_complex_out_fifo(
+) i_fir_cmplx_out_fifo(
     .reset(reset),
     .wr_clk(clk),
-    .wr_en(wr_en_i_fir_complex_out_fifo),
-    .din(din_i_fir_complex_out_fifo),
-    .full(full_i_fir_complex_out_fifo),
+    .wr_en(wr_en_i_fir_cmplx_out_fifo),
+    .din(din_i_fir_cmplx_out_fifo),
+    .full(full_i_fir_cmplx_out_fifo),
     .rd_clk(clk),
-    .rd_en(rd_en_i_fir_complex_out_fifo),
-    .dout(dout_i_fir_complex_out_fifo),
-    .empty(empty_i_fir_complex_out_fifo)
+    .rd_en(rd_en_i_fir_cmplx_out_fifo),
+    .dout(dout_i_fir_cmplx_out_fifo),
+    .empty(empty_i_fir_cmplx_out_fifo)
 );
 
-logic fir_input_fifos_empty;
-assign fir_input_fifos_empty = empty_i_fir_complex_out_fifo | empty_q_fir_complex_out_fifo;
 
-logic fir_input_fifos_rd_en;
-assign rd_en_i_fir_complex_out_fifo = fir_input_fifos_rd_en;
-assign rd_en_q_fir_complex_out_fifo = fir_input_fifos_rd_en;
 
 demodulate demod_inst(
     .clk(clk),
     .reset(reset),
     .input_fifos_empty(fir_input_fifos_empty),
     .input_rd_en(fir_input_fifos_rd_en),
-    .real_in(dout_i_fir_complex_out_fifo),
-    .imag_in(dout_q_fir_complex_out_fifo),
+    .real_in(dout_i_fir_cmplx_out_fifo),
+    .imag_in(dout_q_fir_cmplx_out_fifo),
     .demod_out(din_demod_out_fifo),
     .wr_en_out(wr_en_demod_out_fifo),
     .out_fifo_full(full_demod_out_fifo)
@@ -605,12 +629,7 @@ fifo #(
     .empty(empty_demod_out_fifo)
 );
 
-logic fir_ABE_full;
-assign fir_ABE_full = (full_fir_A_in_fifo | full_fir_B_in_fifo) | full_fir_E_in_fifo;
-assign wr_en_fir_A_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
-assign wr_en_fir_B_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
-assign wr_en_fir_E_in_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
-assign rd_en_demod_out_fifo = ~empty_demod_out_fifo & ~fir_ABE_full;
+
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
@@ -854,13 +873,7 @@ fifo #(
     .empty(empty_fir_E_out_fifo)
 );
 
-assign din_add_out_fifo = $signed(dout_fir_D_out_fifo) + $signed(dout_fir_E_out_fifo);
-logic DE_empty_ADDSUB_full;
-assign DE_empty_ADDSUB_full = (empty_fir_D_out_fifo | empty_fir_E_out_fifo) | (full_add_out_fifo | full_sub_out_fifo);
-assign wr_en_add_out_fifo = ~DE_empty_ADDSUB_full;
-assign wr_en_sub_out_fifo = ~DE_empty_ADDSUB_full;
-assign rd_en_fir_D_out_fifo = ~DE_empty_ADDSUB_full;
-assign rd_en_fir_E_out_fifo = ~DE_empty_ADDSUB_full;
+
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
@@ -877,7 +890,6 @@ fifo #(
     .empty(empty_add_out_fifo)
 );
 
-assign din_sub_out_fifo = $signed(dout_fir_E_out_fifo) - $signed(dout_fir_D_out_fifo);
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
@@ -950,46 +962,46 @@ fifo #(
     .empty(empty_deemph_sub_out_fifo)
 );
 
-gain gain_left(
+gain gain_L(
     .din(dout_deemph_add_out_fifo),
     .gain(1),
-    .dout(din_gain_left_out_fifo)
+    .dout(din_gain_L_out_fifo)
 );
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
     .FIFO_DATA_WIDTH(FIFO_DATA_WIDTH)
-) gain_left_out_fifo(
+) gain_L_out_fifo(
     .reset(reset),
     .wr_clk(clk),
-    .wr_en(wr_en_gain_left_out_fifo),
-    .din(din_gain_left_out_fifo),
-    .full(full_gain_left_out_fifo),
+    .wr_en(wr_en_gain_L_out_fifo),
+    .din(din_gain_L_out_fifo),
+    .full(full_gain_L_out_fifo),
     .rd_clk(clk),
-    .rd_en(rd_en_gain_left_out_fifo),
-    .dout(dout_gain_left_out_fifo),
-    .empty(empty_gain_left_out_fifo)
+    .rd_en(rd_en_gain_L_out_fifo),
+    .dout(dout_gain_L_out_fifo),
+    .empty(empty_gain_L_out_fifo)
 );
 
-gain gain_right(
+gain gain_R(
     .din(dout_deemph_sub_out_fifo),
     .gain(1),
-    .dout(din_gain_right_out_fifo)
+    .dout(din_gain_R_out_fifo)
 );
 
 fifo #(
     .FIFO_BUFFER_SIZE(128),
     .FIFO_DATA_WIDTH(FIFO_DATA_WIDTH)
-) gain_right_out_fifo(
+) gain_R_out_fifo(
     .reset(reset),
     .wr_clk(clk),
-    .wr_en(wr_en_gain_right_out_fifo),
-    .din(din_gain_right_out_fifo),
-    .full(full_gain_right_out_fifo),
+    .wr_en(wr_en_gain_R_out_fifo),
+    .din(din_gain_R_out_fifo),
+    .full(full_gain_R_out_fifo),
     .rd_clk(clk),
-    .rd_en(rd_en_gain_right_out_fifo),
-    .dout(dout_gain_right_out_fifo),
-    .empty(empty_gain_right_out_fifo)
+    .rd_en(rd_en_gain_R_out_fifo),
+    .dout(dout_gain_R_out_fifo),
+    .empty(empty_gain_R_out_fifo)
 );
 
 

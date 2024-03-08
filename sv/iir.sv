@@ -22,15 +22,6 @@ localparam int signed b1 = 178;//QUANTIZE_F(W_PP / (1.0 + W_PP));
 localparam int signed a1 = 0;//QUANTIZE_F(0.0);
 localparam int signed a0 = -666;//QUANTIZE_F((W_PP - 1.0)/(W_PP + 1.0));
 
-// function automatic logic signed [31:0] mul;
-// input  logic signed [31:0] x_in;
-// input  logic signed [31:0] y_in;
-//     begin
-//         logic signed [63:0] temp_y = x_in * y_in;
-//         logic signed [31:0] out_y = temp_y >>> 10;
-//         return out_y;
-//     end
-// endfunction
 
 function logic signed [31:0] QUANTIZE_I; 
 input logic signed [31:0] i;
