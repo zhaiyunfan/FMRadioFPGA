@@ -107,7 +107,6 @@ always_comb begin
 
     // drive other signals to 0
     quad_one_times_r = '0;
-    lower_quad_one_times_r = '0;
     angle = '0;
 
     case(state)
