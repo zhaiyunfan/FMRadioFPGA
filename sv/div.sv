@@ -54,6 +54,7 @@ logic [DIVIDEND_WIDTH-1:0] a, a_c;
 logic [DIVISOR_WIDTH-1:0] b, b_c;
 logic [DIVIDEND_WIDTH-1:0] q, q_c;
 
+logic valid_out_c;
 logic sign;
 logic [DIVIDEND_WIDTH-1:0] ab; //a-b
 logic [DIVIDEND_WIDTH-1:0] remainder_condition;
@@ -67,12 +68,14 @@ always_ff @( posedge clk or posedge reset ) begin
 		b <= '0;	
 		q <= '0;
 		quotient <= '0;
+		valid_out <= '0
 	end else begin
 		state <= state_c;
 		a <= a_c;
 		b <= b_c;	
 		q <= q_c;
 		quotient <= quotient_c;
+		valid_out <= valid_out_c;
 	end			
 end
 
@@ -80,7 +83,7 @@ always_comb begin
 	a_c = a;
 	b_c = b;
 	q_c = q;
-	valid_out = '0;
+	valid_out_c = valid_out;
 	overflow = 1'b0;
 	remainder = '0;
 	quotient_c = quotient;
@@ -152,7 +155,7 @@ always_comb begin
 			remainder_condition = $signed(dividend) >>> (DIVIDEND_WIDTH - 1);
             remainder = (remainder_condition != 1) ? a : -a;
 
-            valid_out = 1'b1;
+            valid_out_c = 1'b1;
 			state_c = IDLE;
 		end
 
