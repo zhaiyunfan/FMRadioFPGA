@@ -1,7 +1,5 @@
-// logic [31:0] ONE_FLOAT = 32'h3f800000;
+
 int IIR_COEFF_TAPS = 2;
-// logic [0:1][31:0] IIR_Y_COEFFS = '{QUANTIZE_F(0.0), QUANTIZE_F((W_PP - ONE_FLOAT) / (W_PP + ONE_FLOAT))};
-// logic [0:1][31:0] IIR_X_COEFFS = '{QUANTIZE_F(W_PP / (ONE_FLOAT + W_PP)), QUANTIZE_F(W_PP / (ONE_FLOAT + W_PP))};
 
 int CHANNEL_COEFF_TAPS = 20;
 logic [0:19][31:0] CHANNEL_COEFFS_REAL =
@@ -253,14 +251,11 @@ localparam int USRP_DECIM = 250;
 localparam int QUAD_RATE = int'(ADC_RATE / USRP_DECIM);
 localparam int AUDIO_DECIM = 8;
 localparam int AUDIO_RATE = int'(QUAD_RATE / AUDIO_DECIM);
-// int VOLUME_LEVEL = QUANTIZE_F(1.0);
 localparam int SAMPLES = 65536*4;
 localparam int AUDIO_SAMPLES = int'(SAMPLES / AUDIO_DECIM);
 localparam int MAX_TAPS = 32;
 
 localparam int IIR_COEFF_TAPS = 2;
-// logic [0:1][31:0] IIR_Y_COEFFS = '{QUANTIZE_F(0.0), QUANTIZE_F((W_PP - ONE_FLOAT) / (W_PP + ONE_FLOAT))};
-// logic [0:1][31:0] IIR_X_COEFFS = '{QUANTIZE_F(W_PP / (ONE_FLOAT + W_PP)), QUANTIZE_F(W_PP / (ONE_FLOAT + W_PP))};
 
 localparam int CHANNEL_COEFF_TAPS = 20;
 localparam logic [0:19][31:0] CHANNEL_COEFFS_REAL =
@@ -361,9 +356,9 @@ logic [FIFO_DATA_WIDTH-1:0] din_i_in_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_q_fir_complex_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_i_fir_complex_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_demod_out_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_fir_A_in_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_fir_B_in_fifo;
-logic [FIFO_DATA_WIDTH-1:0] din_fir_E_in_fifo;
+// logic [FIFO_DATA_WIDTH-1:0] din_fir_A_in_fifo;
+// logic [FIFO_DATA_WIDTH-1:0] din_fir_B_in_fifo;
+// logic [FIFO_DATA_WIDTH-1:0] din_fir_E_in_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_fir_A_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_fir_B_out_fifo;
 logic [FIFO_DATA_WIDTH-1:0] din_mult_A_out_fifo;

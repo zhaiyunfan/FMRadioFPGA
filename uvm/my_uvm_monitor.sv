@@ -98,10 +98,7 @@ class my_uvm_monitor_compare extends uvm_monitor;
         if ( !right_cmp_file ) begin
             `uvm_fatal("RIGHT_MON_CMP_BUILD", $sformatf("Failed to open file %s...", RIGHT_CMP_NAME));
         end
-
-        // store the BMP header as packed array
-        // n_bytes = $fread(pcap_header, cmp_file, 0, PCAP_HEADER_SIZE);
-        // uvm_config_db#(logic[0:PCAP_HEADER_SIZE-1][7:0])::set(null, "*", "pcap_header", {>> 8{pcap_header}});
+        
     endfunction: build_phase
 
     virtual task run_phase(uvm_phase phase);

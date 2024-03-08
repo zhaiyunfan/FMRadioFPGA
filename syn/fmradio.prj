@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version O-2018.09-SP1
 #--  Project file /home/pgn7690/CE387/project/FMRadioFPGA/syn/fmradio.prj
-#--  Written on Sun Mar  3 03:55:22 2024
+#--  Written on Fri Mar  8 02:02:00 2024
 
 
 #project files
@@ -20,6 +20,8 @@ add_file -verilog -vlog_std sysv "../sv/demodulate.sv"
 add_file -verilog -vlog_std sysv "../sv/qarctan.sv"
 add_file -verilog -vlog_std sysv "../sv/multiply.sv"
 add_file -verilog -vlog_std sysv "../sv/fm_radio_top.sv"
+
+
 
 #implementation: "rev_2"
 impl -add rev_2 -type fpga
@@ -42,13 +44,7 @@ set_option -part_companion ""
 
 #compilation/mapping options
 set_option -use_fsm_explorer 0
-# set_option -top_module "fir_cmplx_top"
-# set_option -top_module "fir_top"
-# set_option -top_module "iir_top"
-# set_option -top_module "gain_top"
-# set_option -top_module "div"
 set_option -top_module "fm_radio_top"
-
 
 # hdl_compiler_options
 set_option -distributed_compile 1

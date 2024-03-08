@@ -24,17 +24,16 @@ input logic signed [31:0] i;
 		offset_i =  i[31] == 1 ? (i + ((1 << 10) - 1)): i;
 
 		return offset_i >>> 10;
-        // // 判断i是否为负数
-        // if (i < 0) begin
-        //     // 对负数进行调整以避免舍入错误
-        //     offset_i = (i + 1023) >>> 10;
-        // end else begin
-        //     // 正数或零不需要调整
-        //     offset_i = i >>> 10;
-        // end
-        // return offset_i;
     end
-endfunction 
+endfunction
+
+function logic signed [31:0] mul;
+input  logic signed [31:0] x_in;
+input  logic signed [31:0] y_in;
+    begin
+        return DEQUANTIZE(x_in * y_in);
+    end
+endfunction
 
 const logic [31:0] gain = 32'h000002f6;
 

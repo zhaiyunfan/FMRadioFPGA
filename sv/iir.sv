@@ -39,10 +39,13 @@ input logic signed [31:0] i;
     end
 endfunction
 
-function automatic logic signed [31:0] DEQUANTIZE(input logic signed [31:0] i);
+function logic signed [31:0] DEQUANTIZE; 
+input logic signed [31:0] i;
+    logic signed [31:0] offset_i;
     begin
-        // 无论i的正负，统一处理，对于负数自动加1023后右移，对于正数直接右移
-        return (i + ((i[31] == 1) ? 1023 : 0)) >>> 10;
+		offset_i =  i[31] == 1 ? (i + ((1 << 10) - 1)): i;
+
+		return offset_i >>> 10;
     end
 endfunction
 

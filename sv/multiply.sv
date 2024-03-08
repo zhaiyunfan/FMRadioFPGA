@@ -20,15 +20,9 @@ function logic signed [31:0] DEQUANTIZE;
 input logic signed [31:0] i;
     logic signed [31:0] offset_i;
     begin
-        // 判断i是否为负数
-        if (i < 0) begin
-            // 对负数进行调整以避免舍入错误
-            offset_i = (i + 1023) >>> 10;
-        end else begin
-            // 正数或零不需要调整
-            offset_i = i >>> 10;
-        end
-        return offset_i;
+		offset_i =  i[31] == 1 ? (i + ((1 << 10) - 1)): i;
+
+		return offset_i >>> 10;
     end
 endfunction
 
