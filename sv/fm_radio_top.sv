@@ -603,15 +603,15 @@ fifo #(
 
 
 demodulate demod_inst(
-    .clk(clk),
+    .clock(clk),
     .reset(reset),
-    .input_fifos_empty(fir_input_fifos_empty),
-    .input_rd_en(fir_input_fifos_rd_en),
+    .fifo_in_empty(fir_input_fifos_empty),
+    .rd_en_in(fir_input_fifos_rd_en),
     .real_in(dout_i_fir_cmplx_out_fifo),
     .imag_in(dout_q_fir_cmplx_out_fifo),
     .demod_out(din_demod_out_fifo),
     .wr_en_out(wr_en_demod_out_fifo),
-    .out_fifo_full(full_demod_out_fifo)
+    .fifo_out_full(full_demod_out_fifo)
 );
 
 fifo #(

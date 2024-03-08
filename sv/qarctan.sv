@@ -1,8 +1,8 @@
 module qarctan
 (
-    input   logic           clk,
+    input   logic           clock,
     input   logic           reset,
-    input   logic           demod_data_valid,
+    input   logic           demod_valid_in,
     output  logic           divider_ready,
     input   logic [31:0]    x,
     input   logic [31:0]    y,
@@ -64,7 +64,7 @@ div #(
     .DIVIDEND_WIDTH(64),
     .DIVISOR_WIDTH(32)
 ) divider_inst (
-    .clk(clk),
+    .clock(clock),
     .reset(reset),
     .valid_in(start_div),
     .dividend(dividend),
@@ -75,7 +75,7 @@ div #(
     .valid_out(div_valid_out)
 );
 
-always_ff @(posedge clk or posedge reset) begin
+always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= IDLE;
         dividend <= '0;
@@ -112,7 +112,7 @@ always_comb begin
     case(state)
         // the divider is not doing anything
 		IDLE: begin
-			if (demod_data_valid == 1'b1) begin
+			if (demod_valid_in == 1'b1) begin
 				state_c = PRE_DIVISION;
 			end else begin
 				state_c = IDLE;

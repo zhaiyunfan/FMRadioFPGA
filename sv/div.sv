@@ -36,7 +36,7 @@ module div #(
     parameter DIVISOR_WIDTH = 32
 )
 (
-    input  logic                        clk,
+    input  logic                        clock,
     input  logic                        reset,
     input  logic                        valid_in,
     input  logic [DIVIDEND_WIDTH-1:0]   dividend,
@@ -61,7 +61,7 @@ logic [DIVIDEND_WIDTH-1:0] remainder_condition;
 logic [7:0] p;
 
 
-always_ff @( posedge clk or posedge reset ) begin
+always_ff @( posedge clock or posedge reset ) begin
 	if (reset == 1'b1) begin
 		state <= IDLE;
 		a <= '0;

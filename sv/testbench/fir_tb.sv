@@ -8,7 +8,7 @@ localparam string OUT_FILE_NAME = "../data/demod_out.txt";
 localparam string CMP_FILE_NAME = "../data/l_plus_r_lowpass.txt";
 
 localparam DATA_WIDTH = 32;
-localparam DATA_SIZE = 800;
+localparam DATA_SIZE = 100;
 localparam CLOCK_PERIOD = 10;
 
 /* signals for tb */

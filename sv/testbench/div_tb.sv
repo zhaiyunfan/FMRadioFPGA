@@ -17,7 +17,7 @@ div #(
     .DIVIDEND_WIDTH(64),
     .DIVISOR_WIDTH(32)
 ) dut (
-    .clk(clk),
+    .clock(clk),
     .reset(reset),
     .valid_in(valid_in),
     .dividend(dividend),
@@ -55,8 +55,8 @@ initial begin : tb_process
     // change to valid data
     @(posedge clk);
     valid_in = 1'b1;
-    dividend = 64'd253;
-    divisor = -32'd1;
+    dividend = 64'd100;
+    divisor =  -32'd3;
 
     wait(valid_out);
     valid_in = 1'b0;
