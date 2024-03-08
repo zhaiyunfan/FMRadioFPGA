@@ -41,7 +41,7 @@ module div #(
     input  logic                        valid_in,
     input  logic [DIVIDEND_WIDTH-1:0]   dividend,
     input  logic [DIVISOR_WIDTH-1:0]    divisor,
-    output logic [DIVIDEND_WIDTH-1:0]   quotient,
+    output logic [DIVIDEND_WIDTH-1:0]   quotient,quotient_c,
     output logic [DIVISOR_WIDTH-1:0]    remainder,
     output logic                        valid_out,
     output logic                        overflow
@@ -66,11 +66,13 @@ always_ff @( posedge clk or posedge reset ) begin
 		a <= '0;
 		b <= '0;	
 		q <= '0;
+		quotient <= '0;
 	end else begin
 		state <= state_c;
 		a <= a_c;
 		b <= b_c;	
 		q <= q_c;
+		quotient <= quotient_c;
 	end			
 end
 
@@ -81,7 +83,7 @@ always_comb begin
 	valid_out = '0;
 	overflow = 1'b0;
 	remainder = '0;
-	quotient = '0;
+	quotient_c = quotient;
 	p = '0;
 	ab = '0;
 	sign = '0;
@@ -145,7 +147,7 @@ always_comb begin
 		EPILOGUE: begin
 			sign = dividend[DIVIDEND_WIDTH-1] ^ divisor[DIVISOR_WIDTH-1];
 
-			quotient = (sign == 1'b0) ? q : -q;
+			quotient_c = (sign == 1'b0) ? q : -q;
 
 			remainder_condition = $signed(dividend) >>> (DIVIDEND_WIDTH - 1);
             remainder = (remainder_condition != 1) ? a : -a;

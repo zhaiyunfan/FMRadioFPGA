@@ -17,7 +17,7 @@ div #(
     .DIVIDEND_WIDTH(64),
     .DIVISOR_WIDTH(32)
 ) dut (
-    .clock(clk),
+    .clk(clk),
     .reset(reset),
     .valid_in(valid_in),
     .dividend(dividend),
