@@ -1,18 +1,29 @@
-function automatic logic [5:0] msb;
-	localparam MAX_DATA_WIDTH = 64;
-    input logic [5:0] DATA_WIDTH;
-    input logic [MAX_DATA_WIDTH-1:0] div_num;
+function automatic logic [5:0] msb_64;
+	//localparam MAX_DATA_WIDTH = 64;
+    //input logic [5:0] DATA_WIDTH;
+    input logic [63:0] div_num;
     logic [5:0] idx;
     begin
-        // 初始化最高有效位的索引为0，表示还没有找到
-        msb = 0;
-        // 从最高位到最低位遍历div_num的每一位
-        for (idx = DATA_WIDTH-1; idx >= 0; idx = idx - 1) begin
-            // 检查当前位是否不为0
+        msb_64 = 0;
+        for (idx = 63; idx >= 0; idx = idx - 1) begin
             if (div_num[idx] != 0) begin
-                // 更新最高有效位的索引
-                msb = idx;
-                // 找到最高非零位后退出循环
+                msb_64 = idx;
+                break;
+            end
+        end
+    end
+endfunction
+
+function automatic logic [5:0] msb_32;
+	//localparam MAX_DATA_WIDTH = 64;
+    //input logic [5:0] DATA_WIDTH;
+    input logic [31:0] div_num;
+    logic [5:0] idx;
+    begin
+        msb_32 = 0;
+        for (idx = 31; idx >= 0; idx = idx - 1) begin
+            if (div_num[idx] != 0) begin
+                msb_32 = idx;
                 break;
             end
         end
@@ -36,7 +47,7 @@ module div #(
     output logic                        overflow
 );
 
-typedef enum logic [2:0] { IDLE, INIT, B_EQ_1, LOOP, EPILOGUE, DONE } state_t;
+typedef enum logic [2:0] { IDLE, INIT, B_EQ_1, LOOP, EPILOGUE } state_t;
 state_t state, state_c;
 
 logic [DIVIDEND_WIDTH-1:0] a, a_c;
@@ -68,6 +79,7 @@ always_comb begin
 	b_c = b;
 	q_c = q;
 	valid_out = '0;
+	overflow = 1'b0;
 
 	case(state)
 		IDLE: begin
@@ -87,24 +99,26 @@ always_comb begin
 
 			if (divisor == '1) begin
 				state_c = B_EQ_1;
+				overflow = 1'b0;
 			end else if (divisor == '0) begin
 				state_c = B_EQ_1;
 				overflow = 1'b1;
 			end else begin
 				state_c = LOOP;
+				overflow = 1'b0;
 			end
 		end
 
 		B_EQ_1: begin
 			state_c = EPILOGUE;
-			//b_c = b; // 
+			//b_c = b;
 			q_c = dividend;
 			a_c = '0;
 		end
 
 		LOOP: begin
 			b_c = b; 
-			p = msb(DIVIDEND_WIDTH,a) - msb(DIVISOR_WIDTH,b);
+			p = msb_64(a) - msb_32(b);
 			if (($signed(b) << p) > $signed(a)) begin
 				p = p - 1;
 			end	

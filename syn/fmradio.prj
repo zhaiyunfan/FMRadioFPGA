@@ -15,7 +15,7 @@ add_file -verilog -vlog_std sysv "../sv/iir.sv"
 add_file -verilog -vlog_std sysv "../sv/iir_top.sv"
 add_file -verilog -vlog_std sysv "../sv/gain.sv"
 add_file -verilog -vlog_std sysv "../sv/gain_top.sv"
-
+add_file -verilog -vlog_std sysv "../sv/div.sv"
 
 #implementation: "rev_2"
 impl -add rev_2 -type fpga
@@ -39,9 +39,10 @@ set_option -part_companion ""
 #compilation/mapping options
 set_option -use_fsm_explorer 0
 # set_option -top_module "fir_cmplx_top"
-set_option -top_module "fir_top"
+# set_option -top_module "fir_top"
 # set_option -top_module "iir_top"
 # set_option -top_module "gain_top"
+set_option -top_module "div"
 
 
 # hdl_compiler_options
