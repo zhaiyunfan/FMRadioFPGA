@@ -68,7 +68,7 @@ always_ff @( posedge clk or posedge reset ) begin
 		b <= '0;	
 		q <= '0;
 		quotient <= '0;
-		valid_out <= '0
+		valid_out <= '0;
 	end else begin
 		state <= state_c;
 		a <= a_c;
@@ -83,7 +83,7 @@ always_comb begin
 	a_c = a;
 	b_c = b;
 	q_c = q;
-	valid_out_c = valid_out;
+	valid_out_c = '0;
 	overflow = 1'b0;
 	remainder = '0;
 	quotient_c = quotient;
