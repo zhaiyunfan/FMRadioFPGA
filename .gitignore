@@ -9,3 +9,4 @@ stdout.*
 *.ini
 sv/testbench/transcript
 *.dat
+Report.docx
