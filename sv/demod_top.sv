@@ -11,16 +11,16 @@ module demod_top (
 );
 
 // input fifo internals
-logic real_fifo_rd_en, real_fifo_full, real_fifo_empty;
-logic imag_fifo_rd_en, imag_fifo_full, imag_fifo_empty;
+logic real_fifo_full, real_fifo_empty;
+logic imag_fifo_full, imag_fifo_empty;
 
 assign in_fifos_full = real_fifo_full || imag_fifo_full;
-assign input_fifos_empty = real_fifo_empty || imag_fifo_empty;
+assign fifo_in_empty = real_fifo_empty || imag_fifo_empty;
 
 logic [31:0] real_fifo_dout, imag_fifo_dout, demod_out;
 
 // output fifo internals
-logic out_fifo_wr_en, out_fifo_full;
+logic out_fifo_wr_en, fifo_out_full;
 
 fifo #(
     .FIFO_DATA_WIDTH(32),
@@ -53,15 +53,15 @@ fifo #(
 );
 
 demodulate demod_inst (
-    .clk(clk),
+    .clock(clk),
     .reset(reset),
-    .input_fifos_empty(input_fifos_empty),
-    .input_rd_en(in_fifo_rd_en),
+    .fifo_in_empty(fifo_in_empty),
+    .rd_en_in(in_fifo_rd_en),
     .real_in(real_fifo_dout),
     .imag_in(imag_fifo_dout),
     .demod_out(demod_out),
     .wr_en_out(out_fifo_wr_en),
-    .out_fifo_full(out_fifo_full)
+    .fifo_out_full(fifo_out_full)
 );
 
 fifo #(
@@ -72,7 +72,7 @@ fifo #(
     .wr_clk(clk),
     .wr_en(out_fifo_wr_en),
     .din(demod_out),
-    .full(out_fifo_full),
+    .full(fifo_out_full),
     .rd_clk(clk),
     .rd_en(out_fifo_rd_en),
     .dout(data_out),

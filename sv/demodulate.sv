@@ -1,13 +1,15 @@
 module demodulate (
-    input   logic           clk,
+    input   logic           clock,
     input   logic           reset,
-    input   logic           input_fifos_empty,
-    output  logic           input_rd_en,
+    
+    input   logic           fifo_in_empty,
+    output  logic           rd_en_in,
     input   logic [31:0]    real_in,
     input   logic [31:0]    imag_in,
+
     output  logic [31:0]    demod_out,
     output  logic           wr_en_out,
-    input   logic           out_fifo_full
+    input   logic           fifo_out_full
 );
 
 function logic signed [31:0] QUANTIZE_I; 
@@ -46,12 +48,12 @@ logic [63:0] real_prev_times_curr_c, imag_prev_times_curr_c, neg_imag_prev_times
 logic [31:0] short_real, short_real_c, short_imag, short_imag_c;
 logic [31:0] demod_temp, demod_temp_c;
 logic qarctan_ready, qarctan_done;
-logic demod_data_valid, demod_data_valid_c;
+logic demod_valid_in, demod_valid_in_c;
 
 qarctan qarctan_inst (
-    .clk(clk), 
+    .clock(clock), 
     .reset(reset),
-    .demod_data_valid(demod_data_valid),
+    .demod_valid_in(demod_valid_in),
     .divider_ready(qarctan_ready),
     .x(short_real),
     .y(short_imag),
@@ -59,7 +61,7 @@ qarctan qarctan_inst (
     .qarctan_done(qarctan_done)
 );
 
-always_ff @(posedge clk or posedge reset) begin
+always_ff @(posedge clock or posedge reset) begin
     if (reset == 1'b1) begin
         state <= EDGE_1;
         real_curr <= '0;
@@ -67,7 +69,7 @@ always_ff @(posedge clk or posedge reset) begin
         real_prev <= '0;
         imag_prev <= '0;
         demod_temp <= '0;
-        demod_data_valid <= '0;
+        demod_valid_in <= '0;
 		real_prev_times_curr <= '0;
     	imag_prev_times_curr <= '0;
     	neg_imag_prev_times_imag <= '0;
@@ -81,7 +83,7 @@ always_ff @(posedge clk or posedge reset) begin
         real_prev <= real_prev_c;
         imag_prev <= imag_prev_c;
         demod_temp <= demod_temp_c;
-        demod_data_valid <= demod_data_valid_c;
+        demod_valid_in <= demod_valid_in_c;
 		real_prev_times_curr <= real_prev_times_curr_c;
     	imag_prev_times_curr <= imag_prev_times_curr_c;
     	neg_imag_prev_times_imag <= neg_imag_prev_times_imag_c;
@@ -102,25 +104,25 @@ always_comb begin
     neg_imag_prev_times_real_c = neg_imag_prev_times_real;
 	short_real_c = short_real;
     short_imag_c = short_imag;
-    input_rd_en = 1'b0;
+    rd_en_in = 1'b0;
     wr_en_out = 1'b0;
     qarctan_out_times_gain = '0;
     demod_temp_c = demod_temp;
     demod_out = demod_temp;
-    demod_data_valid_c = '0;
+    demod_valid_in_c = '0;
     case(state)
         EDGE_1: begin
             demod_temp_c = 32'h4a6;
             wr_en_out = 1'b0;
-            input_rd_en = 1'b0;
+            rd_en_in = 1'b0;
             state_c = EDGE_2;
         end
         EDGE_2: begin
             demod_temp_c = 32'h4a6;
-            if (input_fifos_empty == 1'b0) begin
+            if (fifo_in_empty == 1'b0) begin
                 wr_en_out = 1'b1;
                 state_c = IDLE;
-                input_rd_en = 1'b1;
+                rd_en_in = 1'b1;
                 real_curr_c = real_in;
                 imag_curr_c = imag_in;
                 real_prev_c = real_curr;
@@ -128,14 +130,14 @@ always_comb begin
             end else begin
                 state_c = EDGE_2;
                 wr_en_out = 1'b0;
-                input_rd_en = 1'b0;
+                rd_en_in = 1'b0;
             end
         end
         IDLE: begin
             wr_en_out = 1'b0;
-            if (input_fifos_empty == 1'b0) begin
+            if (fifo_in_empty == 1'b0) begin
                 state_c = MULT;
-                input_rd_en = 1'b1;
+                rd_en_in = 1'b1;
                 
                 real_curr_c = real_in;
                 imag_curr_c = imag_in;
@@ -156,7 +158,7 @@ always_comb begin
 
 		DEQU: begin
 			state_c = WAITING;
-			demod_data_valid_c = 1'b1;
+			demod_valid_in_c = 1'b1;
 			short_real_c = DEQUANTIZE(real_prev_times_curr[31:0]) - DEQUANTIZE(neg_imag_prev_times_imag);
     		short_imag_c = DEQUANTIZE(imag_prev_times_curr[31:0]) + DEQUANTIZE(neg_imag_prev_times_real);
 		end
@@ -172,7 +174,7 @@ always_comb begin
             end
         end
         OUTPUT: begin
-            if (out_fifo_full == 1'b0) begin
+            if (fifo_out_full == 1'b0) begin
                 wr_en_out = 1'b1;
                 state_c = IDLE;
             end else begin
