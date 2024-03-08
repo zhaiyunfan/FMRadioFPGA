@@ -1,0 +1,30 @@
+##### START OF AREA REPORT #####[
+Design view:work.fm_radio_top(verilog)
+Selecting part EP4CE115F23C7
+
+Total combinational functions 17428 of 114480 (15%)
+Logic element usage by number of inputs
+		  4 input functions 	 10928
+		  3 input functions 	 3665
+		  <=2 input functions 	 2835
+Logic elements by mode
+		  normal mode            14990
+		  arithmetic mode        2438
+Total registers 8244 of 114480 ( 7%)
+I/O pins 136 of 529 (26%), total I/O based on largest package of this part.
+
+Number of I/O registers
+			Input DDRs    :0
+			Output DDRs   :0
+
+DSP.Simple_Multipliers_18_bit: 54
+DSP.Simple_Multipliers_36_bit: 2
+DSP Blocks:     62  (124 nine-bit DSP elements).
+DSP Utilization: 23.31% of available 266 blocks (532 nine-bit).
+ShiftTap:       0  (0 registers)
+Total ESB:      84864 bits 
+
+LPM latches:    388
+
+##### END OF AREA REPORT #####]
+

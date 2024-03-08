@@ -1,0 +1,1264 @@
+# Thu Mar  7 18:39:00 2024
+
+
+Copyright (C) 1994-2018 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify (R) Premier
+Build: O-2018.09-SP1
+Install: /vol/synopsys/fpga/O-2018.09-SP1
+OS: Red Hat Enterprise Linux 8.9 (Ootpa)
+Hostname: batgirl.ece.northwestern.edu
+max virtual memory: unlimited (bytes)
+max user processes: 126575
+max stack size: 8388608 (bytes)
+
+
+Implementation : rev_2
+Synopsys Intel FPGA Technology Mapper, Version maprc, Build 4745R, Built Nov 27 2018 21:14:52
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 99MB)
+
+@N: MF284 |Setting synthesis effort to medium for the design
+@N: MF915 |Option synthesis_strategy=advanced is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
+
+@W: FA406 |Environment variable QUARTUS_ROOTDIR not set. Cannot determine PAR version.
+Adding property syn_ta_report_clock_domain_crossing, value 0 to view:work.fir_top(verilog)
+Adding property syn_ta_max_display_worst_paths, value 5 to view:work.fir_top(verilog)
+@N: MF284 |Setting synthesis effort to medium for the design
+
+Start Timing Analyst (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 122MB peak: 124MB)
+
+
+Start final timing analysis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 122MB peak: 124MB)
+
+@W: MT420 |Found inferred clock fir_top|clock with period 10.67ns. Please declare a user-defined clock on port clock.
+@N: MT535 |Writing timing correlation to file /home/pgn7690/CE387/project/FMRadioFPGA/syn/rev_2/mul_ctd.txt 
+
+
+##### START OF TIMING REPORT #####[
+# Timing Report written on Thu Mar  7 18:39:01 2024
+#
+
+
+Top view:               fir_top
+Requested Frequency:    93.7 MHz
+Wire load mode:         top
+Paths requested:        5
+Constraint File(s):    
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+
+
+
+Performance Summary
+*******************
+
+
+Worst slack in design: -1.883
+
+                   Requested     Estimated     Requested     Estimated                Clock        Clock                
+Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group                
+------------------------------------------------------------------------------------------------------------------------
+fir_top|clock      93.7 MHz      79.7 MHz      10.671        12.555        -1.883     inferred     Autoconstr_clkgroup_0
+System             1.0 MHz       1.0 MHz       1000.000      1000.000      0.000      system       system_clkgroup      
+========================================================================================================================
+
+
+
+
+
+Clock Relationships
+*******************
+
+Clocks                        |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+---------------------------------------------------------------------------------------------------------------------
+Starting       Ending         |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
+---------------------------------------------------------------------------------------------------------------------
+System         fir_top|clock  |  10.671      0.000   |  No paths    -      |  No paths    -      |  No paths    -    
+fir_top|clock  System         |  10.671      8.219   |  No paths    -      |  10.671      8.219  |  No paths    -    
+fir_top|clock  fir_top|clock  |  10.671      -1.883  |  No paths    -      |  No paths    -      |  No paths    -    
+=====================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+
+====================================
+Detailed Report for Clock: fir_top|clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                Starting                                             Arrival           
+Instance        Reference         Type       Pin     Net             Time        Slack 
+                Clock                                                                  
+---------------------------------------------------------------------------------------
+reg_0_0[10]     fir_top|clock     dffeas     q       reg_0_0[10]     0.845       -1.883
+reg_0_0[0]      fir_top|clock     dffeas     q       reg_0_0[0]      0.845       -1.809
+reg_0_0[1]      fir_top|clock     dffeas     q       reg_0_0[1]      0.845       -1.809
+reg_0_0[2]      fir_top|clock     dffeas     q       reg_0_0[2]      0.845       -1.809
+reg_0_0[3]      fir_top|clock     dffeas     q       reg_0_0[3]      0.845       -1.809
+reg_0_0[4]      fir_top|clock     dffeas     q       reg_0_0[4]      0.845       -1.809
+reg_0_0[5]      fir_top|clock     dffeas     q       reg_0_0[5]      0.845       -1.809
+reg_0_0[6]      fir_top|clock     dffeas     q       reg_0_0[6]      0.845       -1.809
+reg_0_0[7]      fir_top|clock     dffeas     q       reg_0_0[7]      0.845       -1.809
+reg_0_0[8]      fir_top|clock     dffeas     q       reg_0_0[8]      0.845       -1.809
+=======================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+             Starting                                                            Required           
+Instance     Reference         Type       Pin     Net                            Time         Slack 
+             Clock                                                                                  
+----------------------------------------------------------------------------------------------------
+reg[31]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add31     11.198       -1.883
+reg[30]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add30     11.198       -1.817
+reg[29]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add29     11.198       -1.751
+reg[28]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add28     11.198       -1.685
+reg[27]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add27     11.198       -1.619
+reg[26]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add26     11.198       -1.553
+reg[19]      fir_top|clock     dffeas     d       reg_m_v[19]                    11.198       -1.534
+reg[25]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add25     11.198       -1.487
+reg[18]      fir_top|clock     dffeas     d       reg_m_v[18]                    11.198       -1.468
+reg[24]      fir_top|clock     dffeas     d       fir_inst.un3_cal_y_c_add24     11.198       -1.421
+====================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.671
+    - Setup time:                            0.086
+    + Intrinsic clock delay:                 0.613
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.198
+
+    - Propagation time:                      12.469
+    - Intrinsic clock delay:                 0.613
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     -1.883
+
+    Number of logic level(s):                49
+    Starting point:                          reg_0_0[10] / q
+    Ending point:                            reg[31] / d
+    The start point is clocked by            fir_top|clock [rising] on pin clk
+    The end   point is clocked by            fir_top|clock [rising] on pin clk
+
+Instance / Net                                                                                     Pin            Pin               Arrival     No. of    
+Name                                                       Type                                    Name           Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+reg_0_0[10]                                                dffeas                                  q              Out     0.232     0.845       -         
+reg_0_0[10]                                                Net                                     -              -       0.400     -           8         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     datab[10]      In      -         1.245       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     result[18]     Out     4.302     5.547       -         
+i_2_ml_ml_2_F[18]                                          Net                                     -              -       0.935     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   dataa          In      -         6.482       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   cout           Out     0.498     6.980       -         
+i_2_ml_a_0_carry_18                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cin            In      -         6.980       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cout           Out     0.066     7.046       -         
+i_2_ml_a_0_carry_19                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cin            In      -         7.046       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cout           Out     0.066     7.112       -         
+i_2_ml_a_0_carry_20                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cin            In      -         7.112       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cout           Out     0.066     7.178       -         
+i_2_ml_a_0_carry_21                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cin            In      -         7.178       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cout           Out     0.066     7.244       -         
+i_2_ml_a_0_carry_22                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cin            In      -         7.244       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cout           Out     0.066     7.310       -         
+i_2_ml_a_0_carry_23                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cin            In      -         7.310       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cout           Out     0.066     7.376       -         
+i_2_ml_a_0_carry_24                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cin            In      -         7.376       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cout           Out     0.066     7.442       -         
+i_2_ml_a_0_carry_25                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cin            In      -         7.442       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cout           Out     0.066     7.508       -         
+i_2_ml_a_0_carry_26                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cin            In      -         7.508       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cout           Out     0.066     7.574       -         
+i_2_ml_a_0_carry_27                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cin            In      -         7.574       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cout           Out     0.066     7.640       -         
+i_2_ml_a_0_carry_28                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cin            In      -         7.640       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cout           Out     0.066     7.706       -         
+i_2_ml_a_0_carry_29                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cin            In      -         7.706       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cout           Out     0.066     7.772       -         
+i_2_ml_a_0_carry_30                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   cin            In      -         7.772       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   combout        Out     0.000     7.772       -         
+i_2_ml_a_0_add31                                           Net                                     -              -       0.432     -           2         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   dataa          In      -         8.203       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   combout        Out     0.437     8.640       -         
+i_2_a_add31                                                Net                                     -              -       0.777     -           22        
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   datac          In      -         9.418       -         
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   combout        Out     0.429     9.847       -         
+un3_cal_y_c_m[0]                                           Net                                     -              -       0.326     -           1         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   dataa          In      -         10.172      -         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   cout           Out     0.498     10.670      -         
+un3_cal_y_c_carry_0                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cin            In      -         10.670      -         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cout           Out     0.066     10.736      -         
+un3_cal_y_c_carry_1                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cin            In      -         10.736      -         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cout           Out     0.066     10.802      -         
+un3_cal_y_c_carry_2                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cin            In      -         10.802      -         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cout           Out     0.066     10.868      -         
+un3_cal_y_c_carry_3                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cin            In      -         10.868      -         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cout           Out     0.066     10.934      -         
+un3_cal_y_c_carry_4                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cin            In      -         10.934      -         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cout           Out     0.066     11.000      -         
+un3_cal_y_c_carry_5                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cin            In      -         11.000      -         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cout           Out     0.066     11.066      -         
+un3_cal_y_c_carry_6                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cin            In      -         11.066      -         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cout           Out     0.066     11.132      -         
+un3_cal_y_c_carry_7                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cin            In      -         11.132      -         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cout           Out     0.066     11.198      -         
+un3_cal_y_c_carry_8                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cin            In      -         11.198      -         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cout           Out     0.066     11.264      -         
+un3_cal_y_c_carry_9                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cin            In      -         11.264      -         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cout           Out     0.066     11.330      -         
+un3_cal_y_c_carry_10                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cin            In      -         11.330      -         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cout           Out     0.066     11.396      -         
+un3_cal_y_c_carry_11                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cin            In      -         11.396      -         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cout           Out     0.066     11.462      -         
+un3_cal_y_c_carry_12                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cin            In      -         11.462      -         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cout           Out     0.066     11.528      -         
+un3_cal_y_c_carry_13                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cin            In      -         11.528      -         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cout           Out     0.066     11.594      -         
+un3_cal_y_c_carry_14                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cin            In      -         11.594      -         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cout           Out     0.066     11.660      -         
+un3_cal_y_c_carry_15                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cin            In      -         11.660      -         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cout           Out     0.066     11.726      -         
+un3_cal_y_c_carry_16                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cin            In      -         11.726      -         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cout           Out     0.066     11.792      -         
+un3_cal_y_c_carry_17                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cin            In      -         11.792      -         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cout           Out     0.066     11.858      -         
+un3_cal_y_c_carry_18                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cin            In      -         11.858      -         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cout           Out     0.066     11.924      -         
+un3_cal_y_c_carry_19                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cin            In      -         11.924      -         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cout           Out     0.066     11.990      -         
+un3_cal_y_c_carry_20                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cin            In      -         11.990      -         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cout           Out     0.066     12.056      -         
+un3_cal_y_c_carry_21                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cin            In      -         12.056      -         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cout           Out     0.066     12.122      -         
+un3_cal_y_c_carry_22                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cin            In      -         12.122      -         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cout           Out     0.066     12.188      -         
+un3_cal_y_c_carry_23                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cin            In      -         12.188      -         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cout           Out     0.066     12.254      -         
+un3_cal_y_c_carry_24                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cin            In      -         12.254      -         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cout           Out     0.066     12.320      -         
+un3_cal_y_c_carry_25                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cin            In      -         12.320      -         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cout           Out     0.066     12.386      -         
+un3_cal_y_c_carry_26                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cin            In      -         12.386      -         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cout           Out     0.066     12.452      -         
+un3_cal_y_c_carry_27                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cin            In      -         12.452      -         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cout           Out     0.066     12.518      -         
+un3_cal_y_c_carry_28                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cin            In      -         12.518      -         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cout           Out     0.066     12.584      -         
+un3_cal_y_c_carry_29                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cin            In      -         12.584      -         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cout           Out     0.066     12.650      -         
+un3_cal_y_c_carry_30                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   cin            In      -         12.650      -         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   combout        Out     0.000     12.650      -         
+un3_cal_y_c_add31_1z                                       Net                                     -              -       0.432     -           2         
+reg[31]                                                    dffeas                                  d              In      -         13.082      -         
+==========================================================================================================================================================
+Total path delay (propagation time + ICD at startpoint + setup - ICD at endpoint) of 12.555 is 9.254(73.7%) logic and 3.301(26.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+*Arrival time includes intrinsic clock delay at start point and clock delay at startpoint
+
+
+Path information for path number 2: 
+      Requested Period:                      10.671
+    - Setup time:                            0.086
+    + Intrinsic clock delay:                 0.613
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.198
+
+    - Propagation time:                      12.469
+    - Intrinsic clock delay:                 0.613
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     -1.883
+
+    Number of logic level(s):                49
+    Starting point:                          reg_0_0[10] / q
+    Ending point:                            reg[31] / d
+    The start point is clocked by            fir_top|clock [rising] on pin clk
+    The end   point is clocked by            fir_top|clock [rising] on pin clk
+
+Instance / Net                                                                                     Pin            Pin               Arrival     No. of    
+Name                                                       Type                                    Name           Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+reg_0_0[10]                                                dffeas                                  q              Out     0.232     0.845       -         
+reg_0_0[10]                                                Net                                     -              -       0.400     -           8         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     datab[17]      In      -         1.245       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     result[18]     Out     4.302     5.547       -         
+i_2_ml_ml_2_F[18]                                          Net                                     -              -       0.935     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   dataa          In      -         6.482       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   cout           Out     0.498     6.980       -         
+i_2_ml_a_0_carry_18                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cin            In      -         6.980       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cout           Out     0.066     7.046       -         
+i_2_ml_a_0_carry_19                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cin            In      -         7.046       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cout           Out     0.066     7.112       -         
+i_2_ml_a_0_carry_20                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cin            In      -         7.112       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cout           Out     0.066     7.178       -         
+i_2_ml_a_0_carry_21                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cin            In      -         7.178       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cout           Out     0.066     7.244       -         
+i_2_ml_a_0_carry_22                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cin            In      -         7.244       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cout           Out     0.066     7.310       -         
+i_2_ml_a_0_carry_23                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cin            In      -         7.310       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cout           Out     0.066     7.376       -         
+i_2_ml_a_0_carry_24                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cin            In      -         7.376       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cout           Out     0.066     7.442       -         
+i_2_ml_a_0_carry_25                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cin            In      -         7.442       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cout           Out     0.066     7.508       -         
+i_2_ml_a_0_carry_26                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cin            In      -         7.508       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cout           Out     0.066     7.574       -         
+i_2_ml_a_0_carry_27                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cin            In      -         7.574       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cout           Out     0.066     7.640       -         
+i_2_ml_a_0_carry_28                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cin            In      -         7.640       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cout           Out     0.066     7.706       -         
+i_2_ml_a_0_carry_29                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cin            In      -         7.706       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cout           Out     0.066     7.772       -         
+i_2_ml_a_0_carry_30                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   cin            In      -         7.772       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   combout        Out     0.000     7.772       -         
+i_2_ml_a_0_add31                                           Net                                     -              -       0.432     -           2         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   dataa          In      -         8.203       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   combout        Out     0.437     8.640       -         
+i_2_a_add31                                                Net                                     -              -       0.777     -           22        
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   datac          In      -         9.418       -         
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   combout        Out     0.429     9.847       -         
+un3_cal_y_c_m[0]                                           Net                                     -              -       0.326     -           1         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   dataa          In      -         10.172      -         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   cout           Out     0.498     10.670      -         
+un3_cal_y_c_carry_0                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cin            In      -         10.670      -         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cout           Out     0.066     10.736      -         
+un3_cal_y_c_carry_1                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cin            In      -         10.736      -         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cout           Out     0.066     10.802      -         
+un3_cal_y_c_carry_2                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cin            In      -         10.802      -         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cout           Out     0.066     10.868      -         
+un3_cal_y_c_carry_3                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cin            In      -         10.868      -         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cout           Out     0.066     10.934      -         
+un3_cal_y_c_carry_4                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cin            In      -         10.934      -         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cout           Out     0.066     11.000      -         
+un3_cal_y_c_carry_5                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cin            In      -         11.000      -         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cout           Out     0.066     11.066      -         
+un3_cal_y_c_carry_6                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cin            In      -         11.066      -         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cout           Out     0.066     11.132      -         
+un3_cal_y_c_carry_7                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cin            In      -         11.132      -         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cout           Out     0.066     11.198      -         
+un3_cal_y_c_carry_8                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cin            In      -         11.198      -         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cout           Out     0.066     11.264      -         
+un3_cal_y_c_carry_9                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cin            In      -         11.264      -         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cout           Out     0.066     11.330      -         
+un3_cal_y_c_carry_10                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cin            In      -         11.330      -         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cout           Out     0.066     11.396      -         
+un3_cal_y_c_carry_11                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cin            In      -         11.396      -         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cout           Out     0.066     11.462      -         
+un3_cal_y_c_carry_12                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cin            In      -         11.462      -         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cout           Out     0.066     11.528      -         
+un3_cal_y_c_carry_13                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cin            In      -         11.528      -         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cout           Out     0.066     11.594      -         
+un3_cal_y_c_carry_14                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cin            In      -         11.594      -         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cout           Out     0.066     11.660      -         
+un3_cal_y_c_carry_15                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cin            In      -         11.660      -         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cout           Out     0.066     11.726      -         
+un3_cal_y_c_carry_16                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cin            In      -         11.726      -         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cout           Out     0.066     11.792      -         
+un3_cal_y_c_carry_17                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cin            In      -         11.792      -         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cout           Out     0.066     11.858      -         
+un3_cal_y_c_carry_18                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cin            In      -         11.858      -         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cout           Out     0.066     11.924      -         
+un3_cal_y_c_carry_19                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cin            In      -         11.924      -         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cout           Out     0.066     11.990      -         
+un3_cal_y_c_carry_20                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cin            In      -         11.990      -         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cout           Out     0.066     12.056      -         
+un3_cal_y_c_carry_21                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cin            In      -         12.056      -         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cout           Out     0.066     12.122      -         
+un3_cal_y_c_carry_22                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cin            In      -         12.122      -         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cout           Out     0.066     12.188      -         
+un3_cal_y_c_carry_23                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cin            In      -         12.188      -         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cout           Out     0.066     12.254      -         
+un3_cal_y_c_carry_24                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cin            In      -         12.254      -         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cout           Out     0.066     12.320      -         
+un3_cal_y_c_carry_25                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cin            In      -         12.320      -         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cout           Out     0.066     12.386      -         
+un3_cal_y_c_carry_26                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cin            In      -         12.386      -         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cout           Out     0.066     12.452      -         
+un3_cal_y_c_carry_27                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cin            In      -         12.452      -         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cout           Out     0.066     12.518      -         
+un3_cal_y_c_carry_28                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cin            In      -         12.518      -         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cout           Out     0.066     12.584      -         
+un3_cal_y_c_carry_29                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cin            In      -         12.584      -         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cout           Out     0.066     12.650      -         
+un3_cal_y_c_carry_30                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   cin            In      -         12.650      -         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   combout        Out     0.000     12.650      -         
+un3_cal_y_c_add31_1z                                       Net                                     -              -       0.432     -           2         
+reg[31]                                                    dffeas                                  d              In      -         13.082      -         
+==========================================================================================================================================================
+Total path delay (propagation time + ICD at startpoint + setup - ICD at endpoint) of 12.555 is 9.254(73.7%) logic and 3.301(26.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+*Arrival time includes intrinsic clock delay at start point and clock delay at startpoint
+
+
+Path information for path number 3: 
+      Requested Period:                      10.671
+    - Setup time:                            0.086
+    + Intrinsic clock delay:                 0.613
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.198
+
+    - Propagation time:                      12.469
+    - Intrinsic clock delay:                 0.613
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     -1.883
+
+    Number of logic level(s):                49
+    Starting point:                          reg_0_0[10] / q
+    Ending point:                            reg[31] / d
+    The start point is clocked by            fir_top|clock [rising] on pin clk
+    The end   point is clocked by            fir_top|clock [rising] on pin clk
+
+Instance / Net                                                                                     Pin            Pin               Arrival     No. of    
+Name                                                       Type                                    Name           Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+reg_0_0[10]                                                dffeas                                  q              Out     0.232     0.845       -         
+reg_0_0[10]                                                Net                                     -              -       0.400     -           8         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     datab[16]      In      -         1.245       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     result[18]     Out     4.302     5.547       -         
+i_2_ml_ml_2_F[18]                                          Net                                     -              -       0.935     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   dataa          In      -         6.482       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   cout           Out     0.498     6.980       -         
+i_2_ml_a_0_carry_18                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cin            In      -         6.980       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cout           Out     0.066     7.046       -         
+i_2_ml_a_0_carry_19                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cin            In      -         7.046       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cout           Out     0.066     7.112       -         
+i_2_ml_a_0_carry_20                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cin            In      -         7.112       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cout           Out     0.066     7.178       -         
+i_2_ml_a_0_carry_21                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cin            In      -         7.178       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cout           Out     0.066     7.244       -         
+i_2_ml_a_0_carry_22                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cin            In      -         7.244       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cout           Out     0.066     7.310       -         
+i_2_ml_a_0_carry_23                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cin            In      -         7.310       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cout           Out     0.066     7.376       -         
+i_2_ml_a_0_carry_24                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cin            In      -         7.376       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cout           Out     0.066     7.442       -         
+i_2_ml_a_0_carry_25                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cin            In      -         7.442       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cout           Out     0.066     7.508       -         
+i_2_ml_a_0_carry_26                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cin            In      -         7.508       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cout           Out     0.066     7.574       -         
+i_2_ml_a_0_carry_27                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cin            In      -         7.574       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cout           Out     0.066     7.640       -         
+i_2_ml_a_0_carry_28                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cin            In      -         7.640       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cout           Out     0.066     7.706       -         
+i_2_ml_a_0_carry_29                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cin            In      -         7.706       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cout           Out     0.066     7.772       -         
+i_2_ml_a_0_carry_30                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   cin            In      -         7.772       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   combout        Out     0.000     7.772       -         
+i_2_ml_a_0_add31                                           Net                                     -              -       0.432     -           2         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   dataa          In      -         8.203       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   combout        Out     0.437     8.640       -         
+i_2_a_add31                                                Net                                     -              -       0.777     -           22        
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   datac          In      -         9.418       -         
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   combout        Out     0.429     9.847       -         
+un3_cal_y_c_m[0]                                           Net                                     -              -       0.326     -           1         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   dataa          In      -         10.172      -         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   cout           Out     0.498     10.670      -         
+un3_cal_y_c_carry_0                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cin            In      -         10.670      -         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cout           Out     0.066     10.736      -         
+un3_cal_y_c_carry_1                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cin            In      -         10.736      -         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cout           Out     0.066     10.802      -         
+un3_cal_y_c_carry_2                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cin            In      -         10.802      -         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cout           Out     0.066     10.868      -         
+un3_cal_y_c_carry_3                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cin            In      -         10.868      -         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cout           Out     0.066     10.934      -         
+un3_cal_y_c_carry_4                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cin            In      -         10.934      -         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cout           Out     0.066     11.000      -         
+un3_cal_y_c_carry_5                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cin            In      -         11.000      -         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cout           Out     0.066     11.066      -         
+un3_cal_y_c_carry_6                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cin            In      -         11.066      -         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cout           Out     0.066     11.132      -         
+un3_cal_y_c_carry_7                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cin            In      -         11.132      -         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cout           Out     0.066     11.198      -         
+un3_cal_y_c_carry_8                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cin            In      -         11.198      -         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cout           Out     0.066     11.264      -         
+un3_cal_y_c_carry_9                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cin            In      -         11.264      -         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cout           Out     0.066     11.330      -         
+un3_cal_y_c_carry_10                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cin            In      -         11.330      -         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cout           Out     0.066     11.396      -         
+un3_cal_y_c_carry_11                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cin            In      -         11.396      -         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cout           Out     0.066     11.462      -         
+un3_cal_y_c_carry_12                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cin            In      -         11.462      -         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cout           Out     0.066     11.528      -         
+un3_cal_y_c_carry_13                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cin            In      -         11.528      -         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cout           Out     0.066     11.594      -         
+un3_cal_y_c_carry_14                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cin            In      -         11.594      -         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cout           Out     0.066     11.660      -         
+un3_cal_y_c_carry_15                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cin            In      -         11.660      -         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cout           Out     0.066     11.726      -         
+un3_cal_y_c_carry_16                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cin            In      -         11.726      -         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cout           Out     0.066     11.792      -         
+un3_cal_y_c_carry_17                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cin            In      -         11.792      -         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cout           Out     0.066     11.858      -         
+un3_cal_y_c_carry_18                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cin            In      -         11.858      -         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cout           Out     0.066     11.924      -         
+un3_cal_y_c_carry_19                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cin            In      -         11.924      -         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cout           Out     0.066     11.990      -         
+un3_cal_y_c_carry_20                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cin            In      -         11.990      -         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cout           Out     0.066     12.056      -         
+un3_cal_y_c_carry_21                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cin            In      -         12.056      -         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cout           Out     0.066     12.122      -         
+un3_cal_y_c_carry_22                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cin            In      -         12.122      -         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cout           Out     0.066     12.188      -         
+un3_cal_y_c_carry_23                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cin            In      -         12.188      -         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cout           Out     0.066     12.254      -         
+un3_cal_y_c_carry_24                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cin            In      -         12.254      -         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cout           Out     0.066     12.320      -         
+un3_cal_y_c_carry_25                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cin            In      -         12.320      -         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cout           Out     0.066     12.386      -         
+un3_cal_y_c_carry_26                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cin            In      -         12.386      -         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cout           Out     0.066     12.452      -         
+un3_cal_y_c_carry_27                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cin            In      -         12.452      -         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cout           Out     0.066     12.518      -         
+un3_cal_y_c_carry_28                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cin            In      -         12.518      -         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cout           Out     0.066     12.584      -         
+un3_cal_y_c_carry_29                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cin            In      -         12.584      -         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cout           Out     0.066     12.650      -         
+un3_cal_y_c_carry_30                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   cin            In      -         12.650      -         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   combout        Out     0.000     12.650      -         
+un3_cal_y_c_add31_1z                                       Net                                     -              -       0.432     -           2         
+reg[31]                                                    dffeas                                  d              In      -         13.082      -         
+==========================================================================================================================================================
+Total path delay (propagation time + ICD at startpoint + setup - ICD at endpoint) of 12.555 is 9.254(73.7%) logic and 3.301(26.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+*Arrival time includes intrinsic clock delay at start point and clock delay at startpoint
+
+
+Path information for path number 4: 
+      Requested Period:                      10.671
+    - Setup time:                            0.086
+    + Intrinsic clock delay:                 0.613
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.198
+
+    - Propagation time:                      12.469
+    - Intrinsic clock delay:                 0.613
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     -1.883
+
+    Number of logic level(s):                49
+    Starting point:                          reg_0_0[10] / q
+    Ending point:                            reg[31] / d
+    The start point is clocked by            fir_top|clock [rising] on pin clk
+    The end   point is clocked by            fir_top|clock [rising] on pin clk
+
+Instance / Net                                                                                     Pin            Pin               Arrival     No. of    
+Name                                                       Type                                    Name           Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+reg_0_0[10]                                                dffeas                                  q              Out     0.232     0.845       -         
+reg_0_0[10]                                                Net                                     -              -       0.400     -           8         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     datab[15]      In      -         1.245       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     result[18]     Out     4.302     5.547       -         
+i_2_ml_ml_2_F[18]                                          Net                                     -              -       0.935     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   dataa          In      -         6.482       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   cout           Out     0.498     6.980       -         
+i_2_ml_a_0_carry_18                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cin            In      -         6.980       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cout           Out     0.066     7.046       -         
+i_2_ml_a_0_carry_19                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cin            In      -         7.046       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cout           Out     0.066     7.112       -         
+i_2_ml_a_0_carry_20                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cin            In      -         7.112       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cout           Out     0.066     7.178       -         
+i_2_ml_a_0_carry_21                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cin            In      -         7.178       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cout           Out     0.066     7.244       -         
+i_2_ml_a_0_carry_22                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cin            In      -         7.244       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cout           Out     0.066     7.310       -         
+i_2_ml_a_0_carry_23                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cin            In      -         7.310       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cout           Out     0.066     7.376       -         
+i_2_ml_a_0_carry_24                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cin            In      -         7.376       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cout           Out     0.066     7.442       -         
+i_2_ml_a_0_carry_25                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cin            In      -         7.442       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cout           Out     0.066     7.508       -         
+i_2_ml_a_0_carry_26                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cin            In      -         7.508       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cout           Out     0.066     7.574       -         
+i_2_ml_a_0_carry_27                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cin            In      -         7.574       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cout           Out     0.066     7.640       -         
+i_2_ml_a_0_carry_28                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cin            In      -         7.640       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cout           Out     0.066     7.706       -         
+i_2_ml_a_0_carry_29                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cin            In      -         7.706       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cout           Out     0.066     7.772       -         
+i_2_ml_a_0_carry_30                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   cin            In      -         7.772       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   combout        Out     0.000     7.772       -         
+i_2_ml_a_0_add31                                           Net                                     -              -       0.432     -           2         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   dataa          In      -         8.203       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   combout        Out     0.437     8.640       -         
+i_2_a_add31                                                Net                                     -              -       0.777     -           22        
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   datac          In      -         9.418       -         
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   combout        Out     0.429     9.847       -         
+un3_cal_y_c_m[0]                                           Net                                     -              -       0.326     -           1         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   dataa          In      -         10.172      -         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   cout           Out     0.498     10.670      -         
+un3_cal_y_c_carry_0                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cin            In      -         10.670      -         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cout           Out     0.066     10.736      -         
+un3_cal_y_c_carry_1                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cin            In      -         10.736      -         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cout           Out     0.066     10.802      -         
+un3_cal_y_c_carry_2                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cin            In      -         10.802      -         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cout           Out     0.066     10.868      -         
+un3_cal_y_c_carry_3                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cin            In      -         10.868      -         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cout           Out     0.066     10.934      -         
+un3_cal_y_c_carry_4                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cin            In      -         10.934      -         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cout           Out     0.066     11.000      -         
+un3_cal_y_c_carry_5                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cin            In      -         11.000      -         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cout           Out     0.066     11.066      -         
+un3_cal_y_c_carry_6                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cin            In      -         11.066      -         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cout           Out     0.066     11.132      -         
+un3_cal_y_c_carry_7                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cin            In      -         11.132      -         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cout           Out     0.066     11.198      -         
+un3_cal_y_c_carry_8                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cin            In      -         11.198      -         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cout           Out     0.066     11.264      -         
+un3_cal_y_c_carry_9                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cin            In      -         11.264      -         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cout           Out     0.066     11.330      -         
+un3_cal_y_c_carry_10                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cin            In      -         11.330      -         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cout           Out     0.066     11.396      -         
+un3_cal_y_c_carry_11                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cin            In      -         11.396      -         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cout           Out     0.066     11.462      -         
+un3_cal_y_c_carry_12                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cin            In      -         11.462      -         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cout           Out     0.066     11.528      -         
+un3_cal_y_c_carry_13                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cin            In      -         11.528      -         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cout           Out     0.066     11.594      -         
+un3_cal_y_c_carry_14                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cin            In      -         11.594      -         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cout           Out     0.066     11.660      -         
+un3_cal_y_c_carry_15                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cin            In      -         11.660      -         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cout           Out     0.066     11.726      -         
+un3_cal_y_c_carry_16                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cin            In      -         11.726      -         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cout           Out     0.066     11.792      -         
+un3_cal_y_c_carry_17                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cin            In      -         11.792      -         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cout           Out     0.066     11.858      -         
+un3_cal_y_c_carry_18                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cin            In      -         11.858      -         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cout           Out     0.066     11.924      -         
+un3_cal_y_c_carry_19                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cin            In      -         11.924      -         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cout           Out     0.066     11.990      -         
+un3_cal_y_c_carry_20                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cin            In      -         11.990      -         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cout           Out     0.066     12.056      -         
+un3_cal_y_c_carry_21                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cin            In      -         12.056      -         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cout           Out     0.066     12.122      -         
+un3_cal_y_c_carry_22                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cin            In      -         12.122      -         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cout           Out     0.066     12.188      -         
+un3_cal_y_c_carry_23                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cin            In      -         12.188      -         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cout           Out     0.066     12.254      -         
+un3_cal_y_c_carry_24                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cin            In      -         12.254      -         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cout           Out     0.066     12.320      -         
+un3_cal_y_c_carry_25                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cin            In      -         12.320      -         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cout           Out     0.066     12.386      -         
+un3_cal_y_c_carry_26                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cin            In      -         12.386      -         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cout           Out     0.066     12.452      -         
+un3_cal_y_c_carry_27                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cin            In      -         12.452      -         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cout           Out     0.066     12.518      -         
+un3_cal_y_c_carry_28                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cin            In      -         12.518      -         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cout           Out     0.066     12.584      -         
+un3_cal_y_c_carry_29                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cin            In      -         12.584      -         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cout           Out     0.066     12.650      -         
+un3_cal_y_c_carry_30                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   cin            In      -         12.650      -         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   combout        Out     0.000     12.650      -         
+un3_cal_y_c_add31_1z                                       Net                                     -              -       0.432     -           2         
+reg[31]                                                    dffeas                                  d              In      -         13.082      -         
+==========================================================================================================================================================
+Total path delay (propagation time + ICD at startpoint + setup - ICD at endpoint) of 12.555 is 9.254(73.7%) logic and 3.301(26.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+*Arrival time includes intrinsic clock delay at start point and clock delay at startpoint
+
+
+Path information for path number 5: 
+      Requested Period:                      10.671
+    - Setup time:                            0.086
+    + Intrinsic clock delay:                 0.613
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.198
+
+    - Propagation time:                      12.469
+    - Intrinsic clock delay:                 0.613
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     -1.883
+
+    Number of logic level(s):                49
+    Starting point:                          reg_0_0[10] / q
+    Ending point:                            reg[31] / d
+    The start point is clocked by            fir_top|clock [rising] on pin clk
+    The end   point is clocked by            fir_top|clock [rising] on pin clk
+
+Instance / Net                                                                                     Pin            Pin               Arrival     No. of    
+Name                                                       Type                                    Name           Dir     Delay     Time        Fan Out(s)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+reg_0_0[10]                                                dffeas                                  q              Out     0.232     0.845       -         
+reg_0_0[10]                                                Net                                     -              -       0.400     -           8         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     datab[14]      In      -         1.245       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_ml_muladd_0[31:0]     fir_top_SYN_MULT_ADD_1_18_18_36_0_3     result[18]     Out     4.302     5.547       -         
+i_2_ml_ml_2_F[18]                                          Net                                     -              -       0.935     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   dataa          In      -         6.482       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add18             cycloneive_lcell_comb                   cout           Out     0.498     6.980       -         
+i_2_ml_a_0_carry_18                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cin            In      -         6.980       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add19             cycloneive_lcell_comb                   cout           Out     0.066     7.046       -         
+i_2_ml_a_0_carry_19                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cin            In      -         7.046       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add20             cycloneive_lcell_comb                   cout           Out     0.066     7.112       -         
+i_2_ml_a_0_carry_20                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cin            In      -         7.112       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add21             cycloneive_lcell_comb                   cout           Out     0.066     7.178       -         
+i_2_ml_a_0_carry_21                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cin            In      -         7.178       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add22             cycloneive_lcell_comb                   cout           Out     0.066     7.244       -         
+i_2_ml_a_0_carry_22                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cin            In      -         7.244       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add23             cycloneive_lcell_comb                   cout           Out     0.066     7.310       -         
+i_2_ml_a_0_carry_23                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cin            In      -         7.310       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add24             cycloneive_lcell_comb                   cout           Out     0.066     7.376       -         
+i_2_ml_a_0_carry_24                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cin            In      -         7.376       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add25             cycloneive_lcell_comb                   cout           Out     0.066     7.442       -         
+i_2_ml_a_0_carry_25                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cin            In      -         7.442       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add26             cycloneive_lcell_comb                   cout           Out     0.066     7.508       -         
+i_2_ml_a_0_carry_26                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cin            In      -         7.508       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add27             cycloneive_lcell_comb                   cout           Out     0.066     7.574       -         
+i_2_ml_a_0_carry_27                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cin            In      -         7.574       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add28             cycloneive_lcell_comb                   cout           Out     0.066     7.640       -         
+i_2_ml_a_0_carry_28                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cin            In      -         7.640       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add29             cycloneive_lcell_comb                   cout           Out     0.066     7.706       -         
+i_2_ml_a_0_carry_29                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cin            In      -         7.706       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add30             cycloneive_lcell_comb                   cout           Out     0.066     7.772       -         
+i_2_ml_a_0_carry_30                                        Net                                     -              -       0.000     -           1         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   cin            In      -         7.772       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_ml_a_0_add31             cycloneive_lcell_comb                   combout        Out     0.000     7.772       -         
+i_2_ml_a_0_add31                                           Net                                     -              -       0.432     -           2         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   dataa          In      -         8.203       -         
+fir_inst.mul_0\.DEQUANTIZE_0\.i_2_a_add31                  cycloneive_lcell_comb                   combout        Out     0.437     8.640       -         
+i_2_a_add31                                                Net                                     -              -       0.777     -           22        
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   datac          In      -         9.418       -         
+fir_inst.un3_cal_y_c_m[0]                                  cycloneive_lcell_comb                   combout        Out     0.429     9.847       -         
+un3_cal_y_c_m[0]                                           Net                                     -              -       0.326     -           1         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   dataa          In      -         10.172      -         
+fir_inst.un3_cal_y_c_add0                                  cycloneive_lcell_comb                   cout           Out     0.498     10.670      -         
+un3_cal_y_c_carry_0                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cin            In      -         10.670      -         
+fir_inst.un3_cal_y_c_add1                                  cycloneive_lcell_comb                   cout           Out     0.066     10.736      -         
+un3_cal_y_c_carry_1                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cin            In      -         10.736      -         
+fir_inst.un3_cal_y_c_add2                                  cycloneive_lcell_comb                   cout           Out     0.066     10.802      -         
+un3_cal_y_c_carry_2                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cin            In      -         10.802      -         
+fir_inst.un3_cal_y_c_add3                                  cycloneive_lcell_comb                   cout           Out     0.066     10.868      -         
+un3_cal_y_c_carry_3                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cin            In      -         10.868      -         
+fir_inst.un3_cal_y_c_add4                                  cycloneive_lcell_comb                   cout           Out     0.066     10.934      -         
+un3_cal_y_c_carry_4                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cin            In      -         10.934      -         
+fir_inst.un3_cal_y_c_add5                                  cycloneive_lcell_comb                   cout           Out     0.066     11.000      -         
+un3_cal_y_c_carry_5                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cin            In      -         11.000      -         
+fir_inst.un3_cal_y_c_add6                                  cycloneive_lcell_comb                   cout           Out     0.066     11.066      -         
+un3_cal_y_c_carry_6                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cin            In      -         11.066      -         
+fir_inst.un3_cal_y_c_add7                                  cycloneive_lcell_comb                   cout           Out     0.066     11.132      -         
+un3_cal_y_c_carry_7                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cin            In      -         11.132      -         
+fir_inst.un3_cal_y_c_add8                                  cycloneive_lcell_comb                   cout           Out     0.066     11.198      -         
+un3_cal_y_c_carry_8                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cin            In      -         11.198      -         
+fir_inst.un3_cal_y_c_add9                                  cycloneive_lcell_comb                   cout           Out     0.066     11.264      -         
+un3_cal_y_c_carry_9                                        Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cin            In      -         11.264      -         
+fir_inst.un3_cal_y_c_add10                                 cycloneive_lcell_comb                   cout           Out     0.066     11.330      -         
+un3_cal_y_c_carry_10                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cin            In      -         11.330      -         
+fir_inst.un3_cal_y_c_add11                                 cycloneive_lcell_comb                   cout           Out     0.066     11.396      -         
+un3_cal_y_c_carry_11                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cin            In      -         11.396      -         
+fir_inst.un3_cal_y_c_add12                                 cycloneive_lcell_comb                   cout           Out     0.066     11.462      -         
+un3_cal_y_c_carry_12                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cin            In      -         11.462      -         
+fir_inst.un3_cal_y_c_add13                                 cycloneive_lcell_comb                   cout           Out     0.066     11.528      -         
+un3_cal_y_c_carry_13                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cin            In      -         11.528      -         
+fir_inst.un3_cal_y_c_add14                                 cycloneive_lcell_comb                   cout           Out     0.066     11.594      -         
+un3_cal_y_c_carry_14                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cin            In      -         11.594      -         
+fir_inst.un3_cal_y_c_add15                                 cycloneive_lcell_comb                   cout           Out     0.066     11.660      -         
+un3_cal_y_c_carry_15                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cin            In      -         11.660      -         
+fir_inst.un3_cal_y_c_add16                                 cycloneive_lcell_comb                   cout           Out     0.066     11.726      -         
+un3_cal_y_c_carry_16                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cin            In      -         11.726      -         
+fir_inst.un3_cal_y_c_add17                                 cycloneive_lcell_comb                   cout           Out     0.066     11.792      -         
+un3_cal_y_c_carry_17                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cin            In      -         11.792      -         
+fir_inst.un3_cal_y_c_add18                                 cycloneive_lcell_comb                   cout           Out     0.066     11.858      -         
+un3_cal_y_c_carry_18                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cin            In      -         11.858      -         
+fir_inst.un3_cal_y_c_add19                                 cycloneive_lcell_comb                   cout           Out     0.066     11.924      -         
+un3_cal_y_c_carry_19                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cin            In      -         11.924      -         
+fir_inst.un3_cal_y_c_add20                                 cycloneive_lcell_comb                   cout           Out     0.066     11.990      -         
+un3_cal_y_c_carry_20                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cin            In      -         11.990      -         
+fir_inst.un3_cal_y_c_add21                                 cycloneive_lcell_comb                   cout           Out     0.066     12.056      -         
+un3_cal_y_c_carry_21                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cin            In      -         12.056      -         
+fir_inst.un3_cal_y_c_add22                                 cycloneive_lcell_comb                   cout           Out     0.066     12.122      -         
+un3_cal_y_c_carry_22                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cin            In      -         12.122      -         
+fir_inst.un3_cal_y_c_add23                                 cycloneive_lcell_comb                   cout           Out     0.066     12.188      -         
+un3_cal_y_c_carry_23                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cin            In      -         12.188      -         
+fir_inst.un3_cal_y_c_add24                                 cycloneive_lcell_comb                   cout           Out     0.066     12.254      -         
+un3_cal_y_c_carry_24                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cin            In      -         12.254      -         
+fir_inst.un3_cal_y_c_add25                                 cycloneive_lcell_comb                   cout           Out     0.066     12.320      -         
+un3_cal_y_c_carry_25                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cin            In      -         12.320      -         
+fir_inst.un3_cal_y_c_add26                                 cycloneive_lcell_comb                   cout           Out     0.066     12.386      -         
+un3_cal_y_c_carry_26                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cin            In      -         12.386      -         
+fir_inst.un3_cal_y_c_add27                                 cycloneive_lcell_comb                   cout           Out     0.066     12.452      -         
+un3_cal_y_c_carry_27                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cin            In      -         12.452      -         
+fir_inst.un3_cal_y_c_add28                                 cycloneive_lcell_comb                   cout           Out     0.066     12.518      -         
+un3_cal_y_c_carry_28                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cin            In      -         12.518      -         
+fir_inst.un3_cal_y_c_add29                                 cycloneive_lcell_comb                   cout           Out     0.066     12.584      -         
+un3_cal_y_c_carry_29                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cin            In      -         12.584      -         
+fir_inst.un3_cal_y_c_add30                                 cycloneive_lcell_comb                   cout           Out     0.066     12.650      -         
+un3_cal_y_c_carry_30                                       Net                                     -              -       0.000     -           1         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   cin            In      -         12.650      -         
+fir_inst.un3_cal_y_c_add31                                 cycloneive_lcell_comb                   combout        Out     0.000     12.650      -         
+un3_cal_y_c_add31_1z                                       Net                                     -              -       0.432     -           2         
+reg[31]                                                    dffeas                                  d              In      -         13.082      -         
+==========================================================================================================================================================
+Total path delay (propagation time + ICD at startpoint + setup - ICD at endpoint) of 12.555 is 9.254(73.7%) logic and 3.301(26.3%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+*Arrival time includes intrinsic clock delay at start point and clock delay at startpoint
+
+
+
+
+====================================
+Detailed Report for Clock: System
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                      Starting                                             Arrival          
+Instance              Reference     Type            Pin      Net           Time        Slack
+                      Clock                                                                 
+--------------------------------------------------------------------------------------------
+fir_inst.y_out[0]     System        SYNLPM_LAT1     Q[0]     fir_out_0     11.324      0.000
+fir_inst.y_out[1]     System        SYNLPM_LAT1     Q[0]     fir_out_1     11.324      0.000
+fir_inst.y_out[2]     System        SYNLPM_LAT1     Q[0]     fir_out_2     11.324      0.000
+fir_inst.y_out[3]     System        SYNLPM_LAT1     Q[0]     fir_out_3     11.324      0.000
+fir_inst.y_out[4]     System        SYNLPM_LAT1     Q[0]     fir_out_4     11.324      0.000
+fir_inst.y_out[5]     System        SYNLPM_LAT1     Q[0]     fir_out_5     11.324      0.000
+fir_inst.y_out[6]     System        SYNLPM_LAT1     Q[0]     fir_out_6     11.324      0.000
+fir_inst.y_out[7]     System        SYNLPM_LAT1     Q[0]     fir_out_7     11.324      0.000
+fir_inst.y_out[8]     System        SYNLPM_LAT1     Q[0]     fir_out_8     11.324      0.000
+fir_inst.y_out[9]     System        SYNLPM_LAT1     Q[0]     fir_out_9     11.324      0.000
+============================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                         Starting                                                                    Required          
+Instance                 Reference     Type                              Pin           Net           Time         Slack
+                         Clock                                                                                         
+-----------------------------------------------------------------------------------------------------------------------
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[0]     fir_out_0     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[1]     fir_out_1     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[2]     fir_out_2     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[3]     fir_out_3     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[4]     fir_out_4     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[5]     fir_out_5     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[6]     fir_out_6     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[7]     fir_out_7     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[8]     fir_out_8     11.649       0.000
+output_fifo.fifo_buf     System        synplicity_altsyncram_RAM_R_W     data_a[9]     fir_out_9     11.649       0.000
+=======================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      10.671
+    - Setup time:                            -0.978
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.649
+
+    - Propagation time:                      1.171
+    - time given to startpoint:              10.479
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 0.000
+
+    Number of logic level(s):                0
+    Starting point:                          fir_inst.y_out[0] / Q[0], time given to startpoint 10.479
+    Ending point:                            output_fifo.fifo_buf / data_a[0]
+    The start point is clocked by            System [rising] on pin GATE
+    The end   point is clocked by            fir_top|clock [rising] on pin clock0
+
+Instance / Net                                             Pin           Pin                Arrival     No. of    
+Name                     Type                              Name          Dir     Delay      Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+fir_inst.y_out[0]        SYNLPM_LAT1                       Q[0]          Out     11.324     11.324      -         
+fir_out_0                Net                               -             -       0.326      -           1         
+output_fifo.fifo_buf     synplicity_altsyncram_RAM_R_W     data_a[0]     In      -          11.649      -         
+==================================================================================================================
+Total path delay (propagation time + setup) of 0.193 is 10.346(5371.7%) logic and 0.326(169.1%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 2: 
+      Requested Period:                      10.671
+    - Setup time:                            -0.978
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.649
+
+    - Propagation time:                      1.171
+    - time given to startpoint:              10.479
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 0.000
+
+    Number of logic level(s):                0
+    Starting point:                          fir_inst.y_out[1] / Q[0], time given to startpoint 10.479
+    Ending point:                            output_fifo.fifo_buf / data_a[1]
+    The start point is clocked by            System [rising] on pin GATE
+    The end   point is clocked by            fir_top|clock [rising] on pin clock0
+
+Instance / Net                                             Pin           Pin                Arrival     No. of    
+Name                     Type                              Name          Dir     Delay      Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+fir_inst.y_out[1]        SYNLPM_LAT1                       Q[0]          Out     11.324     11.324      -         
+fir_out_1                Net                               -             -       0.326      -           1         
+output_fifo.fifo_buf     synplicity_altsyncram_RAM_R_W     data_a[1]     In      -          11.649      -         
+==================================================================================================================
+Total path delay (propagation time + setup) of 0.193 is 10.346(5371.7%) logic and 0.326(169.1%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 3: 
+      Requested Period:                      10.671
+    - Setup time:                            -0.978
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.649
+
+    - Propagation time:                      1.171
+    - time given to startpoint:              10.479
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 0.000
+
+    Number of logic level(s):                0
+    Starting point:                          fir_inst.y_out[2] / Q[0], time given to startpoint 10.479
+    Ending point:                            output_fifo.fifo_buf / data_a[2]
+    The start point is clocked by            System [rising] on pin GATE
+    The end   point is clocked by            fir_top|clock [rising] on pin clock0
+
+Instance / Net                                             Pin           Pin                Arrival     No. of    
+Name                     Type                              Name          Dir     Delay      Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+fir_inst.y_out[2]        SYNLPM_LAT1                       Q[0]          Out     11.324     11.324      -         
+fir_out_2                Net                               -             -       0.326      -           1         
+output_fifo.fifo_buf     synplicity_altsyncram_RAM_R_W     data_a[2]     In      -          11.649      -         
+==================================================================================================================
+Total path delay (propagation time + setup) of 0.193 is 10.346(5371.7%) logic and 0.326(169.1%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 4: 
+      Requested Period:                      10.671
+    - Setup time:                            -0.978
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.649
+
+    - Propagation time:                      1.171
+    - time given to startpoint:              10.479
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 0.000
+
+    Number of logic level(s):                0
+    Starting point:                          fir_inst.y_out[3] / Q[0], time given to startpoint 10.479
+    Ending point:                            output_fifo.fifo_buf / data_a[3]
+    The start point is clocked by            System [rising] on pin GATE
+    The end   point is clocked by            fir_top|clock [rising] on pin clock0
+
+Instance / Net                                             Pin           Pin                Arrival     No. of    
+Name                     Type                              Name          Dir     Delay      Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+fir_inst.y_out[3]        SYNLPM_LAT1                       Q[0]          Out     11.324     11.324      -         
+fir_out_3                Net                               -             -       0.326      -           1         
+output_fifo.fifo_buf     synplicity_altsyncram_RAM_R_W     data_a[3]     In      -          11.649      -         
+==================================================================================================================
+Total path delay (propagation time + setup) of 0.193 is 10.346(5371.7%) logic and 0.326(169.1%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+Path information for path number 5: 
+      Requested Period:                      10.671
+    - Setup time:                            -0.978
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         11.649
+
+    - Propagation time:                      1.171
+    - time given to startpoint:              10.479
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 0.000
+
+    Number of logic level(s):                0
+    Starting point:                          fir_inst.y_out[4] / Q[0], time given to startpoint 10.479
+    Ending point:                            output_fifo.fifo_buf / data_a[4]
+    The start point is clocked by            System [rising] on pin GATE
+    The end   point is clocked by            fir_top|clock [rising] on pin clock0
+
+Instance / Net                                             Pin           Pin                Arrival     No. of    
+Name                     Type                              Name          Dir     Delay      Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------
+fir_inst.y_out[4]        SYNLPM_LAT1                       Q[0]          Out     11.324     11.324      -         
+fir_out_4                Net                               -             -       0.326      -           1         
+output_fifo.fifo_buf     synplicity_altsyncram_RAM_R_W     data_a[4]     In      -          11.649      -         
+==================================================================================================================
+Total path delay (propagation time + setup) of 0.193 is 10.346(5371.7%) logic and 0.326(169.1%) route.
+Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
+
+
+
+##### END OF TIMING REPORT #####]
+
+Timing exceptions that could not be applied
+None
+
+Finished final timing analysis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 124MB peak: 125MB)
+
+
+Finished timing report (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 124MB peak: 125MB)
+
+
+Start Writing Netlists (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 124MB peak: 125MB)
+
+Writing Analyst data base /home/pgn7690/CE387/project/FMRadioFPGA/syn/rev_2/mul_ta.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 123MB peak: 125MB)
+
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 21MB peak: 125MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Thu Mar  7 18:39:01 2024
+
+###########################################################]

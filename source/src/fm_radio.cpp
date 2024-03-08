@@ -114,7 +114,7 @@ void read_IQ( unsigned char *IQ, int *I, int *Q, int samples )
 void demodulate_n( int *real, int *imag, int *real_prev, int *imag_prev, const int n_samples, const int gain, int *demod_out )
 {
     int i = 0;
-    FILE *file = fopen("demod_output.txt", "w"); // Open the file for writing
+    FILE *file = fopen("demodulate_n.txt", "w"); // Open the file for writing
 
     if (file == NULL) {
         printf("Error opening file!\n");
