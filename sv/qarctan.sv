@@ -89,7 +89,7 @@ end
 
 always_comb begin
     // output the current readiness of the divider
-    qarctan_done = div_valid_out;
+    qarctan_done = '0;
     data_out = '0;
     divider_ready = (state == READY);
 
@@ -159,6 +159,7 @@ always_comb begin
                 end else begin
                     angle = ($signed(QUAD_THREE) - $signed(DEQUANTIZE(lower_quad_one_times_r))); 
                 end
+			qarctan_done = 1'b1;
             data_out = ($signed(y) < 0) ? -$signed(angle) : angle;
 
 			state_c = IDLE;
