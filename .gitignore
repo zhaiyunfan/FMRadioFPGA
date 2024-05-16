@@ -11,3 +11,5 @@ sv/testbench/transcript
 *.dat
 Report.docx
 code.zip
+.DS_Store
+.DS_Store
